@@ -1,0 +1,74 @@
+<% include ./partials/header %>
+
+<style>
+/*   a{
+    margin-bottom:10px;
+  }
+  
+  #username{
+    margin-left:100px;
+  }
+  
+  #add{
+     margin-right:100px;
+  }
+  
+  #box{
+    background-color:#e691f2;
+     margin-right:700px;
+   
+    border-radius:10px;
+  }
+  
+  h3{
+    font-size:20px;
+  } */
+  #box{
+    background-color:#c1c1c1;
+    margin-left:30px;
+    padding-left:15px;
+    padding-top:20px;
+    margin-top:30px;
+    margin-right:600px;
+    border-radius:10px;
+  }
+  
+  #add{
+    float:right;
+  }
+  
+</style>
+
+
+
+<h1>
+ People you may know
+</h1>
+<div id="box">
+  <% users.forEach(function(user){ %>
+
+<div class="ui grid">
+  
+   <div  class="four wide column">
+     <h3 id='username'><%= user.username %></h3>  
+     
+  </div>
+   <div  class="four wide column">
+      <form  action = "/people/friendRequest/<%= user.id %>/<%= user.username %>" method = "post">
+     <button id="add" class="ui  medium  blue button">Add as a friend</button> 
+     </form>
+  
+  </div>
+</div>
+
+  <% })  %>
+</div>
+
+
+
+
+
+
+
+
+ 

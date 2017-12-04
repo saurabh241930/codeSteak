@@ -1,0 +1,30 @@
+
+<% include ../partials/header %>
+
+
+
+
+
+
+
+
+
+<div class = "ui main text container segment">
+  <div class = "ui huge header">Reply</div>
+  <form class = "ui form" action="/blogs/<%= blog._id %>/comments/<%= comment._id %>/reply" method = "POST">
+    
+    <div  class = "field">
+      <label>Reply</label>
+       <input type = "text" name = "reply[text]" placeholder="text">
+        </div>
+          <input class="ui  big inverted red button" value ="Reply" type = "submit" >
+  </form>
+</div>
+
+
+
+
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,158 @@
+<% include ./partials/header %>
+<style>
+ 
+  li{
+    margin-bottom:10px;
+  }
+  #createdClasses,#registeredClasses{
+    height:100px;
+    width:100px;
+  }
+  
+  h3{
+    color:whitesmoke;
+    background-color:green;
+    border-radius:5px;
+    padding-left:10px;
+    padding-right;10px;
+  }
+  
+  h1{
+    margin-left:10px;
+     margin-right:1000px;
+     color:whitesmoke;
+    background-color:blue;
+    border-radius:5px;
+    padding-left:10px;
+    padding-right;10px;
+  }
+  
+    h4{
+     color:whitesmoke;
+    background-color:purple;
+    border-radius:5px;
+    padding-left:10px;
+    padding-right;10px;
+  }
+  
+  
+  
+  
+  #sectionOne{
+    background-color:#878086;
+    border:solid 1px black;
+  }
+  
+  #sectionTwo{
+    background-color:#dbd6d6;
+   border:solid 1px black;
+  }
+  
+  
+  #friends{
+    border : solid 1px purple;
+    margin-right:400px;
+    margin-left:300px;
+    padding:10px 10px 10px 10px;
+     border-radius:4px;
+    background-color:#bfb7b7;
+  }
+  
+    #friend{
+    margin-top:1px;
+    margin-left:100px;
+    padding:10px 10px 10px 10px;
+    width:30%;
+  }
+  
+  #message{
+    
+      margin-left:100px;
+      margin-bottom:5px;
+/*       background-color:#D01919; */
+     border-radius:4px;
+       padding:10px 15px 15px 15px;
+  }
+  
+</style>
+<h2>
+  PROFILE
+</h2>
+
+
+<h1><%= user.username %></h1>
+
+<div class="ui grid">
+  
+  
+  
+  <div class="eight wide column" id ="register">
+    
+  <h3>My Favourites</h3>
+    
+    
+    
+    
+    <div  id="sectionOne"  class="ui grid">
+      
+      
+      
+      
+   <% user.registeredClasses.forEach(function(Class){ %>
+      <div  class="four wide column">
+         <a id="registeredClasses" class="ui  medium  green button" href="/blogs/<%= Class.id%>/"><%= Class.classname %> </a> 
+      </div>
+      
+    <% })  %>
+
+      
+   </div>  
+          
+   <h4>Total projects = <strong><%=user.registeredClasses.length%></strong></h4>
+</div>
+  
+<!-- 00000000000000000000000000000000000000000000000000000000000 -->
+  
+  <div class="eight wide column"  id ="created">
+    <h3>Created Projects</h3>
+    
+   <div id="sectionTwo" class="ui grid">
+     
+     
+    
+     <% user.createdProjects.forEach(function(Class){ %>
+     <div  class="four wide column">
+       <a id="createdClasses" class="ui  medium  black button" href="/blogs/<%= Class.id%>/"><%= Class.classname %></a> 
+        </div>
+    <% })  %>
+      
+      
+  
+</div>
+
+<h4>Total projects = <strong><%=user.createdProjects.length%></strong></h4>
+  
+</div>
+  
+</div>
+
+
+<h3> Friends</h3>
+
+     <% user.friends.forEach(function(Friend){ %>
+       <ul style="list-style: none;" >
+         <li id="friends">
+         <a id="friend" class="ui  medium  purple button" href="/profile/<%= Friend.username%>">
+           <i class="white big user circle icon"></i>
+           <%= Friend.username%>
+       <a id="message" href="profile/chat/<%= Friend.username%>/<%= Friend._id%>"><i class=" purple big mail icon"></i></a>  
+         </li></ul>
+       
+</a> 
+       
+    <% })  %>
+
+
+
+ 
+ 

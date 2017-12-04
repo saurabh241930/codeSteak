@@ -1,0 +1,66 @@
+<% include ./partials/header %>
+
+<style>
+/*   a{
+    margin-bottom:10px;
+  }
+  
+  #username{
+    margin-left:100px;
+  }
+  
+  #add{
+     margin-right:100px;
+  }
+  
+  #box{
+    background-color:#e691f2;
+     margin-right:700px;
+   
+    border-radius:10px;
+  }
+  
+  h3{
+    font-size:20px;
+  } */
+  #box{
+    background-color:#c1c1c1;
+    margin-left:30px;
+    padding-left:15px;
+    padding-top:20px;
+    margin-top:30px;
+    margin-right:600px;
+    border-radius:10px;
+  }
+  
+  #add{
+    float:right;
+  }
+  
+</style>
+
+
+
+<h1>Friend Requests</h1>
+<div id="box">
+  <% user.friendRequest.forEach(function(request){ %>
+
+<div class="ui grid">
+  
+   <div  class="four wide column">
+     <h3 id='username'><%= request.username %></h3>  
+     
+  </div>
+   <div  class="four wide column">
+              <form  action = "/accept/<%=request._id%>/<%=request.username%>" method = "post"> 
+             <button id="add" class="ui  medium  <%=request.Color%> button"><%=request.Status%></button> 
+             </form>
+  
+  </div>
+</div>
+
+  <% })  %>
+</div>
+
+
+

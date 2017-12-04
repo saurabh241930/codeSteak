@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+
+
+  <div  class = "ui main text container segment">
+    
+   <h2 class="ui center aligned icon header">
+  <i class=" user circle  icon"></i>
+  Login
+</h2>
+    <form class = "ui form" action = '/login' method = "post">
+    
+<p><%= message %></p>
+        
+  
+      
+    <div class = "username">
+       <input type = 'text' name = 'username' placeholder = 'Username'>
+    </div>
+
+ 
+    <div class = "password">
+       <input type = 'password' name = 'password' placeholder = 'Password'>
+    </div>
+ 
+ <button class = 'ui medium black button' >Login</button>
+</form>
+  
+  </div>

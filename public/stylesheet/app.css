@@ -1,0 +1,91 @@
+
+body{
+  background:#d3d1d1;
+}
+
+
+.container.main.ui {
+  margin-top : 7.0em;
+}
+
+
+
+.ui.huge.header{
+    margin-top : 1.0em;
+
+}
+
+#Heading{
+   color:black;
+   font-family: 'Orbitron', sans-serif;
+   font-size:40px;
+   letter-spacing: 5px;
+/*    background:url("https://previews.123rf.com/images/ratselmeister/ratselmeister1404/ratselmeister140400043/27360875-Abstract-black-and-white-binary-code-background-or-wallpaper-plus-seamless-pattern-included-in-swatc-Stock-Vector.jpg"); */
+   padding-top : 20px;
+   background-size: cover;
+   padding-bottom : 20px;
+   
+
+}
+  
+#logo{
+  color:#A333C8;
+  border:solid 2px black;
+  border-bottom:solid 1px white;
+  border-right:solid 1px white;
+  background:black;
+  border-radius:7px;
+}
+
+
+
+.username{
+  padding-bottom : 2.0em;
+}
+
+.password{
+  padding-bottom : 2.0em;
+}
+
+
+
+
+
+.date{
+  font-size:15px;
+  color : black;
+}
+
+.six.wide.column{
+  margin-top : 5.0em;
+  margin-right: 2.0em:
+}
+
+.ui.centered.rounded.image{
+  width : auto ;
+  height : auto;
+}
+
+#delete{
+  display : inline;
+}
+
+.ui.purple.fixed.inverted.menu{
+  border-bottom:solid 4px #54146d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

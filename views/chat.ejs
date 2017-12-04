@@ -1,0 +1,237 @@
+<% include ./partials/header %>
+
+
+<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+
+<style>
+  #Send{
+   
+/*     padding:10px 25px 10px 25px; */
+    box-shadow: 3px 3px 3px purple;
+      display:inline-block;
+   
+    border-radius:10px;
+  }
+  
+  #Send:hover{
+   box-shadow: 1px 1px 1px purple;
+   color:#A333C8;
+   background-color:whitesmoke;
+   border:solid 1px purple;
+    
+  }
+  
+  
+  
+ 
+  #chatbox{
+      height:300px;
+     
+    box-shadow: 1px 1px 1px purple;
+    background-color:whitesmoke;
+     border:solid 1px purple;
+  }
+  
+  .ui.main.text.container.segment{
+    border:solid 1px purple;
+    box-shadow: 2px 2px 2px #545151 ;
+  }
+  
+
+  li {
+     text-decoration: none;
+        display:inline;
+}
+  #Sendfield{
+     width:70%;
+    margin-right:10px;
+
+   height:30px;
+    margin-top:20px;
+    border:solid 1px purple;
+   box-shadow: 3px 3px 3px purple;
+   resize: none;
+    display:inline-block;
+  }
+  
+  #Sendfield:focus{
+    box-shadow: 1px 1px 1px purple;
+    color:whitesmoke;
+    background-color:#A333C8;
+    resize: none;
+  
+  }
+  
+  #chatUser{
+    color:purple;
+    font-size:17px;
+    margin-left:8px;
+    margin-top:5px;
+    
+  }
+  
+  
+  #chats{
+    border-bottom:solid 2px white;
+     border-top:solid 2px white;
+    background-color:#d6d6d6;
+    border-bottom-left-radius:0px;
+   border-top-left-radius:17px;
+   border-top-right-radius:17px;
+     border-bottom-right-radius:17px;
+    padding:1px 1px 1px 1px;
+    color:black;
+    margin-left:5px;
+    padding:6px 10px 10px 6px;
+    margin-top:10px;
+   
+  }
+  
+    #chatss{
+     background-color:purple;
+    border-bottom:solid 2px white;
+
+    color:#d6d6d6;
+    border-bottom-left-radius:17px;
+   border-top-left-radius:17px;
+   border-top-right-radius:17px;
+    padding:1px 1px 1px 1px;
+    
+      padding:4px 10px 10px 4px;
+      margin-top:10px;
+ 
+  }
+  
+  
+  
+  
+  #topUser{
+    color:whitesmoke;
+    padding:5px 10px 5px 10px;
+    background-color:purple;
+    border-radius:5px;
+    font-size:20px;
+  }
+  
+  #text{
+    margin-left:10px;
+    font-family: 'Lato', sans-serif;
+    
+  }
+  
+ 
+  
+  
+  
+</style>
+
+
+<div  class = "ui main text container segment">
+   <h5 class="ui center aligned icon header">
+  <i class=" user circle  icon"></i>
+  Chat with <span id="topUser"><%=user.username%></span>
+</h5>
+  
+<div class="ui form">
+  <div  class="field">
+    <label></label>
+    
+    
+    
+    <div id="chatbox" style="overflow-y: scroll;">
+   
+      <% texts.messages.forEach(function(message){
+message.texts.forEach(function(text){ %>
+
+      
+     
+      
+      <% if(text.username === notMyName){ %> 
+      <p> <strong><span id="chats"><%=text.message%></span></strong></p>
+    <% } %>
+    
+      
+      
+   <% if(text.username === MyName){ %>
+     <p dir="rtl"> <strong><span id="chatss"><%=text.message%></span></strong></p>   
+      
+  <% } %>
+
+<% })})  %>
+
+    </div>
+    
+  </div>
+  <div class="send">
+    </div>
+  </div>
+  
+    <ul>
+      <li>
+        <form action="/profile/chat/<%=user.username%>/<%=user._id%>/send" method="post">
+          <textarea id="Sendfield"  name="message" placeholder="Message"></textarea>
+            <button id="Send" class="ui large  purple button"><span id="text">Send</span></button>
+          
+      </form>
+     
+      </li>
+    </ul>
+
+  
+
+  </div>
+
+<script>
+  
+//    setTimeout(function () {
+//       var text = document.getElementById('Sendfield').value;
+//       document.getElementById("Sendfield").innerHTML = text;
+//      location.reload(1);
+  
+//    }
+//    , 5000);
+  
+  
+  
+//   function loadlink(){
+//     $('#chatbox').load('test.php',function () {
+//          $(this).unwrap();
+//     });
+// }
+
+// loadlink(); // This will run on page load
+// setInterval(function(){
+//     loadlink() // this will run after every 5 seconds
+// }, 5000);
+  
+//   window.onbeforeunload = function() {
+//     localStorage.setItem(text,$('#Sendfield').val());
+//   }
+  
+  window.onload = function() { 
+    var text = localStorage.getItem(text);
+    if (text !== null) $('#Sendfield').val(text);  
+}
+  
+  
+ 
+  
+  
+  
+   $("#Send").click(function () {
+   
+    localStorage.setItem(text, $('#Sendfield').val());
+    location.reload();
+    var text = localStorage.getItem(text);
+    if (text !== null) $('#Sendfield').val(text); 
+}
+ ) 
+  
+
+  
+</script>
+
+
+
+
+

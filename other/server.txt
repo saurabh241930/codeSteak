@@ -1,0 +1,9 @@
+To access an application running on your Container use the following link (ports 1024-9999 available):
+
+http://blogapp-sp241930406042.codeanyapp.com
+To access your application over HTTPS, make sure your application is running on port 3000 and use the following link:
+
+https://blogapp-sp241930406042.codeanyapp.com
+If the port is blocked by your firewall you can connect through the standard HTTP port: (replace XX with port you have specified in your app)
+
+http://port-XX.blogapp-sp241930406042.codeanyapp.com

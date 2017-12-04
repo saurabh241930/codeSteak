@@ -1,0 +1,73 @@
+<% include ./partials/header %>
+
+
+<style>
+
+  #chapters{
+    font-size:17px;
+   
+    text-align:center;
+    
+  
+     margin-bottom:30px;
+    margin-left:10px;
+    width:300px;
+    float:left;
+  }
+  
+  #chapName{
+    color:whitesmoke;
+    padding-top:20px;
+     background:#1F1B1B;
+    padding-bottom:20px;
+   border-bottom:solid 4px #D3D1D1;
+    border-radius:10px;
+    border:solid 4px grey;
+  }
+  
+  #mainheader{
+      font-size:20px;
+    background:#1F1B1B;
+    border-radius:10px;
+    text-align:center;
+    color:#5cc490;
+    padding-bottom:20px;
+    padding-top:20px;
+    border:solid 4px #5cc490;
+  }
+  
+</style>
+
+
+
+
+<h1 id="mainheader"><%=course.courseTitle%></h1>
+
+<div id="chapters">
+  <% course.Chapters.forEach(function(chapter){ %>
+  <h2 id="chapName"  ><%=chapter.lessons %></h2>
+  <a id="enterbutton"  href = '/courses/<%=course._id %>/<%=chapter._id %>'><strong>Enter</strong></a>
+
+  <% }); %>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+  
+  
+</script>
+
+
+
+
+
+
+
+
+

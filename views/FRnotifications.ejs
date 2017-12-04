@@ -1,0 +1,156 @@
+<% include ./partials/header %>
+
+<style>
+  #name{
+    color:white;
+    padding: 5px 5px 5px 5px;
+    background-color:black;
+    border-radius:5px;
+    
+  }
+  
+   #notmyname{
+    color:white;
+    padding: 2px 2px 2px 2px;
+    background-color:blue;
+    border-radius:5px;   
+  }
+  
+  
+     #nootmyname{
+    color:white;
+    padding: 2px 2px 2px 2px;
+    background-color:green;
+    border-radius:5px;   
+  }
+  
+  
+   #box1{
+    background-color:pink;
+  }
+  
+  #box2{
+    background-color:grey;
+  }
+  
+  #projectName{
+     color:white;
+    padding: 2px 2px 2px 2px;
+    background-color:black;
+    border-radius:5px;
+  }
+  
+  
+  
+  
+</style>
+
+<h1>Friend Requests</h1>
+<div id="box1">
+  <% user.friendRequestNotification.forEach(function(request){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+     <h3 id='username'>You have friend request from <span id="name"><%= request.username %></span></h3>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+
+
+<h1>Your Friend Requests</h1>
+<div id="box2">
+  <% user.YourfriendRequestedNotification.forEach(function(request){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+     <p id='username'>You have sent friend request to <span id="notmyname"><%= request.username %></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+
+
+<h1>Accepted Friend Requests</h1>
+<div id="box2">
+  <% user.AcceptedfriendRequestedNotification.forEach(function(request){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+     <p id='username'><span id="nootmyname"><%= request.username %></span> accepted your friend request</p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+
+<h1>About your blogs</h1>
+<div id="box2">
+  <% user.BlogLikedNotification.forEach(function(info){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+  <p id='username'><span id="notmyname"><%= info.username %>
+    </span>has liked your <span id="projectName"><%= info.Projectname %></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+
+
+<h1>About your blogs comments</h1>
+<div id="box2">
+  <% user.CommentNotification.forEach(function(info){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+  <p id='username'><span id="notmyname"><%= info.username %>
+    </span>has commented  <strong><%= info.Text %></strong>  on your<span id="projectName"> <%= info.Projectname %></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,270 @@
+
+
+<% include ../partials/header %>
+
+<style>
+   #labels{
+    text-align:center;
+    color:whitesmoke;
+    background-color:black;
+    border-radius:5px;
+    padding-right: 2px;
+    padding-left: 2px;
+    margin-top:10px;
+  }
+  
+  
+   #html{
+    background:#4c4c4c;
+    font-family: 'Roboto Mono', monospace;
+    color:#cecccc;
+    box-shadow: 3px 3px 3px black;
+    height:400px;
+    
+  }
+  
+  
+  #html:focus{
+   background-color:black;
+   color:#8300f7;
+   border:solid 2px gray;
+  }
+  
+   #css:focus{
+   background-color:black;
+   color:#8300f7;
+   border:solid 2px gray;
+  }
+  
+   #js:focus{
+   background-color:black;
+   color:#8300f7;
+   border:solid 2px gray;   
+  }
+  
+  
+  #css{
+    background:#cecccc;
+    font-family: 'Roboto Mono', monospace;
+     color:#4c4c4c;
+    box-shadow: 3px 3px 3px black;
+     height:400px;
+  }
+  
+  #js{
+    font-family: 'Roboto Mono', monospace;
+    background:#ea9ff4;
+    color:#620775;
+     box-shadow: 3px 3px 3px black;
+     height:400px;
+    
+  }
+  
+  
+  
+  #replybox{
+    background:#e2e2e2;
+    margin-left:100px;
+    border-radius:7px;
+  }
+  
+  
+  #reply{
+    margin-left:50px;
+     color:gray;
+    font-size:12px;
+  }
+  
+  #replyusername{
+     color:#550c70;
+    font-size:15px; 
+  }
+  
+  #by{
+    color:#2b2a2a;
+  }
+  
+  #preview{
+   height:40px;
+   margin-top:200px;    
+  }
+  
+  #terminal{
+    color:whitesmoke;
+  
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+   padding-bottom:10px;
+  }
+  
+  #project{
+    background-color:#b7b7b7;
+  }
+  
+</style>
+
+ <div id="project" class= "container">
+    <form class = "ui form" action="/blogs/run" method = "POST"> 
+      <div class="ui grid">
+ 
+  <div class="five wide column">
+        <div class = "field">
+      <label id="labels">HTML</label>
+       <textarea id="html" type = "text" name = "html" spellcheck="false" rows="10"  readonly ><%= blog.html%></textarea>
+        </div>
+    </div>
+    
+  <div class="five wide column">
+     <div class = "field">
+        <label id="labels">CSS</label>
+   <textarea id ="css" type = "text" name = "css" spellcheck="false" rows="10"  readonly ><%= blog.css%></textarea>
+        </div>
+    </div>
+    
+  <div class="five wide column">
+    <div class = "field">
+        <label id="labels">JAVA SCRIPT</label>
+    <textarea id="js" type = "text" name = "javascript" spellcheck="false" rows="10"  readonly ><%= blog.javascript%></textarea>
+     </div>
+    </div>
+    
+    
+    <div class="one wide column">
+      <button id="preview" class="ui  medium  black button" type="submit"  ><span id="terminal"><i class="terminal icon"></i></span></button>
+    </div>
+      </form>
+</div>
+  </div>
+
+
+
+
+
+<div  class="ui grid">
+  
+  <div class = "ten wide column">
+    
+  <div class = "ui top attached segment">
+  <div class = "ui main text container segment">
+  <div class = "ui huge header"><%=blog.title%></div>
+  <img class = "ui centered rounded image" src = "<%= blog.image %>">
+     <h3>Created by <%= blog.creater.username  %></h3>
+    <div class = "description">
+       <p><%= blog.body  %></p>
+       
+
+    </div>
+   <span><p><%= blog.created.toDateString()  %></p></span>
+    <a class="ui  small  violet button" href = '/blogs/<%=blog._id %>/edit' >Edit</a>
+    
+        
+            <form id = "delete" class = "ui form" action="/blogs/<%= blog._id %>?_method=DELETE" method = "POST">
+            <button class="ui  small red button" >Delete</button>
+            </form>
+  </div>
+</div>
+  </div>
+  
+  
+  
+  
+ 
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+    
+    
+    
+    
+    
+      
+    
+         
+
+  
+  
+    
+    
+<!------------------------------------------------------------------------------------------------------------------------->
+     <div class = "six wide column">
+        <div class="ui segment " id ="Comments">
+         <div  >
+    <% blog.comments.forEach(function(comment){ %>
+    <p>
+       <strong><%= comment.author.username %> </strong><%= comment.text %> on  <strong> <%= blog.created.toDateString()  %> </strong> 
+    </p>
+           
+           
+ <form class = "ui form" action="/blogs/<%= blog.id %>/comment/<%=comment.id%>/reply"  method = "POST">
+    
+    <div  class = "field">
+      <label>Reply</label>
+       <input type = "text" name = "reply" placeholder="text">
+   </div>
+          <input class="ui  small  blue button" value ="Reply" type = "submit" >
+   </form>
+           
+           
+        
+           <div id="replybox">
+              <% comment.replies.forEach(function(reply){ %>   
+              
+             <p id="reply"><%=reply.reply%><b><span id  = "by"> by </span><span id ="replyusername"> <%=reply.username%></span></b></p>
+                              
+               <% })  %>
+           </div>
+         
+           
+           
+           
+           
+   
+    <% })  %>
+           
+
+      </div>
+      <p>
+         <a href = '/blogs/<%= blog._id %>/comments/new' class = "ui  small green button">Comment</a>
+      </p>
+      </div>
+  </div>
+ 
+   <form action="/blogs/<%= blog._id %>/subscribe/" method = "POST">
+      <input class="ui  big  blue button" value ="Subscribe" type = "submit" >
+  </form>
+  
+  <form action="/blogs/<%= blog._id %>/pin/" method = "POST">
+      <input class="ui  big  grey button" value ="Pin" type = "submit" >
+  </form>
+  
+  <form action="/blogs/<%= blog._id %>/like/" method = "POST">
+      <input class="ui  big  blue button" value ="Like" type = "submit" >
+  </form>
+  
+  </div>
+  
+  
+ <% blog.registeredUsers.forEach(function(Student){ %>
+
+     <p>
+       <strong><%= Student.username %> </strong>  
+    </p>
+  
+    <% })  %>
+                          
+                          
+
+
+
+
+
+<% include ../partials/footer %>

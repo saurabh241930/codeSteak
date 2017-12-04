@@ -1,0 +1,242 @@
+<% include ../partials/header %>
+ 
+
+
+
+<style>
+  #card{
+  color:black;
+}
+
+#showbox{
+  background-color: #a78eaf;
+  border-radius:10px;
+   overflow: scroll;
+}
+
+#menushortcut{
+ 
+  height:400px;
+  position: fixed;
+  top: 110;
+  left: 0;
+  
+ 
+}
+
+#profile{
+  background-color:#757575;
+  border-radius:10px;
+  overflow-y:hidden;
+
+}
+
+.shortcuticons{
+
+}
+
+
+#right{
+  text-align:center;
+  display:block;
+  background-color:#6a2a70;
+  color:#c9c5c9;
+  padding-top:10px;
+  padding-bottom:10px;
+  margin-right:5px;
+  border-radius:6px;
+  border: solid 2px #4f4f4f;
+}
+
+#likes{
+  float:right;
+}
+.fa.fa-heart{
+  color:purple;
+}
+
+#eachitem{
+  border-bottom:solid 2px purple;
+}
+  
+  
+  .ui.form{
+  background-color:#A333C8;
+  text-align:center;
+  width:80%;
+  position:absolute;
+  left: 10px;
+  top: 50px;
+  position:fixed;
+  border-radius:12px;
+  padding-top:10px;
+  padding-bottom:10px;
+  box-shadow: 7px 7px 3px purple;
+ 
+  overflow:hidden;
+  
+}
+
+#usernamefield,#passwordfield{
+  width:90%;
+}
+
+#loginhead{
+  color:whitesmoke;
+}
+
+#loginlogo{
+  color:#A333C8;
+  background-color:whitesmoke;
+  border-radius:5px;
+}
+
+#loginbutton{
+  color:#A333C8;
+}
+
+</style>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
+
+
+<h1  class="ui center aligned header" id="Heading" >CodeSt<span id="logo">ea</span>k</h1>
+
+
+
+
+<h3 class="ui center aligned header"></h3>
+
+
+
+
+
+<div class="ui grid">
+
+ <div class="one wide column" id="menushortcut">
+  <div class="shortcuticons">
+     <h3 id="right">C</h3>
+    <h3 id="right">21%</h3>
+    <h3 id="right">H</h3>
+   </div>
+ 
+
+     
+   
+  </div>
+   <div class="one wide column" id=></div>
+
+
+<div class="seven wide column" id="showbox">
+  
+  <div class="ui relaxed divided items">
+ 
+ 
+  
+<% blogs.forEach(function(blog){ %>
+  
+<!--  ===============================================================  -->
+
+<!-- +++++++++++++++++++++++++++++++++++++++-->  
+    <div class="item" id="eachitem" >
+     <div class="ui small image">
+        <img src="<%= blog.image %>">
+      </div >
+       <div  class="content" >
+        <h2><%= blog.title  %></h2>
+         <div>
+     <h4>Created by <%= blog.creater.username  %></h4>
+    </div>
+          <div class="meta">
+      <p ><h3 class = "date">On <%= blog.created.toDateString()  %> </h3></p>
+         <a class="ui  small  purple button" href = '/blogs/<%=blog._id %>' >More</a>
+          <a class="ui  small  purple button" href = '/courses' >Courses</a>
+         <div id="likes"><h2><%=blog.LikedUser.length%><i class="fa fa-heart fa-lg"></i></h2></div>
+        
+    </div>
+    </div>
+      
+      
+    </div>
+<!-- +++++++++++++++++++++++++++++++++++++++-->
+  
+<!-- +++++++++++++++++++++++++++++++++++++++-->
+   
+<!-- +++++++++++++++++++++++++++++++++++++++-->
+ 
+<!-- +++++++++++++++++++++++++++++++++++++++-->
+    
+<!-- +++++++++++++++++++++++++++++++++++++++-->
+    
+    <% }); %>
+  </div>
+
+  
+</div>
+
+ <div class="eight wide column" id="profile">
+   
+  
+   
+   
+   
+ <form class="ui form">
+   
+   <a class="ui  small  blue button" href = '/people' >Find Friends</a>
+    <a class="ui  small  grey button" href = '/friendrequest' > Friend requests</a>
+    <a class="ui  small  black button" href = '/FRnotifications' >Notifications</a>
+   <h3 id="loginhead">Login to<br><h1><span id="loginlogo">CodeSteak</span></h1></h3>
+   
+   
+  <div class="field">
+    <label id="loginhead">Username</label>
+    <input id="usernamefield" type="text" name="username" placeholder="Username">
+  </div>
+  <div class="field">
+    <label id="loginhead">Password</label>
+    <input id="passwordfield" type="password" name="password" placeholder="Password">
+  </div>
+  <div class="field">
+    
+  </div>
+ <a class="ui  small  black button" href = '/miniprofile' >Login</a>
+ <a class="ui  small  green button" href = '/register' >Sign up</a>
+</form>
+   
+</div>
+
+
+</div>
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>

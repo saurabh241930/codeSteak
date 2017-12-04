@@ -1,0 +1,87 @@
+
+<% include ./partials/header %>
+<style>
+
+  #Courseheader{
+    font-size:40px;
+    background:#1F1B1B;
+    border-radius:10px;
+    text-align:center;
+    color:#A333C8;
+    margin-left:400px;
+    margin-right:400px;
+    padding-bottom:20px;
+    padding-top:20px;
+    border:solid 6px #A333C8;
+  }
+
+  #coursecontent{
+    margin-left:50px;
+    width:300px;
+    height:300px;
+    display:block;
+    background:whitesmoke;
+    border:solid 3px #A333C8;
+  } 
+  
+  
+  #enterbutton,#courseImage,#contentheader{
+    display:block;
+  }
+  
+  #contentheader{
+    font-size:20px;
+    background:#1F1B1B;
+    border-radius:10px;
+    text-align:center;
+    color:#5cc490;
+    padding-bottom:20px;
+    padding-top:20px;
+    border:solid 4px #5cc490;
+  }
+  
+  
+  #courseImage{
+    
+  }
+  #enterbutton{
+    font-size:17px;
+    background:#1F1B1B;
+    border-radius:10px;
+    text-align:center;
+    color:blueviolet;
+    padding-bottom:10px;
+    padding-top:10px;
+    border:solid 4px #5cc490;
+    margin-left:40px;
+    margin-right:40px;
+  }
+  
+  #main{
+    background-color:whitesmoke;
+  }
+
+</style>
+
+<h1 id="Courseheader"> <i class="student icon"></i> Courses</h1>
+<div id="main">
+  <div id = "coursecontent">
+  <% courses.forEach(function(course){ %>
+  <h2 id="contentheader"><%= course.courseTitle  %></h2>
+<img src="<%= course.titleImage %>" id="courseImage">
+ <a id="enterbutton"  href = '/courses/<%=course._id %>'><strong>Enter</strong></a>
+  <% }); %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
