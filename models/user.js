@@ -10,7 +10,7 @@ username:String,
 
 password :String,
 
-
+ProfileImage:{ data: Buffer, contentType: String },
 
 
 friends:[{    
