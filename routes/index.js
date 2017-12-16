@@ -27,9 +27,8 @@ router.get('/register',function(req,res){
 
 //Sign Up logic
 router.post('/register',function(req,res){
-var newUser = new User ({username: req.body.username});
-var firstName = req.body.firstName;
-var lastName = req.body.lastName;
+var newUser = new User ({username: req.body.username,FavouriteColor: req.body.FavouriteColor});
+
 
 User.register(newUser,req.body.password,function(err,user){
 if (err) {

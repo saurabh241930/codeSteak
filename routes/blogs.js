@@ -3,7 +3,11 @@ var router = express.Router();
 var Blog = require('../models/blog');
 var User = require('../models/user');
 var methodOverride = require('method-override');
-
+var multer = require('multer');     
+var path = require('path');
+var fs = require('fs');
+var imageBase64 = require('image-base64');
+var upload = multer({ dest: 'uploads/' })
 
 
 //////////////////////INDEX ROUTE/////////////////////////////
@@ -13,6 +17,7 @@ router.get('/blogs',function(req,res){
     if (err) {
       console.log(err);
     } else {
+      
        res.render('blogs/index',{blogs: blogs});
     }
   });
@@ -99,22 +104,8 @@ router.post('/blogs/new/confirm/:id',isLoggedIn,function(req,res){
            res.redirect('/blogs/' + blog._id);
         }
  })
-      
-      
-      
-      
-
- 
- 
-
-
-
     }
     })
-  
-  
-  
-  
 })
 
 
@@ -133,7 +124,11 @@ router.get('/blogs/:id/',function(req,res){
    if (err) {
     console.log(err);
   } else {
-   
+    
+    //Icreasing views
+    
+      foundBlog.Views++;
+    
     res.render('blogs/show',{blog:foundBlog});
   }
  });
@@ -217,16 +212,70 @@ router.post('/blogs/run/preview',function(req,res){
 ////////////////////////////////////////////////
 
 
-// router.get('/blogs/run/preview',function(req,res){
-
-
-
-//  res.render('preview');
+router.get('/profilepic',function(req,res){
+ 
 
   
-// })
+ res.render('blogs/profilepic');
+
+  
+})
 
 
+
+// router.post("/api/Upload/",function(req,res){
+  
+// //   User.findById(req.user._id,function(err,user){
+// //     if (err) {
+// //       console.log(err);
+// //     } else {
+// //       user.ProfileImage.data = fs.readFileSync(req.files.userPhoto.path);
+// //       user.ProfileImage.contentType = "image/png";
+// //       user.save();
+// //       res.redirect("back");
+// //     }
+// //   })
+  
+  
+  
+// //  var newItem = new User ();
+// //  newItem.ProfileImage.data = fs.readFileSync(req.files.userPhoto.path)
+// //  newItem.ProfileImage.contentType = "image/png";
+// //  newItem.save();
+  
+  
+  
+  
+  
+  
+  
+  
+  
+// });
+
+
+router.post('/upload',upload.single('avatar'), function(req, res) {
+  
+  
+    var fileInfo = [];
+  
+  
+    for(var i = 0; i < req.files.length; i++) {
+      
+        fileInfo.push({
+            "originalName": req.files[i].originalName,
+            "size": req.files[i].size,
+            "b64": new Buffer(fs.readFileSync(req.files[i].path)).toString("base64")
+        });
+      
+        fs.unlink(req.files[i].path);
+    }
+   console.log(fileInfo);
+  res.redirect("back");
+  
+  
+  
+});
 
 
 

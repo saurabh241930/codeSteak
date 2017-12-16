@@ -1,29 +1,348 @@
-<% include ./partials/header %>
 
-
-
-  <div  class = "ui main text container segment">
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<html>
+  <head>
+   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+ <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='/script/jquery.transit.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-   <h2 class="ui center aligned icon header">
-  <i class=" user circle  icon"></i>
-  Login
-</h2>
+
+<style>
+  
+   #copyrightText{
+      margin:0 auto;
+    color:whitesmoke;
+    font-family: 'Overpass Mono', monospace;
+    font-size:15px;
+  }
+  
+  
+  #copyrightIcon{
+     
+    color:#bf02ff;
+     
+  }
+  
+  
+  #copyright{
+    margin-top:50px;
+}
+  
+  
+  
+  
+  body{
+    background-color:black;
+  }
+  
+  #segment{
+ font-family: 'Press Start 2P', cursive;
+   width:100%;
+      margin-top:20px;
+    height:80px;
+    font-size:20px;
+      border:dashed 5px #bf02ff;
+  }
+  
+  #segment:focus{
+     color:whitesmoke;
+     background-color:#bf02ff;
+     border:dashed 5px #fff;
+  }
+  
+  
+  
+  
+ 
+  
+  #logomain{
+   
+   font-family: 'Press Start 2P', cursive;
+    color:whitesmoke;
+  
+  }
+  
+  
+  #button{
+    font-size:20px;
+    font-family: 'Press Start 2P', cursive;
+    margin-top:20px;
+    width:100%;
+   border:dashed 5px whitesmoke;
+    height: 60px;
+    background-color:#bf02ff;
+    color:white;
+         transition: all 180ms ease-in;
+  }
+  
+  #button:hover{
+   
+      border:solid 5px #bf02ff;
+      color:#bf02ff;
+      background-color:black;
+      transition: all 180ms ease-in;
+    } 
+  
+  
+  #mainlogo{
+    margin-top:20px;
+    color:whitesmoke;
+    font-size:70px;
+    background-color:black;
+      border:solid 4px #bf02ff;
+    border-radius:10px;
+      font-family: 'Press Start 2P', cursive;
+    padding:2px 2px 2px 2px;
+    
+  }
+  
+  label{
+    color:whitesmoke;
+    font-size:20px;
+     font-family: 'Press Start 2P', cursive;
+    margin: 0 auto;
+  }
+  
+  
+  
+/*   #col{
+    background-color:grey;
+  }
+   */
+  
+  #col2{
+   
+    height:50px;
+  }
+  
+</style>
+
+
+
+
+
+<div id= "login">
+  
+  <div id="">
+
+  </div>
+ 
+ 
+    <h1><%= message %></h1>
+  
     <form class = "ui form" action = '/login' method = "post">
     
-<p><%= message %></p>
+
         
-  
-      
-    <div class = "username">
-       <input type = 'text' name = 'username' placeholder = 'Username'>
+  <div class="row">
+    
+    <div  id="" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+    
+        <div id="col" class="col col-lg-3 col-sm-12 col-xs-12">
+       <input id="segment" type = 'text' name = 'username' placeholder = 'Username'>
     </div>
 
- 
-    <div class = "password">
-       <input type = 'password' name = 'password' placeholder = 'Password'>
+
+    
+    <div id="col" class="col col-lg-3 col-sm-12 col-xs-12" >
+       <input id="segment" type = 'password' name = 'password' placeholder = 'Password'>
     </div>
+    
+        <div id="" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+      </div>
+
+
  
- <button class = 'ui medium black button' >Login</button>
+      <div class="row">
+        <div  id="" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="" class="col col-lg-6 col-sm-10 col-xs-10">
+          
+           <button  id="button" >Login</button>
+        </div>
+        <div  id="" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        
+        
+      </div>
+      
+      
+       <div class="row">
+        
+        <div  id="col2" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+        <div  id="col2" class="col col-lg-6 col-sm-0 col-xs-0"></div>
+        <div  id="col2" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+       
+      </div>
+      
+      
+      
+      
+      
+      <div class="row">
+        
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="col2" class="col col-lg-6 col-sm-10 col-xs-10">
+          
+         <p class="ui center aligned  header"><span id="mainlogo">ea</span></p>
+        </div>
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+       
+      </div>
+      
+      
+     
+         <div class="row">
+        
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="col2" class="col col-lg-6 col-sm-12 col-xs-12">
+          
+           <p><i id="copyrightIcon" class="fa fa-copyright fa-3x" aria-hidden="true"></i>
+     
+          <span id="copyrightText"><strong>All Rights reserved 2018</strong></span></p>
+    </div>
+           </div>
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+       
+      </div>
+      
+      
+      
+
 </form>
+</div>
   
-  </div>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+ 
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+  
+  
+      
+      
+      <div class="modal-content">
+        <div class="modal-header">
+         
+        
+          
+    <form class = "ui form" action = '/login' method = "post">
+    
+
+        
+  <div class="row">
+    
+    <div  id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+    
+        <div id="col" class="col col-lg-10 col-sm-12 col-xs-12">
+       <input id="segment" type = 'text' name = 'username' placeholder = 'Username'>
+    </div>
+
+ <div id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+    
+       </div>
+    
+    <div class="row">
+      
+      
+    <div id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+    
+    <div id="col" class="col col-lg-10 col-sm-12 col-xs-12" >
+       <input id="segment" type = 'password' name = 'password' placeholder = 'Password'>
+    </div>
+    
+    
+       <div id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+      
+    </div>
+    
+    
+   
+
+
+ 
+      <div class="row">
+        <div  id="" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="" class="col col-lg-6 col-sm-10 col-xs-10">
+          
+           <button  id="button" >Login</button>
+        </div>
+        <div  id="" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        
+        
+      </div>
+      
+      
+       <div class="row">
+        
+        <div  id="col2" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+        <div  id="col2" class="col col-lg-6 col-sm-0 col-xs-0"></div>
+        <div  id="col2" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+       
+      </div>
+      
+      
+      
+      
+      
+      <div class="row">
+        
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="col2" class="col col-lg-6 col-sm-10 col-xs-10">
+          
+         <p class="ui center aligned  header"><span id="mainlogo">ea</span></p>
+        </div>
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+       
+      </div>
+      
+      
+     
+         <div class="row">
+        
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="col2" class="col col-lg-6 col-sm-12 col-xs-12">
+          
+           <p><i id="copyrightIcon" class="fa fa-copyright fa-3x" aria-hidden="true"></i>
+     
+          <span id="copyrightText"><strong>All Rights reserved 2018</strong></span></p>
+    </div>
+           </div>
+        <div  id="col2" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+       
+     
+      
+      
+      
+
+</form>
+          
+          
+          
+        
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+        
+      </div>  
+      
+      
+      
+   <style>
+     .modal-content{
+       border:dashed 2px white;
+       background-color:black;
+     }
+      </style>   
+      
+      
+      
+      
+  
+  

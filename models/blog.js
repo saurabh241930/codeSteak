@@ -13,7 +13,7 @@ image :String,
   
 body :String,
   
-likes:Number,
+Views:Number,
   
 LikedUser:[{
 id:{

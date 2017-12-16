@@ -1,28 +1,516 @@
-<% include ./partials/header %>
 
 
-  <div  class = "ui main text container segment">
+
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<html>
+  <head>
+   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+ <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='/script/jquery.transit.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+<style>
+  
+  #Register{
+      border:dashed 3px whitesmoke;
+    text-shadow:2px 2px black ;
+         font-size:25px;
+        height:70px;
+       margin-top:50px;
+       transition: all 200ms ease-in;
+      color:white;
+     background-color:#29cc26;
+    font-family: 'Overpass Mono', monospace;
+     width:100%;
+  }
+  
+  #Register:hover{
+        color:#29cc26;
+      border:dashed 3px #29cc26;
+    text-shadow:2px 2px black ;
+         font-size:25px;
+        height:70px;
+       margin-top:50px;
+       transition: all 200ms ease-in;
+     
+     background-color:black;
+    font-family: 'Overpass Mono', monospace;
+     width:100%;
+  }
+  
+  
+  
+  
+   #segment{
+    font-family: 'Press Start 2P', cursive;
+   width:100%;
+      margin-top:20px;
+    height:80px;
+    font-size:20px;
+      border:dashed 5px #bf02ff;
+  }
+  
+  
+  
+   #cross{
+      background-color:black; 
+      float:right;
+     
+     }
+     
+     #cancel{
+       background-color:black;
+       color:#c94848;
+       color:whitesmoke;
+       font-size:40px;
+        transition: all 180ms ease-in;
+     }
+  
+      #cancel:hover{
+       background-color:black;
+       color:red;
+       font-size:40px;
+         transition: all 180ms ease-in;
+     }
     
-  <h2 class="ui center aligned icon header">
-  <i class="circular user icon"></i>
-  Sign up for Blackpost
-</h2>
+     
+     .modal-content{
+       
+       border:solid 4px #29cc26;
+       background-color:black;
+     }
+  
+  
+  
+ body{
+    background-color:black;
+  }
+  
+  #segment{
+    text-align:center;
+    color:whitesmoke;
+    background-color:black;
+     font-family: 'Overpass Mono', monospace; 
+      margin-top:20px;
+    height:50px;
+    font-size:20px;
+      border:dashed 3px #29cc26;
+  }
+  
+  #segment:focus{
+     color:whitesmoke;
+     background-color:#29cc26;
+  }
+  
+  
+  
+  
+  
+  #login{
+    height:300px;
+    width:600px;
     
-    <form class = "ui form" action = '/register' method = "post">
+    border-radius:5px;
+    margin:0 auto  ;
+    margin-top:30px;
     
+    
+  }
+  
+  
+  #logomain{
+   font-family: 'Press Start 2P', cursive;
+    color:whitesmoke;
+  
+  }
+  
+  
+  #button{
+  font-size:25px;
+   font-family: 'Overpass Mono', monospace;
+    margin-top:50px;
+    width:100%;
+   border:dashed 3px whitesmoke;
+    height: 60px;
+    background-color:#29cc26;
+    color:white;
+    transition: all 180ms ease-in;
+  }
+  
+  #button:hover{
+       color:#29cc26;
+      border:dashed 3px #29cc26;
+    text-shadow:2px 2px black ;
+         font-size:25px;
+        height: 60px;
+       margin-top:50px;
+       transition: all 200ms ease-in;
+     
+     background-color:black;
+    font-family: 'Overpass Mono', monospace;
+     width:100%;
+    } 
+  
+  
+  #mainlogo{
+    color:#bf02ff;
+    font-size:70px;
+    background-color:black;
+      border:solid 4px white;
+    border-radius:10px;
+      font-family: 'Press Start 2P', cursive;
+    padding:5px 5px 5px 5px;
+    
+  }
+  
+  
+  #part1{
+    height:450px;
+    background-color:#bf02ff;
+    
+  }
+  
+    #part2{
+    height:300px;
+    background-color:black;
+    text-align:center;
+    margin-top:100px;
+  }
+  
+  
+  #cloud{
+    color:#bf02ff;
+    font-size:150px;
+    margin-top:20px;
+/*     text-shadow: -3px 0 whitesmoke, 0 3px whitesmoke, 3px 0 black, 0 -3px whitesmoke; */
+    
+  }
+  
+  
+  #cloudHeading{
+     color:whitesmoke;
+     font-size:20px;
+  }
+  
+    #cloudHeading2{
+     
+      color:whitesmoke;
+      padding:4px 4px 4px 4px;
+      border-radius:7px;
+     font-size:30px;
+      
+  }
+  
+  
+  #info{
+    font-size:18px;
+  }
+  
+  
+  h1{
+    color:whitesmoke;
+  }
+  
+  
+  #security{
+    font-size:50px;
+  }
+  
+  label{
+    
+    margin-top:40px;
+    color:whitesmoke;
+    font-size:17px;
+  }
+  
+  
+  #copyrightText{
+    
+    color:whitesmoke;
+    font-family: 'Overpass Mono', monospace;
+    font-size:15px;
+  }
+  
+  
+  #copyrightIcon{
+     
+    color:whitesmoke;
+  }
+  
+  
+  #copyright{
+    margin-top:50px;
+}
+  
+  
+   #footer{
+     margin-top:100px;
+    height:130px;
+    -moz-height:150px;
+    -webkit-height:120px;
+    background-color:#bf02ff;  
+  }
+  
+  #registering{
+    background-color:#2d2d2d;
+  }
+  
+  
+  
+</style>
+
+
+<div class="row">
+    
+  <div class="col col-lg-12 col-sm-12 col-xs-12" id="part1">
+
+  <h1>What is CodeSteak?</h1>  
+<p id="info">
+  <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
+   <strong>CodeSteak is a completely free open-source platform for create as well as deploy countless web projects instantly.</strong>
+    </p>
+    
+      <h1><i id="security" class="fa fa-users" aria-hidden="true"></i> Social hub</h1>  
+<p id="info">
+  <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
+   <strong>Make use of open-social platform to interact with any codeSteak user instantly or get help from community</strong>
+    </p>
+    
+       <h1><i  id="security" class="fa fa-lock" aria-hidden="true"></i> Security First </h1>  
+<p id="info">
+  <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
+   <strong>Make use of open-social platform to interact with any codeSteak user instantly</strong>
+    </p>
+    
+    
+    
+</div>
+
+  <div class="row">
+    
+    <div class = "col col-lg-4 col-sm-2 col-xs-2"></div>
+    
+    
+    <div class = "col col-lg-4 col-sm-8 col-xs-8">
+  <button id="Register" type="button" data-toggle="modal" data-target="#myModal"><strong>Sign Up Now</button>
+ </div>
+    <div class = "col col-lg-4 col-sm-2 col-xs-2"></div>
+    
+    
+   </div>
+  
+  
+
+<div class="col col-lg-12 col-sm-12 col-xs-12" id="part2">
+<p><span id="cloudHeading">powered by</span></p>
+<p>
+  <i id="cloud" class="fa fa-cloud-upload fa-5x " aria-hidden="true"></i>
+  </p>
+  <p><span id="cloudHeading2">CodeSteak Cloud</span></p>
+</div>
+
+  
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+ 
+    
+    
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+  
   
       
-    <div class = "username">
-       <input type = 'text' name = 'username' placeholder = 'Username'>
-    </div>
-
- 
-    <div class = "password">
-       <input type = 'password' name = 'password' placeholder = 'Password'>
-    </div>
- 
- <button class = 'ui medium green button' >Sign Up</button>
-</form>
+      
+      <div class="modal-content">
+        <div class="modal-header">
+            <a id="cross" data-dismiss="modal">
+            <i id="cancel" class="fa fa-times-circle-o" aria-hidden="true"></i>
+          </a>
+        
+           <form  action = '/register' method = "post">
+    
   
-  </div>
+      <div class="row">
+        
+        
+<!--     <div class = "col col-lg-12 col-sm-12 col-xs-12">
+      <label>Enter your name</label>
+       <input id="segment" type = 'text' name = 'username' placeholder = 'Fullname'>
+    </div> -->
+      
+      
+  
+        
+    <div class = "col col-lg-12 col-sm-12 col-xs-12">
+       <label>Choose a Username</label>
+       <input id="segment" type = 'text' name = 'username' placeholder = 'Username'>
+    </div>
 
+ 
+    <div class = "col col-lg-12 col-sm-12 col-xs-12">
+       <label>Choose a Password</label>
+       <input id="segment" type = 'password' name = 'password' placeholder = 'Password'>
+    </div>
+        
+        <div style="" class = "col col-lg-12 col-sm-12 col-xs-12">
+       <label>Choose a Color</label>
+       <textarea id="colorField" style="width:50%;
+                                        text-align:center;
+                                        background-color:black;
+                                        border:solid 1px black;
+                                        margin-left:20px;
+                                        margin-right:20px;" type = 'text' name = 'FavouriteColor' rows="1" readonly></textarea>
+    </div>
+        
+        <div class="col col-lg-2 col-xs-0"></div>
+        
+        <div style="  " class="col col-lg-8 col-xs-12">
+          
+          
+          
+<div id="redChoice" style="height:60px;
+                           width:60px;
+                           background-color:#263238;
+                           border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
+
+<div id="blueChoice" style="height:60px;
+                            width:60px;
+                            background-color:#311B92;
+                            border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
+
+<div id="yellowChoice" style="height:60px;
+                              width:60px;
+                              background-color:#0D47A1;
+                              border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
+
+<div id="greenChoice" style="height:60px;
+                             width:60px;
+                             background-color:#1B5E20;
+                             border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
+
+<div id="yellowChoice" style="height:60px;
+                              width:60px;
+                              background-color:#0D47A1;
+                              border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
+
+          
+          
+   
+          
+          
+        </div>
+        
+     <div class="col col-lg-2 col-xs-0"></div>
+        
+      </div>
+      
+
+      <div class="row">
+         <div class = "col col-lg-1 col-sm-1 col-xs-1"></div>
+        <div class = "col col-lg-10 col-sm-10 col-xs-10">
+           <button id="button" >Sign Up</button>
+        </div>
+        <div class = "col col-lg-1 col-sm-1 col-xs-1"></div>
+        
+      </div>
+      
+ 
+      
+      
+      
+      
+
+</form>
+          
+          
+     <style>
+       .Selected{
+         border:dashed 5px white;
+       
+        }
+     </style>     
+        
+        
+        
+      </div>  
+    
+        <script>
+          
+          
+          $("#redChoice").click(function(){
+          $("#colorField").text("#263238");
+          $("#redChoice").toggleClass("Selected");
+          $("#blueChoice").removeClass("Selected");
+          $("#yellowChoice").removeClass("Selected");
+          $("#greenChoice").removeClass("Selected");
+          })
+
+          $("#blueChoice").click(function(){
+          $("#colorField").text("#311B92");
+          $("#blueChoice").toggleClass("Selected");
+          $("#redChoice").removeClass("Selected");
+          $("#yellowChoice").removeClass("Selected");
+          $("#greenChoice").removeClass("Selected");
+          })
+
+          $("#yellowChoice").click(function(){
+          $("#colorField").text("#0D47A1");
+          $("#yellowChoice").toggleClass("Selected");
+          $("#blueChoice").removeClass("Selected");
+          $("#redChoice").removeClass("Selected");
+          $("#greenChoice").removeClass("Selected");
+          })
+
+          $("#greenChoice").click(function(){
+          $("#colorField").text("#1B5E20");
+          $("#greenChoice").toggleClass("Selected");
+          $("#blueChoice").removeClass("Selected");
+          $("#yellowChoice").removeClass("Selected");
+          $("#redChoice").removeClass("Selected");
+          })
+
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    

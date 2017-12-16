@@ -1,81 +1,41 @@
-<% include ../partials/header %>
- 
+
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<html>
+  <head>
+   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='/script/jquery.transit.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
 
 
 
 <style>
-  #card{
-  color:black;
-}
-
-#showbox{
-  background-color: #a78eaf;
-  border-radius:10px;
-   overflow: scroll;
-}
-
-#menushortcut{
+  
+/*  */
  
-  height:400px;
-  position: fixed;
-  top: 110;
-  left: 0;
+  
+  
+/*    */
+  
+#background
+  {
+    background-color:black;
+  }
   
  
-}
-
-#profile{
-  background-color:#757575;
-  border-radius:10px;
-  overflow-y:hidden;
-
-}
-
-.shortcuticons{
-
-}
-
-
-#right{
-  text-align:center;
-  display:block;
-  background-color:#6a2a70;
-  color:#c9c5c9;
-  padding-top:10px;
-  padding-bottom:10px;
-  margin-right:5px;
-  border-radius:6px;
-  border: solid 2px #4f4f4f;
-}
-
-#likes{
-  float:right;
-}
-.fa.fa-heart{
-  color:purple;
-}
-
-#eachitem{
-  border-bottom:solid 2px purple;
-}
   
-  
-  .ui.form{
-  background-color:#A333C8;
-  text-align:center;
-  width:80%;
-  position:absolute;
-  left: 10px;
-  top: 50px;
-  position:fixed;
-  border-radius:12px;
-  padding-top:10px;
-  padding-bottom:10px;
-  box-shadow: 7px 7px 3px purple;
- 
-  overflow:hidden;
-  
-}
+
 
 #usernamefield,#passwordfield{
   width:90%;
@@ -86,100 +46,302 @@
 }
 
 #loginlogo{
-  color:#A333C8;
-  background-color:whitesmoke;
+  color:whitesmoke;
+  background-color:#A333C8;
   border-radius:5px;
+  padding:5px 5px 5px 5px;
+  
 }
 
 #loginbutton{
   color:#A333C8;
 }
 
+ #profileImage{
+    display:inline-block;
+    height:200px;
+    width:200px;
+    border:solid 4px purple;
+    background-color:whitesmoke;
+  }
+  
+  
+
+  
+  #friend{
+    color:whitesmoke;
+    border-radius:5px;
+    font-size:80px;
+    
+    
+  }
+  
+  #friendbox{
+    color:whitesmoke;
+     font-size:20px;
+     height:100px;
+  }
+  
+  #friendSection{
+   
+    text-align:center;
+
+  }
+  
+  
+  #friendIcon{
+    color:white;
+    font-size:20px;
+    
+    
+  }
+  
+  
+  #eachbox{
+    height:100px;
+    width:100px;
+    border-radius:100%;
+    border:solid 1px black;
+  }
+  
+  
+  #notlogin{
+    transition: all 180ms ease-in;
+    border-bottom:dashed 10px #bf02ff;
+    border-top:dashed 10px #bf02ff;
+    background-color:white;
+    height:250px;
+    margin-top:50px;
+  }
+  
+  #suggestion{
+     margin-top:50px;
+      margin-left:0 auto
+  }
+  
+  
+  #notlogin:hover{
+        transition: all 180ms ease-in;
+        background-color:#cecece;
+        border-bottom:dashed 10px black;
+        border-top:dashed 10px black; 
+  }
+  
+/*   #dummytext1{
+    font-size:50px;
+    color:#bf02ff;
+  font-family: 'VT323', monospace;
+   
+  } */
+  
+  
+
+  
+
+  #login{
+        margin-left:20px ;
+        border:dashed 3px whitesmoke;
+        text-shadow:3px 3px black ;
+        font-size:25px;
+        height:70px;
+        margin-top:50px;
+        transition: all 200ms ease-in;
+        color:white;
+        background-color:#bf02ff;
+        font-family: 'Overpass Mono', monospace;
+        width:50%;
+  }
+  
+  
+  #getstarted{
+        border:dashed 3px whitesmoke;
+        text-shadow:2px 2px black ;
+        font-size:25px;
+        height:70px;
+        margin-top:50px;
+        transition: all 200ms ease-in;
+        color:white;
+        background-color:#29cc26;
+        font-family: 'Overpass Mono', monospace;
+        width:100%;
+  }
+  
+    #getstarted:hover{
+        color:#29cc26;
+        border:dashed 3px #29cc26;
+        text-shadow:2px 2px black ;
+        font-size:25px;
+        height:70px;
+        margin-top:50px;
+        transition: all 200ms ease-in;
+        background-color:black;
+        font-family: 'Overpass Mono', monospace;
+        width:100%;
+  }
+  
+  
+  
+  
+  #login:hover {
+        color:#bf02ff;
+        position: relative;
+        border:dashed 3px #bf02ff;
+        transition: all 200ms ease-in;
+        background-color: #00000000 ;
+  }
+  
+  
+/*     #username{
+        width:100%;
+        font-family: 'VT323', monospace;
+        font-size:30px;
+        color:white;
+        background-color:#bf02ff;
+        border:dashed 3px whitesmoke;
+         
+  } */
+  
+    #usernameButton{
+        width:100%;
+        font-family: 'VT323', monospace;
+        font-size:30px;
+        color:white;
+        background-color:blue;
+        border:dashed 3px whitesmoke;    
+  }
+  
+  
+  #signup{
+     
+        color:white;
+    padding: 10px 20px 10px 20px;
+    background-color:#2ae011;
+    border:dashed 3px whitesmoke;
+  }
+  
+  
+    #signup:hover {
+        border:dashed 3px #2ae011;
+        color:#2ae011;
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 15px #ffffff ;
+        transition: all 200ms ease-in;
+        background-color: #00000000 ;
+  }
+  
+  #miniprofile{
+       border:solid 2px white;
+       width:100%;
+  }
+  
+ 
+  
+  
+  #links{
+    color:white;
+  font-family: 'VT323', monospace;
+    font-size:30px;
+    margin-bottom:10px;
+  }
+  
+  #line{
+    margin-top:10px;
+  }
+  
+  
+  #footer{
+    height:500px;
+    -moz-height:150px;
+    -webkit-height:120px;
+    background-color:#bf02ff;  
+  }
+  
+    #trophy{
+      
+      font-size:100px;
+      color:#bf02ff;
+      
+    }
+  
+  #reputation{
+    color:black;
+    font-size:20px;
+  }
+  
+
+  #logoHeading{
+    padding-top:16px;
+    padding-bottom:15px;
+    background-color:rgba(191, 2, 255, 0.3);
+  
+  }
+
+  #logoutButton{
+    color:red;
+}
+  
 </style>
 
 
 
+  
+  
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
 
 
-<h1  class="ui center aligned header" id="Heading" >CodeSt<span id="logo">ea</span>k</h1>
-
-
-
-
-<h3 class="ui center aligned header"></h3>
-
-
-
-
-
-<div class="ui grid">
-
- <div class="one wide column" id="menushortcut">
-  <div class="shortcuticons">
-     <h3 id="right">C</h3>
-    <h3 id="right">21%</h3>
-    <h3 id="right">H</h3>
-   </div>
- 
-
-     
-   
-  </div>
-   <div class="one wide column" id=></div>
-
-
-<div class="seven wide column" id="showbox">
   
-  <div class="ui relaxed divided items">
- 
- 
+    <body id="background">
   
-<% blogs.forEach(function(blog){ %>
   
-<!--  ===============================================================  -->
-
-<!-- +++++++++++++++++++++++++++++++++++++++-->  
-    <div class="item" id="eachitem" >
-     <div class="ui small image">
-        <img src="<%= blog.image %>">
-      </div >
-       <div  class="content" >
-        <h2><%= blog.title  %></h2>
-         <div>
-     <h4>Created by <%= blog.creater.username  %></h4>
-    </div>
-          <div class="meta">
-      <p ><h3 class = "date">On <%= blog.created.toDateString()  %> </h3></p>
-         <a class="ui  small  purple button" href = '/blogs/<%=blog._id %>' >More</a>
-          <a class="ui  small  purple button" href = '/courses' >Courses</a>
-         <div id="likes"><h2><%=blog.LikedUser.length%><i class="fa fa-heart fa-lg"></i></h2></div>
+  
+      
+      <div> 
         
-    </div>
-    </div>
-      
-      
-    </div>
-<!-- +++++++++++++++++++++++++++++++++++++++-->
-  
-<!-- +++++++++++++++++++++++++++++++++++++++-->
-   
-<!-- +++++++++++++++++++++++++++++++++++++++-->
- 
-<!-- +++++++++++++++++++++++++++++++++++++++-->
-    
-<!-- +++++++++++++++++++++++++++++++++++++++-->
-    
-    <% }); %>
-  </div>
+        
+        
+        
+        <div id="logoHeading" class="row">  
+          
+            <div id="fix" class="col col-lg-4 "></div>
+          
+          <div  class="col col-lg-4  col-xs-12">
+        
+        <h1 id="Heading" >CodeSt<span id="mainlogo">ea</span>k</h1>
+
+         </div>
+          
+            <div class="col col-lg-4 ">
+                 <% if(currentUser){ %>
+              
+              <p><span style="float:right;
+                margin-right:20px;
+                margin-top:10px;
+                color:white;
+                font-family: 'VT323', monospace;
+                font-size:30px;"> <a id="logoutButton" href = "/logout" class = "item">Logout</a>
+                <%= currentUser.username %></span></p>
+              
+               <% } %>
+          </div>
+          
+           </div>
+
+
+
+
+
+
+
+
 
   
-</div>
 
- <div class="eight wide column" id="profile">
+
+
    
   
    
@@ -187,25 +349,578 @@
    
  <form class="ui form">
    
-   <a class="ui  small  blue button" href = '/people' >Find Friends</a>
-    <a class="ui  small  grey button" href = '/friendrequest' > Friend requests</a>
-    <a class="ui  small  black button" href = '/FRnotifications' >Notifications</a>
-   <h3 id="loginhead">Login to<br><h1><span id="loginlogo">CodeSteak</span></h1></h3>
+   
+
    
    
-  <div class="field">
+     <% if(!currentUser){ %>
+        
+       
+   <div class="row">
+   
+       <div class= "col-lg-8">
+     
+   <section id="notlogin">
+     
+     
+     
+  <p id = "dummytext1">
+    Welcome
+    
+     </p>   
+     
+     
+     
+  <h3  id = "dummytext2">
+   Welcome to codeSteak
+ </h3>
+         </section>
+       </div>
+
+    
+  <div class= "col col-lg-4 col-sm-12 col-xs-12" id="suggestion">
+      <strong> <p id="advice">If you've already created <br>a account,then please <br> 
+         <button id="login" type="button" data-toggle="modal" data-target="#myModal"><strong>Login</button>
+     OR<br>
+      
+   </p></strong>
+       </div>
+        
+
+   
+
+      </div>  
+   
+   <div class= "row"> 
+     <div class="col col-lg-5 col-sm-0 col-xs-0"></div>  
+     <div class="col col-lg-2 col-sm-12 col-xs-12">
+       <button id="getstarted"  type="button"><strong>GetStarted</strong></button>
+     </div>  
+     <div class="col  col-lg-5 col-sm-0 col-xs-0"></div>  
+   </div>  
+     
+     
+ 
+   
+
+   
+     <% } else{ %>
+   
+   
+   
+   
+   
+   
+    
+   
+   
+   
+   <div class = "row">
+   
+   
+   
+     
+    <div class="col col-lg-3 col-sm-12 col-xs-12">
+     
+      <div class="row">
+        
+        
+        <div  id="stack" class="col col-lg-8 col-sm-12 col-xs-12" style="height:210px;border:solid ">
+           <img  src="<%= currentUser.ProfileImage %>" id="profileImage">
+        </div>
+         
+        <div class="col col-lg-4 col-sm-0 col-xs-0" style="height:210px;border:solid"></div>
+<!--       
+       <span class="fa-stack fa-3x">
+    <i id="trophy" class="fa fa-trophy fa-stack-2x"></i>
+      <span class="fa fa-stack-1x" style="color:white;">
+          <span style="font-size:26px;
+                       margin-top:-7px;
+                       margin-left:8px;
+                       display:block;
+                       color:black">
+              <strong></strong><br>
+            <span style="font-size:12px;
+                         color:white;
+                          margin-top:-35px;
+                       margin-left:2px;
+                       display:block;"><strong>xp</strong></span> 
+          </span>
+        
+    </span>
+</span>	 -->
+       
+        <div class="row">
+          
+            <div  id="first" style="background-color:<%=currentUser.FavouriteColor%>;
+                         text-align:center;
+                         height:150px;
+                         border-right:solid 5px black;" class="col col-lg-6 col-xs-6">
+          
+           <i id="" style="font-size:60px;
+                    color:white;
+                   margin-top:50px;" class="fa fa-id-card" aria-hidden="true"></i>
+
+          </div>
+          
+           <div  id="" style="background-color:<%=currentUser.FavouriteColor%>;
+                         text-align:center;
+                         height:100px;
+                         width:100px;
+                         border-right:solid 5px black;" class="col col-lg-6 col-xs-6">
+          
+         <a href="#"><span style="color:white;"></span></a>
+
+          </div>
+          
+        </div>
+      
+          
+           
+        
+        
+      
+      
+        
+      </div>
+      
+      
+        
+      
+      
+    </div>
+     
+    
+     
+     
+     <div class="col col-lg-3 col-sm-12 col-xs-12">
+       
+       
+       
+        <div style="height:170px;" class="row">
+          
+            <div  id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
+                         text-align:center;
+                         margin-top:30px;
+                         height:165px;
+                         border-right:solid 5px black;
+                          border-left:solid 5px black;" class="col col-lg-4 col-xs-4">
+          
+         <i style="font-size:60px;
+                   margin-top:50px;color:white;" class="fa fa-trophy" aria-hidden="true"></i>
+
+          </div>
+          
+           <div id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
+                       text-align:center;
+                        margin-top:30px;
+                       height:165px;
+                         border-right:solid 5px black;
+                        border-left:solid 5px black;" class="col col-lg-8 col-xs-8">
+          
+        <p style="margin-top:70px;color:white;"><span style="font-size:100px;font-family: 'Open Sans', sans-serif;">
+          <%=currentUser.ReputationScore%> <span style="font-size:30px;"> xp</span>
+          </span></p>
+          </div>
+          
+        </div>
+       
+       
+         <div class="row">
+          
+       
+          
+           <div style="background-color:<%=currentUser.FavouriteColor%>;
+                       text-align:center;
+                        margin-top:30px;
+                       height:170px;
+                         border-right:solid 5px black;
+                        border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+          
+          <i style="font-size:60px;
+                    color:white;
+                   margin-top:50px;" class="fa fa-users" aria-hidden="true"></i>
+
+          </div>
+          
+        </div>
+       
+       
+       
+       
+       
+       
+       
+       
+        </div>
+     
+     
+     <div id="grid-3"  class="col col-lg-3 col-sm-12 col-xs-12">
+       
+       
+       
+       
+       
+       
+<!--        <div style="margin-top:30px;">
+         
+            <a id="links"  href = '/friendrequest' style="display:inline-block;
+                                                          padding:110px 40px 110px 40px;
+                                                          background-color:green;" > Friend requests</a>
+         
+     <a id="stacke" href = '/FRnotifications' style="display:inline-block;
+                                                     border:solid 1px blue;
+                                                     padding:40px 63px 40px 63px;
+                                                    background-color:blue;
+                                                     font-family: 'Overpass Mono', monospace;" >Find People</a>
+      
+    
+       </div> -->
+      
+ <div style="height:170px;" class="row">
+          
+            <div  id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
+                         text-align:center;
+                         margin-top:30px;
+                         height:65px;
+                         border-right:solid 5px black;
+                          border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+          
+         <h3><span style="color:white;"></span></h3>
+
+          </div>
+          
+           <div style="background-color:<%=currentUser.FavouriteColor%>;
+                       text-align:center;
+                        margin-top:30px;
+                       height:270px;
+                         border-right:solid 5px black;
+                        border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+          
+         <i style="font-size:160px;
+                   margin-top:50px;color:white;" class="fa fa-file-code-o" aria-hidden="true"></i>
+
+          </div>
+          
+        </div>
+       
+       
+       
+     </div>
+     
+     <div id="grid-3"  style="text-align:center;" class="col col-lg-3 col-sm-12 col-xs-12">
+       
+       
+       
+        <div  class="row">
+          
+            <div  id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
+                         text-align:center;
+                         margin-top:30px;
+                         height:167px;
+                         border-right:solid 5px black;
+                          border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+          
+          <i style="font-size:60px;
+                    color:white;
+                   margin-top:50px;" class="fa fa-commenting" aria-hidden="true"></i>
+
+          </div>
+          
+           <div id="last" style="background-color:<%=currentUser.FavouriteColor%>;
+                       text-align:center;
+                        margin-top:30px;
+                       height:167px;
+                        width:250px;
+                         transition: all 180ms ease-in;" class="col col-lg-12 col-xs-12">
+          
+           <i style="font-size:60px;
+                    color:white;
+                   margin-top:50px;" id="icons" class="fa fa-flask" aria-hidden="true"></i>
+
+          </div>
+          
+        </div>
+       
+       
+<!--        <div style="margin-top:30px;">
+         
+            <a id="links"  href = '/friendrequest' style="display:inline-block;
+                                                           padding:80px 40px 80px 40px;
+                                                          background-color:red;" > Friend requests</a>
+     <a id="test"  data-toggle="modal" data-target="#FriendList">Friend list</a>
+      
+    
+       </div> -->
+      
+       
+       
+   <style> 
+     
+     .stackOff{
+       display:inline-block;
+      color:black;
+      border:solid 1px blue;
+      padding:70px 63px 70px 63px;
+      background-color:cyan;
+      cursor:pointer;
+  }
+     
+     .stacked{
+       background-color:#3A004D;
+      text-align:center;
+       width:100px;
+      height:100px;
+      
+      transition: all 180ms ease-in;
+}
+  
+         .stackedOff{
+       background-color:white;
+      text-align:center;
+      height:100px;
+      transition: all 180ms ease-in;
+      z-index:1;
+}
+     
+     .scalein{
+       transform: scale(1.05);
+       border:solid 1px white;
+       transition: all 180ms ease-in;
+     }
+     
+    
+   </style>    
+       
+       <script>
+            
+    $("#last,#icons").hover(function(){
+    $('#last').addClass("scalein");
+    $("#icons").css("color","<%=currentUser.FavouriteColor%>");
+    $('#last').css("background-color","white");
+    })
+
+    $("#last").mouseout(function(){
+    $('#last').removeClass("scalein");
+    $("#icons").css("color","white");
+    $('#last').css("background-color","<%=currentUser.FavouriteColor%>");
+    })
+
+
+               
+       </script>
+       
+       
+       
+       
+       
+       
+<!--     
+         <a id="links" href = '/people'  style="display:inline-block;">Find Friends</a>
+       <a style="cursor: pointer;
+                 display:inline-block;" id="links" data-toggle="modal" data-target="#FriendList" >FriendList</a> -->
+     </div>
+        
+         
+    <style>
+      #Profile{
+        border:solid 1px white;
+        height:400px;
+      }
+       #grid-3{
+       
+        height:400px;        
+      }
+     </style>
+ 
+     
+     
+    
+    
+     
+     
+   
+   
+   
+   
+  
+   
+   
+     
+     
+     
+<!--  *******************************  FriendList modal **********************************************  -->
+    
+   
+       
+     
+     
+     
+     <div class="modal fade" id="FriendList" role="dialog">
+       
+       
+    <div id="FriendListModalDialog" class="modal-dialog">
+      
+      
+    
+      <!-- Modal content-->
+      <div id="FriendListModal" class="modal-content">
+      
+        <div  class="modal-body">
+     <h3>Your Friends</h3>
+          <div class="row">
+             <% currentUser.friends.forEach(function(Friend){ %>
+            <div id="friendSection" class="col col-lg-12">
+              <p>
+          
+             <a id="friendbox"  href="#"><p>
+               <i id="friend" class="fa fa-user" aria-hidden="true"></i><%= Friend.username%> 
+               <a href="/profile/chat/<%= Friend.username%>"><i id="friend" class="fa fa-comment" aria-hidden="true"></i></a></p></a> 
+            
+              </p>
+        
+            </div>
+            <% })  %>
+          </div>
+          
+            
+          
+            
+     
+     
+          
+          
+        </div>
+      </div>
+     </div>
+     </div>
+     
+     
+     <!--  *******************************  FriendList modal **********************************************  -->
+     
+     
+     
+     
+     
+     
+     
+     <!--  *******************************  Notification modal **********************************************  -->
+    
+   
+
+     
+     
+     
+     <div class="modal fade" id="Notification" role="dialog">
+       
+       
+    <div class="modal-dialog">
+      
+      
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+        </div>
+        <div class="modal-body">
+    
+          
+            
+          
+          <h1>Friend Requests</h1>
+     <div id="box1">
+    <% currentUser.friendRequestNotification.forEach(function(request){ %>
+
+<div class="">
+  
+   <div  class="">
+     <p id='username'><span style='color:white;'>You have friend request from
+        <span><%= request.username %></span></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+          
+    <h1>Your Friend Requests</h1>
+<div id="box2">
+  <% currentUser.YourfriendRequestedNotification.forEach(function(request){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+     <p id='username'><span style='color:white;'>You have sent friend request to <span id="notmyname"><%= request.username %></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>  
+          
+          
+     
+     
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+     </div>
+     </div>
+     
+     
+     <!--  *******************************  FriendList modal **********************************************  -->
+     
+     
+     
+     
+   
+     
+
+           
+    
+       
+     
+         
+    
+
+           
+           
+     </div>
+     
+      
+   
+   </div>
+   
+   
+   
+   
+   
+        
+     <% } %>
+   
+   
+   
+   
+<!--   <div class="field">
     <label id="loginhead">Username</label>
     <input id="usernamefield" type="text" name="username" placeholder="Username">
   </div>
   <div class="field">
     <label id="loginhead">Password</label>
     <input id="passwordfield" type="password" name="password" placeholder="Password">
-  </div>
+  </div> -->
   <div class="field">
     
   </div>
- <a class="ui  small  black button" href = '/miniprofile' >Login</a>
- <a class="ui  small  green button" href = '/register' >Sign up</a>
+
 </form>
    
 </div>
@@ -226,6 +941,486 @@
 
 
 
+        
+      </div>
+  
+
+<section id="footer">
+
+<div class= "row">
+  <div class="col col-lg-5 col-sm-0 col-xs-0">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Notification">Notifications</button>
+  </div>
+  
+  <div class="col col-lg-2 col-sm-12 col-xs-12">
+    <div id="copyright">
+        <p><i id="copyrightIcon" class="fa fa-copyright fa-2x" aria-hidden="true"></i>
+     
+          <span id="copyrightText"><strong>All Rights reserved 2018</strong></span></p>
+    </div>
+
+  </div>
+  
+  <div class="col col-lg-5 col-sm-0 col-xs-0"></div>
+  </div>
+  
+  
+  
+  
+</section>
+
+
+
+
+
+<style>
+  
+
+  #temporary{
+/*    border:solid 1px white; */
+    height:500px;
+  }
+  
+  
+  
+  #copyrightText{
+    
+    
+    
+    
+    color:whitesmoke;
+    font-family: 'Overpass Mono', monospace;
+    font-size:15px;
+  }
+  
+  
+  #copyrightIcon{
+     
+    color:whitesmoke;
+  }
+  
+  
+  #copyright{
+    margin-top:50px;
+}
+  
+  .off{
+    font-size:50px;
+    color:#bf02ff;
+  font-family: 'VT323', monospace;
+  }
+  
+ 
+  .on{
+      font-size:50px;
+    color:red;
+  font-family: 'VT323', monospace;
+  }
+  
+  
+    .mainlogo{
+    color:#bf02ff;
+    font-size:60px;
+    background-color:black;
+      border:solid 4px white;
+      box-shadow:2px 2px #bf02ff ;
+    border-radius:7px;
+      font-family: 'Press Start 2P', cursive;
+    padding:3px 3px 3px 3px;
+      text-shadow: 2px 2px whitesmoke;
+      transition: all 180ms ease-in;
+  }
+  
+  .mainlogoOn{
+        color:#bf02ff;
+    font-size:60px;
+    background-color:black;
+      border:solid 4px #bf02ff;
+      box-shadow:2px 2px #bf02ff ;
+    border-radius:7px;
+      font-family: 'Press Start 2P', cursive;
+    padding:3px 3px 3px 3px;
+      text-shadow: 0px 0px whitesmoke;
+    transition: all 180ms ease-in;
+  }
+  
+  .bye{
+        color:red;
+    font-size:60px;
+    background-color:black;
+      border:solid 4px red;
+    border-radius:7px;
+      font-family: 'Press Start 2P', cursive;
+    padding:3px 3px 3px 3px;
+      text-shadow: 0px 0px whitesmoke;
+       transition: all 180ms ease-in;
+  }
+  
+  
+  .heading{
+   font-family: 'Press Start 2P', cursive;
+    color:white;
+    font-size:35px;
+    margin-top:30px;
+     text-shadow: 4px 4px #bf02ff;
+  }
+  
+    .headingMobile{
+   font-family: 'Press Start 2P', cursive;
+    color:white;
+    font-size:35px;
+    margin-top:20px;
+     text-shadow: 4px 4px #bf02ff;
+  }
+  
+     .mainlogoMobile{
+       margin-top:20px;
+    color:#bf02ff;
+    font-size:60px;
+    background-color:black;
+      border:solid 4px white;
+      box-shadow:2px 2px #bf02ff ;
+    border-radius:7px;
+      font-family: 'Press Start 2P', cursive;
+    padding:3px 3px 3px 3px;
+      text-shadow: 2px 2px whitesmoke;
+  }
+ 
+  
+  
+      .dummytext2{
+    font-size:20px;
+    color:black;
+    font-family: 'Overpass Mono', monospace;
+      transition: all 180ms ease-in;
+  }
+  
+  
+       .dummytext2Mobile{
+    font-size:15px;
+    color:black;
+    font-family: 'Overpass Mono', monospace;
+      transition: all 180ms ease-in;
+  }
+  
+    .advice{
+     font-size:20px;
+    color:white;
+     font-family: 'Overpass Mono', monospace;
+        text-align: justify;
+    text-justify: inter-word;
+     text-shadow:2px 2px #bf02ff;
+  }
+  
+   .adviceMobile{
+     font-size:15px;
+    color:white;
+     font-family: 'Overpass Mono', monospace;
+        text-align: justify;
+    text-justify: inter-word;
+     text-shadow:2px 2px #bf02ff;
+  }
+  
+  
+</style>
+
+
+<!--            &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&           &Modal               &&&&&&&&&&     -->
+
+ 
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+  
+  
+      
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+          
+    <form class = "ui form" action = '/login' method = "post">
+    
+
+        
+  <div class="row">
+    
+    <div  id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+    
+        <div id="col" class="col col-lg-10 col-sm-12 col-xs-12">
+       <input id="segment" type = 'text' name = 'username' placeholder = 'Username'>
+    </div>
+
+ <div id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+    
+       </div>
+    
+    <div class="row">
+      
+      
+    <div id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+    
+    <div id="col" class="col col-lg-10 col-sm-12 col-xs-12" >
+       <input id="segment" type = 'password' name = 'password' placeholder = 'Password'>
+    </div>
+    
+    
+       <div id="" class="col col-lg-1 col-sm-0 col-xs-0"></div>
+      
+    </div>
+    
+    
+   
+
+
+ 
+      <div class="row">
+        <div  id="" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        <div  id="" class="col col-lg-6 col-sm-10 col-xs-10">
+          
+           <button  id="button" >Login</button>
+        </div>
+        <div  id="" class="col col-lg-3 col-sm-1 col-xs-1"></div>
+        
+        
+      </div>
+      
+      
+       
+      
+      
+      
+      
+      
+      
+    
+      
+      
+      
+
+</form>
+          
+          
+          
+        
+          <a id="cross" data-dismiss="modal">
+            <i id="cancel" class="fa fa-times-circle-o" aria-hidden="true"></i>
+          </a>
+        
+        
+      </div>  
+      
+      
+      
+   <style>
+     
+     #cross{
+       background-color:black; 
+     }
+     
+     #cancel{
+       background-color:black;
+       color:white;
+       font-size:40px;
+     }
+     
+     .modal-content{
+       
+       border:solid 2px white;
+       background-color:black;
+     }
+     
+     #FriendListModal{
+       border:solid 1px white;
+       background-color:black;
+     }
+     
+       #segment{
+    font-family: 'Press Start 2P', cursive;
+   width:100%;
+      margin-top:20px;
+    height:80px;
+    font-size:20px;
+      border:dashed 5px #bf02ff;
+  }
+  
+       #segment:focus{
+     color:whitesmoke;
+     background-color:#bf02ff;
+     border:dashed 5px #fff;
+  }
+     
+    
+  #button{
+    font-size:20px;
+    font-family: 'Press Start 2P', cursive;
+    margin-top:20px;
+    width:100%;
+   border:dashed 5px whitesmoke;
+    height: 60px;
+    background-color:#bf02ff;
+    color:white;
+    transition: all 180ms ease-in;
+  }
+  
+  #button:hover{
+   
+      border:solid 5px #bf02ff;
+      color:#bf02ff;
+      background-color:black;
+      transition: all 180ms ease-in;
+    } 
+    
+     
+     
+     
+     
+      </style>   
+      
+
+
+
+
+
+
+
+<script>
+  
+  
+  
+  
+  
+  //////////////handling click functions/////////////
+  
+//   $('#login').click(function(){
+//    window.location.href='/login';
+// })
+  
+   $('#getstarted').click(function(){
+   window.location.href='/register';
+})
+  
+  ///////////////////////////////////////////////////
+  
+  
+  
+  
+  
+  
+  
+  
+  /////////Adding all default css classes////////////////
+    $(document).ready(function() {
+    $("#mainlogo").addClass("mainlogo");
+    $("#dummytext1").addClass("off");
+    $("#Heading").addClass("heading");
+    $('#dummytext2').addClass('dummytext2');
+    $("#advice").addClass("advice");
+  })
+  
+  ///////////////////////////////////////////////////////////////
+  
+ 
+  
+  
+  
+  
+  
+  /////////////////////////On Desktop ////////////////////////////
+  if($(window).width() > 767)
+{
+  $("#login").hover(function(){
+    $("#mainlogo").addClass("mainlogoOn");
+    $("#mainlogo").text("oo");
+     $("#login").css({ scale: 1.2 });  
+      
+   })
+  
+
+  
+  
+    $("#getstarted").hover(function(){
+    $("#mainlogo").addClass("mainlogoOn");
+    $("#mainlogo").text("--");
+    $("#getstarted").text("Explore");
+    $("#dummytext2").text("Explore all the features of codeSteak");
+    $("#dummytext1").addClass("on");
+    $("#getstarted").css({ scale:1.3});
+   })
+  
+  
+  
+   $("#logoutButton").hover(function(){
+     $("#mainlogo").addClass("bye");
+     $("#mainlogo").text("xx");
+    })
+  
+  
+  
+  
+  
+  ////////////////////////////////////////////////////////////////
+  
+  
+  
+  
+  
+  
+ ////////////////////On Mobile/////////////////////////////
+} else {
+
+$("#Heading").addClass("headingMobile");
+$("#mainlogo").addClass("mainlogoMobile");
+$('#dummytext2').addClass('dummytext2Mobile');
+ $("#advice").addClass("adviceMobile"); 
+
+}
+ //////////////////////////////////////////////////// 
+  
+  
+  
+  
+   $("#login").mouseout(function(){
+     $("#mainlogo").removeClass("mainlogoOn");
+     $("#mainlogo").addClass("mainlogo");
+      $("#mainlogo").text("ea");
+    $("#login").css({ scale: 1 });
+   })
+  
+  
+  
+
+  
+  
+ 
+    $("#getstarted").mouseout(function(){
+     $("#getstarted").text("GetStarted");
+       $("#mainlogo").removeClass("mainlogoOn");
+     $("#mainlogo").addClass("mainlogo");
+       $("#mainlogo").text("ea");
+      $("#dummytext1").removeClass("on");
+      $("#dummytext1").addClass("off");
+      $("#dummytext2").text(" Welcome to codeSteak")
+    $("#getstarted").css({ scale:[1,1]});
+   })
+ 
+  
+
+  $("#logoutButton").mouseout(function(){
+     $("#mainlogo").removeClass("bye");
+    $("#mainlogo").addClass("mainlogo");
+     $("#mainlogo").text("ea"); 
+  })
+  
+  
+</script>
+
+
+
+
+
+  
+</body>
 
 
 
@@ -236,7 +1431,3 @@
 
 
 
-
-
-
-<% include ../partials/footer %>

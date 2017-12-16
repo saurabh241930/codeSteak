@@ -3,6 +3,7 @@ var  methodOverride = require('method-override'),
            mongoose = require('mongoose'),
             express = require('express'),
               flash = require('connect-flash'),
+        
                Blog = require('./models/blog'),
              Course = require('./models/course'),
              seedDB = require('./seeds'),
@@ -11,7 +12,7 @@ var  methodOverride = require('method-override'),
             Profile = require('./models/profile'),
            passport = require('passport'),
       LocalStrategy = require('passport-local'),
-        
+            
                 app = express();
 
   var commentRoutes = require('./routes/comments'),
@@ -24,8 +25,9 @@ var  methodOverride = require('method-override'),
       complexRoutes = require('./routes/complex');
        
      
-
-
+var multer = require('multer');     
+var path = require('path');
+var fs = require('fs');
 
 //seedDB(); //Seed the database
 
@@ -59,6 +61,7 @@ app.use(function(req,res,next){
 
 
 
+
    //==================================================APP CONFIG=========================================================//
    mongoose.connect('mongodb://localhost/BlackPost', { useMongoClient: true, });
    app.set('view engine','ejs');
@@ -66,6 +69,10 @@ app.use(function(req,res,next){
    app.use(bodyParser.urlencoded({extended:true}));
    app.use(methodOverride('_method'));
   //===================================================APP CONFIG==========================================================//
+
+
+
+
 
 
 

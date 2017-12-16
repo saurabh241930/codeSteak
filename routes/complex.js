@@ -179,6 +179,7 @@ username:req.user.username
        }
        
        founduser.AcceptedfriendRequestedNotification.push(Accept);
+       founduser.ReputationScore = founduser.ReputationScore + 5;
        founduser.save();
        
        res.redirect("back");
@@ -195,7 +196,7 @@ username:req.user.username
 
 
 ///////////////////////////Messaging box//////////////////////////////////////////////
-router.get('/profile/chat/:username/:id',isLoggedIn,function(req,res){
+router.get('/profile/chat/:username',isLoggedIn,function(req,res){
   
   
 User.findOne({username:req.params.username},function(err,founduser){

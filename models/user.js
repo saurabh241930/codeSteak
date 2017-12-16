@@ -9,8 +9,12 @@ var UserSchema = new mongoose.Schema({
 username:String,
 
 password :String,
+  
+FavouriteColor:String,
+  
+ReputationScore:{type:Number,default:1},
 
-ProfileImage:{ data: Buffer, contentType: String },
+ProfileImage:{ type: String, default: "http://cdn.playbuzz.com/cdn/52fa9341-4dfc-46fa-81d8-c64315ab63c4/1773fca9-d977-4369-83e3-e7d36efae092.png" },
 
 
 friends:[{    
@@ -34,7 +38,6 @@ User:String
 
 
 
-  
   
   
   
@@ -118,7 +121,6 @@ ref : "Blog"
 },
 classname: String,
 }],
-
 
 
 
