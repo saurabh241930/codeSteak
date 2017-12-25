@@ -27,7 +27,7 @@ router.get('/register',function(req,res){
 
 //Sign Up logic
 router.post('/register',function(req,res){
-var newUser = new User ({username: req.body.username,FavouriteColor: req.body.FavouriteColor});
+var newUser = new User ({username: req.body.username,FavouriteColor: req.body.FavouriteColor,ThemeColor: req.body.ThemeColor});
 
 
 User.register(newUser,req.body.password,function(err,user){
@@ -111,6 +111,16 @@ router.post('/login',passport.authenticate("local",
 failureRedirect: "/login"
 }),function(req,res){
 
+//   User.findById(req.user._id,function(err,user){
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       user.Visited++;
+//       user.save();
+//     }
+//   })
+  
+  
 });
 
 

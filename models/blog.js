@@ -13,7 +13,7 @@ image :String,
   
 body :String,
   
-Views:Number,
+Views:{type:Number,default:1},
   
 LikedUser:[{
 id:{
@@ -23,6 +23,13 @@ ref : "User"
 username: String
 }], 
 
+ViewedUser:[{
+id:{
+type : mongoose.Schema.Types.ObjectId,
+ref : "User"
+},
+username: String
+}], 
 
 creater:{
 

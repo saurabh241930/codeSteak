@@ -7,20 +7,30 @@ var multer = require('multer');
 var path = require('path');
 var fs = require('fs');
 var imageBase64 = require('image-base64');
-var upload = multer({ dest: 'uploads/' })
+var upload = multer({ dest: 'uploads/' });
+var moment = require('moment');
 
 
 //////////////////////INDEX ROUTE/////////////////////////////
 router.get('/blogs',function(req,res){
 //   console.log(req.user);
-  Blog.find({},function(err,blogs){
+  Blog.find({}).sort({Views: -1}).limit(6).exec(function(err,blogs) {
     if (err) {
       console.log(err);
     } else {
       
-       res.render('blogs/index',{blogs: blogs});
+      User.find({}).sort({ReputationScore: -1}).limit(5).exec(function(err,users) {
+        
+     if (err) {
+      console.log(err);
+    } else {
+     
+      res.render('blogs/index',{blogs:blogs,TopUsers:users});
+      }
+      })
     }
   });
+
 });
 
 //New ROUTE
@@ -68,7 +78,20 @@ router.post('/blogs',isLoggedIn,function(req,res){
       console.log(err);
       //redirect to blog
     } else {
-       res.render('confirm',{blog:newestBlog});
+      
+      User.findById(req.user._id,function(err,user){
+        if (err) {
+          console.log(err);
+        } else {
+           user.ReputationScore = user.ReputationScore + 10;
+           user.save();
+          res.render('confirm',{blog:newestBlog,user:user});
+        }
+      })
+ 
+      
+         
+       
     }
   })
 })
@@ -78,7 +101,7 @@ router.post('/blogs',isLoggedIn,function(req,res){
 
 
 ///////////////////CONFIRM ROUTE//////////////////////////////////
-router.post('/blogs/new/confirm/:id',isLoggedIn,function(req,res){
+router.post('/blogs/new/confirm/:id/:username',isLoggedIn,function(req,res){
 
   
   
@@ -101,11 +124,36 @@ router.post('/blogs/new/confirm/:id',isLoggedIn,function(req,res){
          
            user.createdProjects.push(Created);
            user.save();
-           res.redirect('/blogs/' + blog._id);
-        }
- })
-    }
-    })
+          
+            
+var AllHisFriends = user.friends.map(FriendList => FriendList.username);
+
+
+AllHisFriends.forEach(function(friendUsername){
+  
+User.findOne({username:friendUsername},function(err,friend){
+if (err) {
+console.log(err);
+} else {
+ var message = {
+title:blog.title,
+username:req.params.username
+}
+
+friend.ProjectCreatedByFriends.push(message);
+friend.save();
+}
+
+})
+})
+
+
+
+res.redirect('/blogs/' + blog._id);
+}
+})
+}
+})
 })
 
 
@@ -119,15 +167,53 @@ router.post('/blogs/new/confirm/:id',isLoggedIn,function(req,res){
 
 
 /////////////////////////SHOW ROUTE///////////////////////////////
-router.get('/blogs/:id/',function(req,res){
+router.get('/blogs/:id/',isLoggedIn,function(req,res){
  Blog.findById(req.params.id).populate("comments").exec(function(err,foundBlog){
    if (err) {
     console.log(err);
   } else {
+      //Icreasing views
+    foundBlog.Views++;
+    foundBlog.save();
     
-    //Icreasing views
     
-      foundBlog.Views++;
+    
+    
+    User.findById(req.user._id,function(err,user){
+      if (err) {
+        console.log(err);
+      } else {
+        user.TotalProjectViewed++;
+
+        
+        //preventing duplication
+        
+    if(foundBlog.ViewedUser.some((user) => user.id.toString() === req.user._id.toString())) {   
+         
+      console.log("You are on the list");
+    
+      }
+        
+        else{
+             var DetailOfUserWhoViewedThisProject = {
+           id:req.user._id,
+           username:req.user.username
+            }
+        foundBlog.ViewedUser.push(DetailOfUserWhoViewedThisProject);
+        foundBlog.save();
+        }
+     
+              }
+            })
+
+    
+    
+    
+  
+    
+  
+    
+   
     
     res.render('blogs/show',{blog:foundBlog});
   }
@@ -181,16 +267,16 @@ router.delete('/blogs/:id',checkBlogOwnership,function(req,res){
 
 
 
-// router.post('/blogs/run/preview',function(req,res){
+router.post('/blogs/:id/run/',function(req,res){
 
-//  var html = req.body.html;
-//  var css = req.body.css;
-//  var javascript = req.body.javascript;
+ var html = req.body.html;
+ var css = req.body.css;
+ var javascript = req.body.javascript;
 
-//  res.render('preview',{html,css,javascript});
+ res.render('run',{html,css,javascript});
 
   
-// })
+})
 
 
 

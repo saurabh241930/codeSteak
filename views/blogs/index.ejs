@@ -34,9 +34,6 @@
   }
   
  
-  
-
-
 #usernamefield,#passwordfield{
   width:90%;
 }
@@ -59,9 +56,11 @@
 
  #profileImage{
     display:inline-block;
-    height:200px;
-    width:200px;
-    border:solid 4px purple;
+    height:170px;
+    width:170px;
+   <%if(currentUser){%>
+   
+   <%}%>
     background-color:whitesmoke;
   }
   
@@ -127,16 +126,8 @@
         border-top:dashed 10px black; 
   }
   
-/*   #dummytext1{
-    font-size:50px;
-    color:#bf02ff;
-  font-family: 'VT323', monospace;
-   
-  } */
-  
-  
 
-  
+ 
 
   #login{
         margin-left:20px ;
@@ -191,15 +182,6 @@
   }
   
   
-/*     #username{
-        width:100%;
-        font-family: 'VT323', monospace;
-        font-size:30px;
-        color:white;
-        background-color:#bf02ff;
-        border:dashed 3px whitesmoke;
-         
-  } */
   
     #usernameButton{
         width:100%;
@@ -252,8 +234,6 @@
   
   #footer{
     height:500px;
-    -moz-height:150px;
-    -webkit-height:120px;
     background-color:#bf02ff;  
   }
   
@@ -273,8 +253,7 @@
   #logoHeading{
     padding-top:16px;
     padding-bottom:15px;
-    background-color:rgba(191, 2, 255, 0.3);
-  
+    background-color:#bf02ff;
   }
 
   #logoutButton{
@@ -297,7 +276,40 @@
     <body id="background">
   
   
-  
+      
+      
+                                                <!--   After login -->
+      <% if(currentUser){ %>
+      
+      <style>
+        #footer{
+          background-color:<%=currentUser.FavouriteColor%>;
+        }
+        
+        #background{
+          background-color:<%=currentUser.ThemeColor%>
+        }
+        
+         #Heading{
+            font-family: 'Press Start 2P', cursive;
+            color:<%=currentUser.ThemeColor%>;
+            font-size:35px;
+            margin-top:30px;
+            text-shadow: 4px 4px <%=currentUser.FavouriteColor%>;
+            }
+
+        #logoHeading{
+             background-color:<%=currentUser.FavouriteColor%>;
+        }     
+        
+        
+      </style>
+      
+  <%}%>
+      
+      
+      
+                                                          <!--  After login -->
       
       <div> 
         
@@ -310,7 +322,7 @@
           
           <div  class="col col-lg-4  col-xs-12">
         
-        <h1 id="Heading" >CodeSt<span id="mainlogo">ea</span>k</h1>
+        <h1 id="Heading" >CodeSt<span id="mainlogo" data-toggle="tooltip" data-placement="bottom" title="Hi!">ea</span>k</h1>
 
          </div>
           
@@ -321,7 +333,7 @@
                 margin-right:20px;
                 margin-top:10px;
                 color:white;
-                font-family: 'VT323', monospace;
+                font-family: 'Open Sans', sans-serif;
                 font-size:30px;"> <a id="logoutButton" href = "/logout" class = "item">Logout</a>
                 <%= currentUser.username %></span></p>
               
@@ -331,27 +343,8 @@
            </div>
 
 
-
-
-
-
-
-
-
-  
-
-
-
    
   
-   
-   
-   
- <form class="ui form">
-   
-   
-
-   
    
      <% if(!currentUser){ %>
         
@@ -401,23 +394,14 @@
      
      
  
-   
-
+  
    
      <% } else{ %>
    
    
    
    
-   
-   
-    
-   
-   
-   
    <div class = "row">
-   
-   
    
      
     <div class="col col-lg-3 col-sm-12 col-xs-12">
@@ -425,55 +409,71 @@
       <div class="row">
         
         
-        <div  id="stack" class="col col-lg-8 col-sm-12 col-xs-12" style="height:210px;border:solid ">
-           <img  src="<%= currentUser.ProfileImage %>" id="profileImage">
-        </div>
-         
-        <div class="col col-lg-4 col-sm-0 col-xs-0" style="height:210px;border:solid"></div>
-<!--       
-       <span class="fa-stack fa-3x">
-    <i id="trophy" class="fa fa-trophy fa-stack-2x"></i>
-      <span class="fa fa-stack-1x" style="color:white;">
-          <span style="font-size:26px;
-                       margin-top:-7px;
-                       margin-left:8px;
-                       display:block;
-                       color:black">
-              <strong></strong><br>
-            <span style="font-size:12px;
-                         color:white;
-                          margin-top:-35px;
-                       margin-left:2px;
-                       display:block;"><strong>xp</strong></span> 
-          </span>
         
-    </span>
-</span>	 -->
-       
-        <div class="row">
-          
+<!--      ProfileImage   -->
+        
+        <div class="col col-lg-0 col-xs-3"></div>
+        <div  id="stack" class="col col-lg-12 col-sm-12 col-xs-6" style="margin-top:30px;">
+           <img style=""  src="<%= currentUser.ProfileImage %>" id="profileImage">
+        </div>
+        <div class="col col-lg-0 col-xs-3"></div>
+         
+ <!--     ProfileImage     -->
+
+        
+        
+       <div >
+         
+         
             <div  id="first" style="background-color:<%=currentUser.FavouriteColor%>;
                          text-align:center;
-                         height:150px;
-                         border-right:solid 5px black;" class="col col-lg-6 col-xs-6">
+                         margin-top:15px;
+                         height:60px;
+                         border-right:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-12 col-xs-12">
           
-           <i id="" style="font-size:60px;
-                    color:white;
-                   margin-top:50px;" class="fa fa-id-card" aria-hidden="true"></i>
+          
 
           </div>
           
-           <div  id="" style="background-color:<%=currentUser.FavouriteColor%>;
+         <div style="" class="col col-lg-2 col-xs-0"></div>
+          
+          <div class="col col-lg-4 col-xs-5"  style="background-color:<%=currentUser.FavouriteColor%>;
                          text-align:center;
                          height:100px;
-                         width:100px;
-                         border-right:solid 5px black;" class="col col-lg-6 col-xs-6">
-          
-         <a href="#"><span style="color:white;"></span></a>
-
+                         margin-top:20px">
+            <a><span style="color:<%=currentUser.ThemeColor%>;
+                                  font-size:50px;"><i style="margin-top:25px;"
+                                                      class="fa fa-bell" 
+                                                      aria-hidden="true"
+                                                       data-toggle="modal" data-target="#Notification" ></i></span></a>
           </div>
+          <div class="col col-lg-1 col-xs-2"></div>
           
+      <div class="col col-lg-4 col-xs-5"  style="background-color:<%=currentUser.FavouriteColor%>;
+                         text-align:center;
+                         height:100px;
+                         margin-top:20px">
+            <a><span style="">
+              <i style="margin-top:25px;font-size:50px;
+                        color:<%=currentUser.ThemeColor%>;"
+                        class="fa fa-commenting" 
+                        aria-hidden="true"
+                        data-toggle="modal" data-target="#Notification" ></i></span></a>
+</div>
+
+         <div class="col col-lg-2 col-xs-0"></div>
+         
+         
+         
+         
         </div>
+        
+          
+         
+          
+        
+          
+       
       
           
            
@@ -503,11 +503,11 @@
                          text-align:center;
                          margin-top:30px;
                          height:165px;
-                         border-right:solid 5px black;
-                          border-left:solid 5px black;" class="col col-lg-4 col-xs-4">
+                         border-right:solid 5px <%=currentUser.ThemeColor%>;
+                          border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-4 col-xs-4">
           
-         <i style="font-size:60px;
-                   margin-top:50px;color:white;" class="fa fa-trophy" aria-hidden="true"></i>
+         <i style="font-size:100px;
+                   margin-top:30px;color:<%=currentUser.ThemeColor%>;" class="fa fa-bolt" aria-hidden="true"></i>
 
           </div>
           
@@ -515,10 +515,11 @@
                        text-align:center;
                         margin-top:30px;
                        height:165px;
-                         border-right:solid 5px black;
-                        border-left:solid 5px black;" class="col col-lg-8 col-xs-8">
+                         border-right:solid 5px <%=currentUser.ThemeColor%>;
+                        border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-8 col-xs-8">
           
-        <p style="margin-top:70px;color:white;"><span style="font-size:100px;font-family: 'Open Sans', sans-serif;">
+        <p style="margin-top:70px;color:<%=currentUser.ThemeColor%>;"><span style="font-size:80px;
+          font-family: 'Open Sans', sans-serif;">
           <%=currentUser.ReputationScore%> <span style="font-size:30px;"> xp</span>
           </span></p>
           </div>
@@ -534,11 +535,11 @@
                        text-align:center;
                         margin-top:30px;
                        height:170px;
-                         border-right:solid 5px black;
-                        border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+                         border-right:solid 5px <%=currentUser.ThemeColor%>;
+                        border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-12 col-xs-12">
           
-          <i style="font-size:60px;
-                    color:white;
+          <i data-toggle="modal" data-target="#FriendList" style="font-size:60px;
+                    color:<%=currentUser.ThemeColor%>;
                    margin-top:50px;" class="fa fa-users" aria-hidden="true"></i>
 
           </div>
@@ -577,32 +578,31 @@
     
        </div> -->
       
- <div style="height:170px;" class="row">
+ <div style="" class="row">
           
-            <div  id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
-                         text-align:center;
-                         margin-top:30px;
-                         height:65px;
-                         border-right:solid 5px black;
-                          border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+         
           
-         <h3><span style="color:white;"></span></h3>
-
-          </div>
-          
-           <div style="background-color:<%=currentUser.FavouriteColor%>;
+           <div id="" style="background-color:<%=currentUser.ThemeColor%>;
                        text-align:center;
-                        margin-top:30px;
-                       height:270px;
-                         border-right:solid 5px black;
-                        border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
+                        margin-top:70px;
+                       height:400px;
+                        width:100%;
+                         border-right:solid 5px <%=currentUser.ThemeColor%>;
+                        border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-12 col-xs-12">
           
-         <i style="font-size:160px;
-                   margin-top:50px;color:white;" class="fa fa-file-code-o" aria-hidden="true"></i>
+         <i id="" style="font-size:150px;
+                   margin-top:10px;
+                  color:<%=currentUser.FavouriteColor%>;
+                   border:solid 1px <%=currentUser.FavouriteColor%>;
+                    padding: 60px 60px 60px 60px;"  class="fa fa-file-code-o" aria-hidden="true"></i>
+             <div style="margin-top:20px;">
+               <p><span style ="font-size:38px;font-family: 'Open Sans', sans-serif;
+                 color:<%=currentUser.FavouriteColor%>;">Create Project</span></p>
+             </div>
+              </div>
 
           </div>
-          
-        </div>
+   
        
        
        
@@ -614,29 +614,18 @@
        
         <div  class="row">
           
-            <div  id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
-                         text-align:center;
-                         margin-top:30px;
-                         height:167px;
-                         border-right:solid 5px black;
-                          border-left:solid 5px black;" class="col col-lg-12 col-xs-12">
-          
-          <i style="font-size:60px;
-                    color:white;
-                   margin-top:50px;" class="fa fa-commenting" aria-hidden="true"></i>
-
-          </div>
-          
+       
+      
            <div id="last" style="background-color:<%=currentUser.FavouriteColor%>;
                        text-align:center;
                         margin-top:30px;
-                       height:167px;
-                        width:250px;
+                       height:367px;
+                      
                          transition: all 180ms ease-in;" class="col col-lg-12 col-xs-12">
           
-           <i style="font-size:60px;
-                    color:white;
-                   margin-top:50px;" id="icons" class="fa fa-flask" aria-hidden="true"></i>
+           <i style="font-size:160px;
+                    color:<%=currentUser.ThemeColor%>;
+                   margin-top:100px;" id="iconFlask" class="fa fa-flask" aria-hidden="true"></i>
 
           </div>
           
@@ -657,58 +646,37 @@
        
    <style> 
      
-     .stackOff{
-       display:inline-block;
-      color:black;
-      border:solid 1px blue;
-      padding:70px 63px 70px 63px;
-      background-color:cyan;
-      cursor:pointer;
-  }
-     
-     .stacked{
-       background-color:#3A004D;
-      text-align:center;
-       width:100px;
-      height:100px;
-      
-      transition: all 180ms ease-in;
-}
-  
-         .stackedOff{
-       background-color:white;
-      text-align:center;
-      height:100px;
-      transition: all 180ms ease-in;
-      z-index:1;
-}
-     
+ 
+    
      .scalein{
        transform: scale(1.05);
-       border:solid 1px white;
+       border:solid 5px <%=currentUser.ThemeColor%>;
        transition: all 180ms ease-in;
      }
      
     
    </style>    
        
-       <script>
-            
-    $("#last,#icons").hover(function(){
+    <script>
+         
+         
+   ///   1
+    $("#last,#iconFlask").hover(function(){
+    $("#iconFlask").css("transform","scale(1.1)");
     $('#last').addClass("scalein");
-    $("#icons").css("color","<%=currentUser.FavouriteColor%>");
-    $('#last').css("background-color","white");
+    $("#iconFlask").css("color","<%=currentUser.FavouriteColor%>");
+    $('#last').css("background-color","<%=currentUser.ThemeColor%>");
     })
 
     $("#last").mouseout(function(){
     $('#last').removeClass("scalein");
-    $("#icons").css("color","white");
+    $("#iconFlask").css("color","<%=currentUser.ThemeColor%>");
+    $("#iconFlask").css("transform","scale(1)");
     $('#last').css("background-color","<%=currentUser.FavouriteColor%>");
+    
     })
-
-
-               
-       </script>
+     
+    </script>
        
        
        
@@ -728,7 +696,6 @@
         height:400px;
       }
        #grid-3{
-       
         height:400px;        
       }
      </style>
@@ -876,19 +843,195 @@
      </div>
      
      
-     <!--  *******************************  FriendList modal **********************************************  -->
+     <!--  *******************************  Notification modal **********************************************  -->
      
      
+<!--  ***********************************  Friends ************************************  -->
      
+<!-- |||||||||||||||||||||||||||||  Suggestions |||||||||||||||||||||||||||||||||||  -->
      
-   
-     
+     <div class="row">
+       
+   <%if(currentUser.friends.length === 0 ){%>
 
-           
+       <div class="col col-lg-12 col-sm-12 col-xs-12" style="text-align:center;
+                                                             height:250px;
+                                                             background-color:green;
+                                                             margin-top:60px;">
+           <p style="margin-top:30px;"><span style="font-size:20px;
+                          color:white;
+                          font-family: 'Open Sans', sans-serif;
+                          
+                          "><%=currentUser.username%>, you dont have any friends</span></p>
+         
+         <p><i style="color:white;font-size:90px;" class="fa fa-user-plus" aria-hidden="true"></i></p>
+         <div style="margin-top:50px;">
+            <a href="/people"  ><span style="color:green;font-size:30px;
+                                        font-family: 'Open Sans', sans-serif;
+                                        background-color:white;
+                                        padding:5px 5px 5px 5px;
+                                        border-radius:5px;
+                                       "> Add Friends</span></a>
+         </div>
+            
+       </div>
+   
     
        
-     
+     <%}%>
+       
+       
+       
+       
+       
+       
+       
+      
+       
+       
+       
+        <%if(currentUser.ProjectCreatedByFriends.length === 0 ){%>
+
+       <div class="col col-lg-12 col-sm-12 col-xs-12" style="text-align:center;
+                                                             height:120px;
+                                                             background-color:#2d2d2d;
+                                                             margin-top:0px;">
+           <p style="margin-top:50px;"><span style="font-size:14px;
+                          color:white;
+                          font-family: 'Open Sans', sans-serif;
+                          
+                          ">Projects created by your friends will appear here</span></p>
          
+      
+         </div>
+            
+       </div>
+   
+    
+       
+     <%}%> 
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+     </div>
+     
+     
+  
+     
+     
+<!-- |||||||||||||||||||||||||||||  Suggestions |||||||||||||||||||||||||||||||||||  -->
+     
+   
+<!--  ***************************************************** Projects ************************************************  -->
+
+     
+    <div style="margin-top:100px;" class="row">
+      <div style="text-align:center;"><h1>Popular</h1></div>
+      
+      <div  class="col col-lg-12 col-sm-12 col-xs-12" style="">
+        <%blogs.forEach(function (blog){%>
+        <div class="col col-lg-4 col-sm-12 col-xs-12" style="  border:solid 1px <%=currentUser.FavouriteColor%>;margin-top:10px;"> 
+          <div style="background-color:<%=currentUser.FavouriteColor%>;
+                  height:196px;" 
+             class="col col-lg-12">
+            <div style="text-align:center;"> 
+              <p style="font-size:40px;
+                        font-family: 'Open Sans', sans-serif;
+                        color:<%=currentUser.ThemeColor%>;
+                        "><%= blog.title  %></p>
+              <a  href = '/blogs/<%=blog._id %>' style="font-size:40px;color:red;" >More</a>
+            </div>
+         
+          
+        </div>
+        
+        
+        <div style="background-color:<%=currentUser.ThemeColor%>;"
+             class="col col-lg-12"><h4 style="color:<%=currentUser.FavouriteColor%>;">Created by <%= blog.creater.username  %></h4>
+            <div> <p style="font-size:25px;color:<%=currentUser.FavouriteColor%>;"> <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></p></div>
+          </div></div>
+        
+   
+        <%})%>
+      </div>
+      
+    </div>
+        
+        
+  <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Made by you</h1></div>      
+        
+<!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
+        
+        
+         <%if(currentUser.createdProjects.length === 0 ){%>
+
+       <div class="col col-lg-12 col-sm-12 col-xs-12" style="text-align:center;
+                                                             height:300px;
+                                                             background-color:#BF02FF;
+                                                             margin-top:0px;">
+           <p style="margin-top:30px;"><span style="font-size:22px;
+                          color:white;
+                          font-family: 'Open Sans', sans-serif;
+                          
+                          "><span style="color:white;font-size:15px;margin-bottom:20px;">You haven't created any projects</span><br>
+             Create your first project now</span></p>
+         
+         <p><i style="color:white;font-size:90px;" class="fa fa-code" aria-hidden="true"></i></p>
+         <div style="margin-top:50px;">
+            <a href="/blogs/new"  ><span style="color:#BF02FF;font-size:30px;
+                                        font-family: 'Open Sans', sans-serif;
+                                        background-color:white;
+                                        padding:5px 5px 5px 5px;
+                                        border-radius:5px;
+                                       ">Start Workspace</span></a>
+         </div> 
+       </div>
+     <%}%>     
+    
+  <!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
+     
+<!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
+        
+        
+        <%currentUser.createdProjects.forEach(function(blog){%>
+                                              
+        <h1><%=blog.classname%></h1>
+        
+        
+         <%})%>
+        
+        
+        
+        
+<!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
+        
+        
+        
+        
+        
+        
+        
+<!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
+        
+   <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Top Developers</h1></div>        
+<%TopUsers.forEach(function(user){%>
+        <p><%=user.username%></p>
+        <p><%=user.ReputationScore%></p>
+        <%})%>        
+        
+        
+<!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
     
 
            
@@ -906,22 +1049,9 @@
         
      <% } %>
    
-   
-   
-   
-<!--   <div class="field">
-    <label id="loginhead">Username</label>
-    <input id="usernamefield" type="text" name="username" placeholder="Username">
-  </div>
-  <div class="field">
-    <label id="loginhead">Password</label>
-    <input id="passwordfield" type="password" name="password" placeholder="Password">
-  </div> -->
-  <div class="field">
-    
-  </div>
 
-</form>
+
+
    
 </div>
 
@@ -945,7 +1075,7 @@
       </div>
   
 
-<section id="footer">
+<!-- <section id="footer">
 
 <div class= "row">
   <div class="col col-lg-5 col-sm-0 col-xs-0">
@@ -967,7 +1097,7 @@
   
   
   
-</section>
+</section> -->
 
 
 
@@ -1230,11 +1360,15 @@
        background-color:black;
      }
      
+     <%if(currentUser){%>
+     
      #FriendListModal{
        border:solid 1px white;
-       background-color:black;
+       color:<%=currentUser.FavouriteColor%>;
+       background-color:<%=currentUser.ThemeColor%>;
      }
-     
+     <% } %>
+       
        #segment{
     font-family: 'Press Start 2P', cursive;
    width:100%;

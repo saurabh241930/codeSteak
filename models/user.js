@@ -12,15 +12,25 @@ password :String,
   
 FavouriteColor:String,
   
+ThemeColor:String,
+  
 ReputationScore:{type:Number,default:1},
+  
+TotalProjectViewed:{type:Number,default:0},
+  
+Visited:{type:Number,default:1},
 
-ProfileImage:{ type: String, default: "http://cdn.playbuzz.com/cdn/52fa9341-4dfc-46fa-81d8-c64315ab63c4/1773fca9-d977-4369-83e3-e7d36efae092.png" },
+ProfileImage:{ type: String, default: "https://mybluerobot.com/wp-content/plugins/svg-avatars-generator/data/temp-avatars/svgA7705990811968029.png" },
 
 
 friends:[{    
 username: String
 }],
 
+ProjectCreatedByFriends:[{
+title:String,
+username:String
+}],
 
 messages:[{
 id:{

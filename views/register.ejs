@@ -5,6 +5,7 @@
 <html>
   <head>
    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -344,10 +345,10 @@
   
       
       
-      <div class="modal-content">
+      <div class="modal-content" style="background-color:#2d2d2d;">
         <div class="modal-header">
             <a id="cross" data-dismiss="modal">
-            <i id="cancel" class="fa fa-times-circle-o" aria-hidden="true"></i>
+            <i style="background-color:#2d2d2d;"id="cancel" class="fa fa-times-circle-o" aria-hidden="true"></i>
           </a>
         
            <form  action = '/register' method = "post">
@@ -375,12 +376,80 @@
        <input id="segment" type = 'password' name = 'password' placeholder = 'Password'>
     </div>
         
+                                        <!--      minimap  -->
+        
+        
+        <div  style="height:300px;margin-top:30px;" class = "col col-lg-12 col-sm-12 col-xs-12">
+          
+          <div class="row">
+            
+            <div class="col col-lg-4"></div>
+            <div id="mBackground"  style="border:solid 1px white;height:300px;"class="col col-lg-4">
+              
+              <div style="height:50px;margin-top:20px;" class="row"> 
+                
+                 <div id="mStack1" style="height:50px;border:solid 1px white;" class="col col-lg-2"></div>
+                
+                <div class="col col-lg-1"></div>
+                
+                <div id="mStack2" style="height:50px;border:solid 1px white;" class="col col-lg-3"></div>
+                
+                 <div  class="col col-lg-1"></div>
+                
+                <div id="mStack3" style="height:50px;border:solid 1px white;" class="col col-lg-2"></div>
+                
+                 <div  class="col col-lg-1"></div>
+              </div>
+              
+              
+                <div style="height:30px;margin-top:20px;" class="row"> 
+                  
+                <div class="col col-lg-1"></div>
+                  
+                 <div id="mStack4" style="height:30px;border:solid 1px white;" class="col col-lg-2"></div>
+                
+                <div class="col col-lg-1"></div>
+                
+                <div id="mStack5" style="height:30px;border:solid 1px white;" class="col col-lg-4"></div>
+                
+                 <div  class="col col-lg-4"></div>
+                
+              </div>
+              
+                   <div style="height:80px;margin-top:20px;" class="row"> 
+                  
+                <div class="col col-lg-1"></div>
+                  
+                 <div id="mStack6" style="height:80px;border:solid 1px white;" class="col col-lg-6"></div>
+                
+                <div class="col col-lg-1"></div>
+                
+                <div id="mStack7" style="height:80px;border:solid 1px white;" class="col col-lg-1"></div>
+               
+                 <div class="col col-lg-1"></div>
+                
+              </div>
+              
+            </div>
+            <div class="col col-lg-4"></div>
+            
+            
+          </div>
+          
+          
+          
+          
+        </div>
+        
+                                 <!--      minimap -->
+        
         <div style="" class = "col col-lg-12 col-sm-12 col-xs-12">
        <label>Choose a Color</label>
        <textarea id="colorField" style="width:50%;
+                                        color:#2d2d2d;
                                         text-align:center;
-                                        background-color:black;
-                                        border:solid 1px black;
+                                         background-color:#2d2d2d;
+                                        border:solid 1px #2d2d2d;
                                         margin-left:20px;
                                         margin-right:20px;" type = 'text' name = 'FavouriteColor' rows="1" readonly></textarea>
     </div>
@@ -393,28 +462,24 @@
           
 <div id="redChoice" style="height:60px;
                            width:60px;
-                           background-color:#263238;
+                           background-color:#A5F701;
                            border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
 
 <div id="blueChoice" style="height:60px;
                             width:60px;
-                            background-color:#311B92;
+                            background-color:#BF02FF;
                             border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
 
 <div id="yellowChoice" style="height:60px;
                               width:60px;
-                              background-color:#0D47A1;
+                              background-color:#00A5F7;
                               border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
 
 <div id="greenChoice" style="height:60px;
                              width:60px;
-                             background-color:#1B5E20;
+                             background-color:white;
                              border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
 
-<div id="yellowChoice" style="height:60px;
-                              width:60px;
-                              background-color:#0D47A1;
-                              border-radius:30px;" class="col col-lg-2 col-xs-12"></div>
 
           
           
@@ -424,6 +489,54 @@
         </div>
         
      <div class="col col-lg-2 col-xs-0"></div>
+        
+        
+         <div class="col col-lg-12 col-xs-12">
+            <label>Choose a Theme Color</label>
+       <textarea id="ThemecolorField" style="width:50%;
+                                        color:#2d2d2d;
+                                        text-align:center;
+                                        background-color:#2d2d2d;
+                                        border:solid 1px #2d2d2d;
+                                        margin-left:20px;
+                                        margin-right:20px;" type = 'text' name = 'ThemeColor' rows="1" readonly></textarea>
+        </div>
+        
+              
+        
+        
+        
+        
+         <div class="col col-lg-2 col-xs-0"></div>
+        
+        <div style="  " class="col col-lg-8 col-xs-12">
+          
+          
+          
+<div id="darkChoice" style="height:30px;
+                           text-align:center;
+                           width:100px;
+                            color:white;
+                           background-color:black;
+                           border-radius:30px; " class="col col-lg-2 col-xs-12"><span style="font-size:20px;margin-top:15px;">Dark</span></div>
+
+<div id="lightChoice" style="height:30px;
+                            text-align:center;
+                            color:black;
+                            width:100px;
+                            background-color:white;
+                            border-radius:30px;" class="col col-lg-2 col-xs-12"><span style="font-size:20px;margin-top:15px;">Light</span></div>
+
+          
+        </div>
+        
+     <div class="col col-lg-2 col-xs-0"></div>
+       
+        
+        
+        
+        
+        
         
       </div>
       
@@ -451,6 +564,11 @@
          border:dashed 5px white;
        
         }
+        .SelectedTheme{
+         border:dashed 5px red;
+        }
+       
+      
      </style>     
         
         
@@ -461,37 +579,116 @@
           
           
           $("#redChoice").click(function(){
-          $("#colorField").text("#263238");
+          $("#colorField").text("#A5F701");
+
+          $("#mStack1").css("background-color","#A5F701");
+          $("#mStack2").css("background-color","#A5F701");
+          $("#mStack3").css("background-color","#A5F701");
+          $("#mStack4").css("background-color","#A5F701");
+          $("#mStack5").css("background-color","#A5F701");
+          $("#mStack6").css("background-color","#A5F701");
+          $("#mStack7").css("background-color","#A5F701");
+          
+            
           $("#redChoice").toggleClass("Selected");
           $("#blueChoice").removeClass("Selected");
           $("#yellowChoice").removeClass("Selected");
           $("#greenChoice").removeClass("Selected");
           })
 
+          
+          
+          
+          
           $("#blueChoice").click(function(){
-          $("#colorField").text("#311B92");
+          $("#colorField").text("#BF02FF");
+            
+            
+          $("#mStack1").css("background-color","#BF02FF");
+          $("#mStack2").css("background-color","#BF02FF");
+          $("#mStack3").css("background-color","#BF02FF");
+          $("#mStack4").css("background-color","#BF02FF");
+          $("#mStack5").css("background-color","#BF02FF");
+          $("#mStack6").css("background-color","#BF02FF");
+          $("#mStack7").css("background-color","#BF02FF");
+            
+            
+            
           $("#blueChoice").toggleClass("Selected");
           $("#redChoice").removeClass("Selected");
           $("#yellowChoice").removeClass("Selected");
           $("#greenChoice").removeClass("Selected");
           })
 
+          
+          
+          
           $("#yellowChoice").click(function(){
-          $("#colorField").text("#0D47A1");
+          $("#colorField").text("#00A5F7");
+          
+          $("#mStack1").css("background-color","#00A5F7");
+          $("#mStack2").css("background-color","#00A5F7");
+          $("#mStack3").css("background-color","#00A5F7");
+          $("#mStack4").css("background-color","#00A5F7");
+          $("#mStack5").css("background-color","#00A5F7");
+          $("#mStack6").css("background-color","#00A5F7");
+          $("#mStack7").css("background-color","#00A5F7");  
+            
           $("#yellowChoice").toggleClass("Selected");
           $("#blueChoice").removeClass("Selected");
           $("#redChoice").removeClass("Selected");
           $("#greenChoice").removeClass("Selected");
           })
 
+          
+          
+          
           $("#greenChoice").click(function(){
-          $("#colorField").text("#1B5E20");
+          $("#colorField").text("white");
+            
+          $("#mStack1").css("background-color","white");
+          $("#mStack2").css("background-color","white");
+          $("#mStack3").css("background-color","white");
+          $("#mStack4").css("background-color","white");
+          $("#mStack5").css("background-color","white");
+          $("#mStack6").css("background-color","white");
+          $("#mStack7").css("background-color","white");  
+            
           $("#greenChoice").toggleClass("Selected");
           $("#blueChoice").removeClass("Selected");
           $("#yellowChoice").removeClass("Selected");
           $("#redChoice").removeClass("Selected");
           })
+          
+          $("#darkChoice").click(function(){
+          $("#ThemecolorField").text("black");
+          $("#mBackground").css("background-color","black");
+            
+          $("#mStack1").css("border","solid 0px white");
+          $("#mStack2").css("border","solid 0px white");
+          $("#mStack3").css("border","solid 0px white");
+          $("#mStack4").css("border","solid 0px white");
+          $("#mStack5").css("border","solid 0px white");
+          $("#mStack6").css("border","solid 0px white");
+          $("#mStack7").css("border","solid 0px white");
+          $("#mBackground").css("border","solid 1px white");
+            
+          $("#darkChoice").toggleClass("SelectedTheme");
+          $("#lightChoice").removeClass("SelectedTheme");
+          })
 
+          $("#lightChoice").click(function(){
+          $("#ThemecolorField").text("white");
+            $("#mBackground").css("background-color","white"); 
+          $("#lightChoice").toggleClass("SelectedTheme");
+          $("#darkChoice").removeClass("SelectedTheme");
+          })
+
+
+          
+          
+          
+          
         </script>
         
         

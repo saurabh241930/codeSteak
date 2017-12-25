@@ -55,9 +55,8 @@ router.post('/blogs/:id/like',isLoggedIn,function(req,res){
           
           
           secondaryUser.BlogLikedNotification.push(Notification);
-          secondaryUser.save();
           secondaryUser.ReputationScore = secondaryUser.ReputationScore + 5;
-          
+          secondaryUser.save();
           
           
           res.redirect('/blogs/' + blog._id);

@@ -17,7 +17,8 @@ var flash = require('connect-flash');
 
 /////////////////////finding people/////////////////
 router.get('/people', isLoggedIn,function(req,res){
-User.find({}, function(err, users) {
+// User.find({}, function(err, users) {
+User.find({}).sort({username: 1}).exec(function(err,users) {
 if (err){ 
 throw err;
 } else {

@@ -1,6 +1,6 @@
 
-
 <% include ../partials/header %>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700" rel="stylesheet">
 
 <style>
    #labels{
@@ -20,6 +20,7 @@
     color:#cecccc;
     box-shadow: 3px 3px 3px black;
     height:400px;
+    
     
   }
   
@@ -105,7 +106,7 @@
 </style>
 
  <div id="project" class= "container">
-    <form class = "ui form" action="/blogs/run" method = "POST"> 
+    <form class = "ui form" action="/blogs/<%=blog._id%>/run" method = "POST"> 
       <div class="ui grid">
  
   <div class="five wide column">
