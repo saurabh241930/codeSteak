@@ -232,18 +232,93 @@
 
 
 
-<div id="workspace" class = "container">
+<div >
   
-  <div class = "ui huge header">CodeSteak <span id="workspacelogo">workspace ~ 0.1</span></div>
   
-<div id="togglers">
-  <button class="ui  medium  black button" id="hidehtml">Hide HTML</button>
- <button class="ui  medium  black button" id="hidecss">Hide CSS</button>
- <button class="ui  medium  black button" id="hidejs">Hide JAVASCRIPT</button>
+  
+   <form  action="/blogs/run/" method = "POST"> 
+     
+    
+      <div class="row" >
+        
+        <div class="col col-lg-1"></div>
+        
+  <div class="col col-lg-10">
+    <div class="row" style="border:solid 3px Red;">
+   <div class="col col-lg-12" style="height:50px;background-color:#2d2d2d;">
+     <div class="row">
+     <div  id="htmlB" class="col col-lg-4" style="border-right:solid 2px black;height:100%;
+                                                 text-align:center;
+                                                 color:white;
+                                                 
+                                                 "><p style="margin-top:15px">
+       <span style="font-size:20px;"><strong>HTML</strong></span>
+       </p></div>
+     <div id="cssB" class="col col-lg-4" style="border-right:solid 2px black;height:100%;
+                                                text-align:center;
+                                                color:white;
+                                               
+                                                "><p style="margin-top:15px">
+       <span style="font-size:20px;"><strong>CSS</strong></span>
+       </p></div>
+     <div id="jsB" class="col col-lg-4" style="height:100%;
+                                               text-align:center;
+                                               color:white;
+                                              
+                                               "><p style="margin-top:15px">
+       <span style="font-size:20px;"><strong>JAVASCRIPT</strong></span>
+       </p></div>
+     </div>
+      </div>
+      
+      <div class="row">
+          <div class="col col-lg-12" style="height:500px;">
+      <textarea  name = "html" id="htmlDisplay" style="width:100%;height:100%;background-color:<%=currentUser.FavouriteColor%>;
+                                        border: solid 1px <%=currentUser.FavouriteColor%>;color:white;
+                                        font-family: 'Roboto Mono', monospace;
+                                        font-size:25px;"
+                type = "text" name = "html" spellcheck="false" rows="10" placeholder="> HTML goes here" ><%=html%></textarea>
+    
+     <textarea name = "css" id="cssDisplay" style="width:100%;height:100%; border: solid 1px <%=currentUser.FavouriteColor%>;
+                                      background-color:<%=currentUser.FavouriteColor%>;color:white;
+                                      font-family: 'Roboto Mono', monospace;
+                                      font-size:25px;"
+                type = "text" name = "html" spellcheck="false" rows="10" placeholder="> CSS goes here"><%=css%></textarea>
+    
+     <textarea  name = "javascript" id="jsDisplay" style="width:100%;height:100%; border: solid 1px <%=currentUser.FavouriteColor%>;
+                                     background-color:<%=currentUser.FavouriteColor%>;color:white;
+                                     font-family: 'Roboto Mono', monospace;
+                                     font-size:25px;"
+                type = "text" name = "html" spellcheck="false" rows="10" placeholder="> Javascript goes here" ><%=javascript%></textarea>
+    
+      </div>
+      </div>
+
+  </div>
+  </div>
+         <div class="col col-lg-1"></div>
+    <div class="col col-lg-12"> 
+      <button   type="submit"  ><span id="terminal"><i class="terminal icon"></i></span></button>
+        </div>
 </div>
+      
+   
+      
+     
+    </div>
+      </form>
   
   
-  <form class = "ui form" action="/blogs/run/" method = "POST">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<!--   <form class = "ui form" action="/blogs/run/" method = "POST">
     
     
     <div id="codebox" class="ui grid">
@@ -254,7 +329,7 @@
        <div class = "field">
       <label id="labels">HTML</label>
      
-       <textarea  id="html" type = "text" name = "html" spellcheck="false"><%=html%></textarea>
+       <textarea  id="html" type = "text" name = "html" spellcheck="false"><=html%></textarea>
         </div>
     </div>
    
@@ -267,7 +342,7 @@
   <div class="five wide column">
      <div class = "field">
         <label id="labels">CSS</label>
-     <textarea spellcheck="false" id="css" type = "text" name = "css" spellcheck="false"><%=css%></textarea>
+     <textarea spellcheck="false" id="css" type = "text" name = "css" spellcheck="false"><=css%></textarea>
         </div>
       </div>
       
@@ -279,7 +354,7 @@
   <div class="five wide column">
       <div class = "field">
         <label id="labels">JAVA SCRIPT</label>
-        <textarea spellcheck="false" id="js" name = "javascript" spellcheck="false"><%=javascript%></textarea> 
+        <textarea spellcheck="false" id="js" name = "javascript" spellcheck="false"><=javascript%></textarea> 
      </div>
       </div>
       
@@ -300,7 +375,7 @@
       
       
       
-    <% include ../preview %>
+    < include ../preview %>
       
       
   
@@ -326,34 +401,43 @@
      
 
       
-  </form>
+  </form> -->
     
 </div>
 
 
 <!-- ooooooooooooooooooooooooooooooooooooooooxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxoooooooooooooo -->
 
-<div id="submitform" class = "ui main text container segment">
-  <div class = "ui huge header">New Post</div>
-  <form class = "ui form" action="/blogs" method = "POST">
+
+  <form action="/blogs" method = "POST">
+    
+  <div class="row">
+   
+     <div class="col col-lg-4 col-sm-4">
+
+       <textarea style="width:10px;height:10px;" id="htmlarea" type = "text" name = "html" spellcheck="false" readonly></textarea>
+       </div>
     
     
-    <div class = "field">
-      <label>HTML</label>
-       <textarea  id="htmlarea" type = "text" name = "html" spellcheck="false" readonly></textarea>
-        </div>
+     <div class="col col-lg-4 col-sm-4">
+         
+     <textarea style="width:10px;height:10px;" spellcheck="false" id="cssarea" type = "text" name = "css" spellcheck="false" readonly></textarea>
+
+    </div>
     
-     <div class = "field">
-        <label>CSS</label>
-     <textarea spellcheck="false" id="cssarea" type = "text" name = "css" spellcheck="false" readonly></textarea>
-        </div>
+     <div class="col col-lg-4 col-sm-4">
+       <textarea style="width:10px;height:10px;" spellcheck="false" id="jsarea" name = "javascript" spellcheck="false" readonly></textarea> 
+    </div>
     
-      <div class = "field">
-        <label>JAVA SCRIPT</label>
-        <textarea spellcheck="false" id="jsarea" name = "javascript" spellcheck="false" readonly></textarea> 
-     </div>
+    </div>
     
-    <div class = "field">
+    
+    
+   
+    
+      
+    <div class="row">
+          <div class = "field">
       <label>Title</label>
        <input type = "text" name = "title" placeholder="title">
         </div>
@@ -367,6 +451,12 @@
         <label>About</label>
         <textarea name = "body" placeholder="body"></textarea> 
      </div>
+      
+</div>
+  
+    
+    
+
     
      
   
@@ -385,21 +475,21 @@
 
 <script>
     function transferhtml() {
- var htmltext = document.getElementById('html').value;
+ var htmltext = document.getElementById('htmlDisplay').value;
    
  document.getElementById("htmlarea").innerHTML = htmltext;
     
    //console.log(htmltext);
 }
      function transfercss() {
- var csstext = document.getElementById('css').value;
+ var csstext = document.getElementById('cssDisplay').value;
  document.getElementById("cssarea").innerHTML = csstext;
   // console.log(htmltext);
 }
   
   
        function transferjs() {
- var jstext = document.getElementById('js').value;
+ var jstext = document.getElementById('jsDisplay').value;
  document.getElementById("jsarea").innerHTML = jstext;
   // console.log(htmltext);
 }
@@ -413,56 +503,7 @@
   
   
   
-  $(document).ready(function(){
-    $("#hidehtml").click(function(){
-        $("#html").toggleClass("hide");
-      
-      
-       if ($("#hidehtml").text() == "Hide HTML")
-       $(this).text("Show HTML")
-    else
-       $(this).text("Hide HTML");
-      
-    });
-});
   
-  
-  
-  
-  
-    $(document).ready(function(){
-    $("#hidecss").click(function(){
-        $("#css").toggleClass("hide");
-      
-      
-      
-      
-          if ($("#hidecss").text() == "Hide CSS")
-       $(this).text("Show CSS")
-    else
-       $(this).text("Hide CSS");
-    });
-});
-  
-  
- 
-  
-  
-  
-    $(document).ready(function(){
-    $("#hidejs").click(function(){
-        $("#js").toggleClass("hide");
-      
-      
-      
-          if ($("#hidejs").text() == "Hide JAVASCRIPT")
-       $(this).text("Show JAVASCRIPT")
-    else
-       $(this).text("Hide JAVASCRIPT");
-    });
-});
-
-
   
   
 //    $.(function preview(){
@@ -478,11 +519,56 @@
 <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700" rel="stylesheet">
 
+<style>
+  .Selected{
+    background-color:<%=currentUser.FavouriteColor%>;
+   
+}
+</style>
 
 
 
-
-
+<script>
+  
+  $('#cssDisplay').hide();
+  $('#jsDisplay').hide();
+  $('#htmlB').addClass("Selected");
+  
+  $('#htmlB').click(function(){
+    
+  $('#htmlB').toggleClass("Selected");
+  $('#cssB').removeClass("Selected");
+  $('#jsB').removeClass("Selected");
+    
+  $('#cssDisplay').hide();
+  $('#htmlDisplay').show();
+  $('#jsDisplay').hide();
+  }) 
+  
+  $('#cssB').click(function(){
+    
+   $('#cssB').toggleClass("Selected");
+   $('#htmlB').removeClass("Selected");
+  $('#jsB').removeClass("Selected");
+    
+  $('#cssDisplay').show();
+  $('#htmlDisplay').hide();
+  $('#jsDisplay').hide();
+  })
+  
+   $('#jsB').click(function(){
+     
+   $('#jsB').toggleClass("Selected");
+   $('#cssB').removeClass("Selected");
+  $('#htmlB').removeClass("Selected");
+     
+  $('#jsDisplay').show();
+  $('#htmlDisplay').hide();
+  $('#cssDisplay').hide();
+  })
+  
+  
+</script>
 
 
 

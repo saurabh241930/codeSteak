@@ -46,9 +46,22 @@ message:String
 User:String
 }],
 
-
-
   
+following:[{
+id:{
+type : mongoose.Schema.Types.ObjectId,
+ref : "User"
+},
+username: String
+}], 
+
+followers:[{
+id:{
+type : mongoose.Schema.Types.ObjectId,
+ref : "User"
+},
+username: String
+}], 
   
   
 

@@ -1003,14 +1003,26 @@
      
 <!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
         
+        <div class="row">
+          
         
-        <%currentUser.createdProjects.forEach(function(blog){%>
-                                              
-        <h1><%=blog.classname%></h1>
+        <%currentUser.createdProjects.forEach(function(blog){%>  
+          <div style="background-color:red;" class="col col-lg-3">
+           <div style="text-align:center;
+                       background-color:black;
+                       height:100px;
+                       width:90%;
+                       border-radius:5px;">
+             <a href="/blogs/<%=blog.id%>" style=" font-family: 'Open Sans', sans-serif;
+                       font-size:30px;
+                       margin-top:20px;
+                       color:white;"><%=blog.classname%></p>
+            </div>
         
-        
+         </div>
          <%})%>
-        
+          
+        </div>
         
         
         
@@ -1024,12 +1036,31 @@
         
 <!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
         
-   <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Top Developers</h1></div>        
+   <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Top Developers</h1></div> 
+        <div class="row">
 <%TopUsers.forEach(function(user){%>
-        <p><%=user.username%></p>
-        <p><%=user.ReputationScore%></p>
-        <%})%>        
         
+          <div style="background-color:red;" class="col col-lg-2">
+            <div style="border:solid 1px black;">
+             <img style="height:80px;width:80px;" src="<%= user.ProfileImage %>">
+             <a href="#" style="color:black;"><%=user.username%></a>
+             <p style="color:black;"> <%=user.ReputationScore%> <span>xp</span></p>
+              <a href="/follow/<%=user.id%>/<%=user.username%>">
+                
+                
+                <%if(currentUser.following.some((User) => User.id.toString() === user.id.toString())){%>
+                Followed
+                <%}else{%>
+                Follow
+                <%}%>
+                
+              </a>
+            
+            </div>
+       
+          </div>
+        <%})%>        
+        </div>
         
 <!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
     

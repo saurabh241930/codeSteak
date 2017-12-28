@@ -19,7 +19,7 @@ router.get('/blogs',function(req,res){
       console.log(err);
     } else {
       
-      User.find({}).sort({ReputationScore: -1}).limit(5).exec(function(err,users) {
+      User.find({}).sort({ReputationScore: -1}).limit(6).exec(function(err,users) {
         
      if (err) {
       console.log(err);
@@ -265,6 +265,17 @@ router.delete('/blogs/:id',checkBlogOwnership,function(req,res){
 
 ////////////////////////RUN routes//////////////////////
 
+router.post('/blogs/run/',function(req,res){
+
+ var html = req.body.html;
+ var css = req.body.css;
+ var javascript = req.body.javascript;
+
+ res.render('run',{html,css,javascript}); 
+})
+
+
+
 
 
 router.post('/blogs/:id/run/',function(req,res){
@@ -273,12 +284,22 @@ router.post('/blogs/:id/run/',function(req,res){
  var css = req.body.css;
  var javascript = req.body.javascript;
 
- res.render('run',{html,css,javascript});
-
-  
+ res.render('run',{html,css,javascript}); 
 })
 
+router.get('/blogs/:id/run',function(req,res){
+  
+  Blog.findById(req.params.id,function(err,blog){
+    if (err) {
+      console.log(err);
+    } else {
+     
+        res.render("HostingTemplate",{blog:blog});
+    }
+  })
+  
 
+});
 
 
 

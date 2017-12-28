@@ -12,7 +12,71 @@ var flash = require('connect-flash');
 
 
 
+/////////////////////////////////Following people///////////////////////////////
 
+router.get("/follow/:id/:username",isLoggedIn,function(req,res){
+  User.findById(req.user._id,function(err,primaryUser){
+    if (err) {
+      console.log(err);
+    } else {
+          
+       User.findById(req.params.id,function(err,secondaryUser){
+         
+         if (err) {
+          console.log(err);
+        } else {
+          
+          
+          if (primaryUser.following.some((User) => User.id.toString() === req.params.id.toString())) {
+            
+            console.log("you are already following ");
+            res.redirect("back");
+            
+          } else {
+            
+           //////////////////
+            var idealInfo = {
+            id:req.params.id,
+           username:req.params.username
+      }
+      
+      primaryUser.following.push(idealInfo);
+      primaryUser.save();
+          
+          
+          var fanInfo = {
+            id:req.user._id,
+            username:req.user.username
+          }
+          
+          secondaryUser.followers.push(fanInfo);
+          secondaryUser.ReputationScore =  secondaryUser.ReputationScore + 25;
+          secondaryUser.save();
+          
+          res.redirect("back");
+          /////////////////
+              
+          }
+          
+          
+          
+          
+      
+        }
+       }) 
+    }
+  })
+})
+
+
+
+
+
+
+
+
+
+/////////////////////////////////Following people///////////////////////////////
 
 
 /////////////////////finding people/////////////////
