@@ -326,6 +326,10 @@
 
          </div>
           
+       
+
+          
+          
             <div class="col col-lg-4 ">
                  <% if(currentUser){ %>
               
@@ -398,8 +402,26 @@
    
      <% } else{ %>
    
+   <% if(currentUser.NewNotifications === true){ %>
+        
+       <div class="row">
    
+   <div class="col col-lg-12" style="height:110px;background-color:red;text-align:center;">
+ <p style="margin-top:6px;color:white;font-size:20px;font-family: 'Open Sans', sans-serif;">
+   <%=currentUser.username%>, you have new notifications </p>
+     <div style="margin-top:20px;">
+     <a href="/FRnotifications"><span style="color:red;font-size:30px;background-color:white;
+                                             padding:2px 10px 2px 10px;
+                                             border-radius:5px;
+                                             font-family: 'Open Sans', sans-serif;">Checkout Now</span></a>
+     </div>
+
+ 
+         </div>
    
+  </div>           
+        
+   <%}%>
    
    <div class = "row">
    
@@ -1040,7 +1062,7 @@
         <div class="row">
 <%TopUsers.forEach(function(user){%>
         
-          <div style="background-color:red;" class="col col-lg-2">
+          <div style="" class="col col-lg-2">
             <div style="border:solid 1px black;">
              <img style="height:80px;width:80px;" src="<%= user.ProfileImage %>">
              <a href="#" style="color:black;"><%=user.username%></a>
@@ -1049,9 +1071,9 @@
                 
                 
                 <%if(currentUser.following.some((User) => User.id.toString() === user.id.toString())){%>
-                Followed
+                <span style="color:white;background-color:green;font-size:20px">Followed</span>
                 <%}else{%>
-                Follow
+                <span style="color:white;background-color:blue;font-size:20px">Follow</span>
                 <%}%>
                 
               </a>
@@ -1106,15 +1128,15 @@
       </div>
   
 
-<!-- <section id="footer">
+<section style="height:200px;margin-top:200px;background-color:red;">
 
 <div class= "row">
   <div class="col col-lg-5 col-sm-0 col-xs-0">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Notification">Notifications</button>
+<!--     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Notification">Notifications</button> -->
   </div>
   
   <div class="col col-lg-2 col-sm-12 col-xs-12">
-    <div id="copyright">
+    <div>
         <p><i id="copyrightIcon" class="fa fa-copyright fa-2x" aria-hidden="true"></i>
      
           <span id="copyrightText"><strong>All Rights reserved 2018</strong></span></p>
@@ -1128,7 +1150,7 @@
   
   
   
-</section> -->
+</section>
 
 
 
@@ -1371,6 +1393,8 @@
         
       </div>  
       
+   
+        
       
       
    <style>
@@ -1581,6 +1605,10 @@ $('#dummytext2').addClass('dummytext2Mobile');
 </script>
 
 
+   
+        
+        
+        
 
 
 

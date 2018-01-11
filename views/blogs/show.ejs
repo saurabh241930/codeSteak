@@ -1,151 +1,159 @@
 
-
- <meta charset="utf-8" />
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<html>
+  <head>
+   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
- 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700" rel="stylesheet">
+    <script src='/script/jquery.transit.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
 
 
-
-<style>
-   #labels{
-    text-align:center;
-    color:whitesmoke;
-    background-color:black;
-    border-radius:5px;
-    padding-right: 2px;
-    padding-left: 2px;
-    margin-top:10px;
-  }
+<body style="background-color:black;">
   
   
-   #html{
-    background:#4c4c4c;
-    font-family: 'Roboto Mono', monospace;
-    color:#cecccc;
-    box-shadow: 3px 3px 3px black;
-    height:400px;
+  <div class="row">
+    
+  <div class="col col-lg-10 col-sm-12 col-xs-12" style="height:300px;background-color:#bf02ff;text-align:center;">
+    <p style="font-family: 'Nunito', sans-serif;color:white;margin-top:10px;font-size:85px;">
+  <%=blog.title%> <span style="font-family: 'Nunito',sans-serif;color:white;margin-top:40px;font-size:25px;">Created By </span>
+         <%if(Creater.username === currentUser.username ){%>
+       <span style="font-family: 'Nunito',sans-serif;color:black;font-size:35px;"> You</span>  </p>
+      <%}else{%>
+    <span style="font-family: 'Nunito',sans-serif;color:black;font-size:35px;"> <%=Creater.username%></span>  </p>
+    <%}%>
+    <p style="font-family: 'Nunito', sans-serif;color:white;margin-top:-60px;font-size:15px;">
+    https://codesteak-swatipandey495325121.codeanyapp.com/blogs/<%=blog._id%>/run
+    </p>
     
     
-  }
-  
-  
-  #html:focus{
-   background-color:black;
-   color:#8300f7;
-   border:solid 2px gray;
-  }
-  
-   #css:focus{
-   background-color:black;
-   color:#8300f7;
-   border:solid 2px gray;
-  }
-  
-   #js:focus{
-   background-color:black;
-   color:#8300f7;
-   border:solid 2px gray;   
-  }
-  
-  
-  #css{
-    background:#cecccc;
-    font-family: 'Roboto Mono', monospace;
-     color:#4c4c4c;
-    box-shadow: 3px 3px 3px black;
-     height:400px;
-  }
-  
-  #js{
-    font-family: 'Roboto Mono', monospace;
-    background:#ea9ff4;
-    color:#620775;
-     box-shadow: 3px 3px 3px black;
-     height:400px;
     
-  }
-  
-  
-  
-  #replybox{
-    background:#e2e2e2;
-    margin-left:100px;
-    border-radius:7px;
-  }
-  
-  
-  #reply{
-    margin-left:50px;
-     color:gray;
-    font-size:12px;
-  }
-  
-  #replyusername{
-     color:#550c70;
-    font-size:15px; 
-  }
-  
-  #by{
-    color:#2b2a2a;
-  }
-  
-  #preview{
-   height:40px;
-   margin-top:200px;    
-  }
-  
-  #terminal{
-    color:whitesmoke;
-  
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:10px;
-   padding-bottom:10px;
-  }
-  
-  #project{
-    background-color:#b7b7b7;
-  }
-  
+    
+    
+    <p> 
+    <span style="background-color:white;padding:20px 10px 15px 10px;border-radius:5px;">
+   <span style="font-family: 'Nunito',sans-serif;color:#bf02ff;font-size:25px;background-color:white">
+   <i class="fa fa-calendar" aria-hidden="true"></i></span>
+       <span style="font-family: 'Nunito',sans-serif;color:#bf02ff;font-size:20px;"> <%= blog.created.toDateString() %></span>
+      </span>
+
+    
   
 
+       <span style="background-color:white;padding:20px 10px 15px 10px;border-radius:5px;margin-left:10px;">
+       <span style="font-family: 'Nunito',sans-serif;color:#bf02ff;font-size:28px;">
+   <i class="fa fa-eye" aria-hidden="true"></i></span>
+       <span style="font-family: 'Nunito',sans-serif;color:#bf02ff;font-size:20px;"> <%= blog.Views %></span>
+         </span>
+    </p>
+       
   
-  
-  
-</style>
+    
+    
+ 
+     </div>
+    
+    
+    <div class="col col-lg-2 col-sm-12 col-xs-12" style="height:300px; text-align:center;
+                                                         background-color: #bf02ff">
+      
+
+      <img src="<%=Creater.ProfileImage%>" style=" object-fit: cover;
+                                                  
+                                                   position: relative;
+                                                    width:100%;
+                                                    height: 100%;
+                                                    padding-left:10px" alt="">
+      
+            
+      <h2 style=" position: absolute; top: -25px;
+                  color:white;font-size:30px;
+                  font-family: 'Nunito',sans-serif;
+                  background: rgb(0, 0, 0);
+                  background: rgba(0, 0, 0, 0.5);
+                  padding: 110px 50px 130px 50px; "><span style="font-size:50px"></span><%=Creater.ReputationScore%> <br>xp <br>
+        
+        
+        
+         <%if(Creater.username !== currentUser.username ){%>
+      <button style="background-color:#6000fc;
+                     font-size:15px; font-family: 'Nunito',sans-serif;
+                     height:35px;width:90px;
+                     border:dashed 2px white;
+                     border-radius:5px;
+                     ">follow</button></h2>
+      <%}else{%>
+       <button style="background-color:#6000fc;
+                     font-size:15px; font-family: 'Nunito',sans-serif;
+                     height:35px;width:90px;
+                     border:dashed 2px white;
+                     border-radius:5px;
+                     ">1234</button></h2>
+  <%}%>
+      </div>
+
+      
+     
+      
+     
+      
+    </div>
+    
+   
+</div>
+
+
+
+
+
+
 
  <div>
     <form  action="/blogs/<%=blog._id%>/run" method = "POST"> 
      
     
       <div class="row" >
-  <div class="col col-lg-8">
-    <div class="row" style="border:solid 3px Red;">
-   <div class="col col-lg-12" style="height:50px;background-color:#2d2d2d;">
-     <div class="row">
-     <div  id="htmlB" class="col col-lg-4" style="border-right:solid 2px black;height:100%;
+        
+     <div style="text-align:center" class="col col-lg-12 col-sm-12 col-xs-12">
+       <h1 id="Warning"></h1>
+        </div>
+        
+  <div style="border:dashed 0px white;margin-top:-12px;" class="col col-lg-8 col-sm-12 col-xs-12">
+    
+    
+    <div  class="row" style="">
+      
+      
+   <div id="#codeBox" class="col col-lg-12 col-sm-12 col-xs-12" style="height:50px;background-color:#2d2d2d;">
+     <div  class="row">
+       
+       
+     <div  id="htmlB" class="col col-lg-4 col-sm-4 col-xs-4" style="border-right:solid 2px black;height:100%;
                                                  text-align:center;
                                                  color:white;
                                                  
                                                  "><p style="margin-top:15px">
        <span style="font-size:20px;"><strong>HTML</strong></span>
        </p></div>
-     <div id="cssB" class="col col-lg-4" style="border-right:solid 2px black;height:100%;
+     <div id="cssB" class="col col-lg-4 col-sm-4 col-xs-4" style="border-right:solid 2px black;height:100%;
                                                 text-align:center;
                                                 color:white;
                                                
                                                 "><p style="margin-top:15px">
        <span style="font-size:20px;"><strong>CSS</strong></span>
        </p></div>
-     <div id="jsB" class="col col-lg-4" style="height:100%;
+     <div id="jsB" class="col col-lg-4 col-sm-4 col-xs-4" style="height:100%;
                                                text-align:center;
                                                color:white;
                                               
@@ -153,9 +161,14 @@
        <span style="font-size:20px;"><strong>JAVASCRIPT</strong></span>
        </p></div>
      </div>
+     
+   
+     
       </div>
       
-      <div class="row">
+      
+      
+      <div  class="row">
           <div class="col col-lg-12" style="height:500px;">
       <textarea name = "html" id="htmlDisplay" style="width:100%;height:100%;background-color:<%=currentUser.FavouriteColor%>;
                                         border: solid 1px <%=currentUser.FavouriteColor%>;color:white;
@@ -178,8 +191,66 @@
   </div>
   </div>
         
-    <div class="col col-lg-4"> 
-      <button id="preview"  type="submit"  ><span id="terminal"><i class="terminal icon"></i></span></button>
+    <div class="col col-lg-4 col-sm-12 col-xs-12"> 
+      
+      
+      
+      <div style="height:100px;text-align:center" class="col col-lg-12">
+   <button   style=" background-color:white;
+                     margin-top:20px;
+                     font-size:25px; font-family: 'Nunito',sans-serif;
+                     height:90px;width:290px;
+                     border:dashed 2px black;
+                     color:black;
+                     border-radius:5px;" type="submit"  ><span id="terminal"><i class="terminal icon"></i></span>Run</button>
+
+      </div>
+       
+            <div style="height:100px;text-align:center" class="col col-lg-12">
+   <button   style=" background-color:green;
+                     margin-top:20px;
+                     font-size:25px; font-family: 'Nunito',sans-serif;
+                     height:90px;width:290px;
+                     border:dashed 2px white;
+                     color:white;
+                     border-radius:5px;" type="submit"  ><span id="terminal"><i class="fa fa-bookmark-o" aria-hidden="true"></i>
+     </span>Add to Bookmarks</button>
+
+      </div>
+      
+      
+      <%if(Creater.username === currentUser.username ){%>
+      
+            <div style="height:100px;text-align:center" class="col col-lg-12">
+   <button   style=" background-color:#303030;
+                     margin-top:20px;
+                     font-size:25px; font-family: 'Nunito',sans-serif;
+                     height:90px;width:290px;
+                     border:dashed 2px white;
+                     color:white;
+                     border-radius:5px;" type="submit"  ><span id="terminal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+     </span>Edit</button>
+
+      </div>
+      
+      
+      
+        <div style="height:100px;text-align:center" class="col col-lg-12">
+   <button   style=" background-color:red;
+                     margin-top:20px;
+                     font-size:25px; font-family: 'Nunito',sans-serif;
+                     height:90px;width:290px;
+                     border:dashed 2px white;
+                     color:white;
+                     border-radius:5px;" type="submit"  ><span id="terminal">
+     <i class="fa fa-trash" aria-hidden="true"></i>
+     </span>Delete</button>
+
+      </div>
+      
+      <%}%>
+      
+      
         </div>
 </div>
       
@@ -195,9 +266,139 @@
 
 
 
-<div  class="ui grid">
+
   
-  <div class = "ten wide column">
+    
+<!------------------------------------------------------------------------------------------------------------------------->
+
+  
+  
+<div style="background-color:black" class="row">
+  
+  
+  <div class="col col-lg-12 col-sm-12 col-xs-12"> 
+  
+        <form  action="/blogs/<%= blog._id %>/comments/" method = "POST">
+    
+   
+      <p style="font-size:25px;color:white;font-family: 'Nunito', sans-serif;">Add comment</p>
+       <input style="height:50px;color:white;
+                     font-family: 'Nunito', sans-serif;
+                     background-color:black;
+                     font-size:15px;
+                     text-align:center;
+                     border:dashed 3px #29CC26;
+                     width:400px" type = "text" name = "comment[text]" placeholder="">
+        
+          <button style="color:white;
+                  height:46px;
+                  width:120px;
+                  font-size:17px;
+                  background-color:#29CC26;
+                  border-radius:5px;
+                 font-family: 'Nunito', sans-serif;
+                  border:dashed 2px white;">comment</button>
+  </form>  
+    
+    
+    
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="col col-lg-12 col-sm-12 col-xs-12">
+    
+    
+    
+    
+          
+
+    
+        
+       
+    <% blog.comments.forEach(function(comment){ %>
+    
+      
+     
+  <p style="margin-left:20px;
+            
+            color:white;"><strong><%= comment.author.username %> </strong>
+           <%= comment.text %> on  <strong> <%= blog.created.toDateString()  %> </strong>  </p>
+     
+           
+      
+ <form  style="" id="replyboxForm" action="/blogs/<%= blog.id %>/comment/<%=comment.id%>/reply"  method = "POST">
+    
+  
+     
+       <input style="background-color:black;margin-left:20px;
+                     color:white;
+                     border:dashed 2px white;" type = "text" name = "reply" placeholder="">
+   <button style="color:white;
+                  font-family: 'Nunito', sans-serif;
+                  height:26px;
+                  width:60px;
+                  background-color:#bf02ff;
+                  border-radius:5px;
+                  border:dashed 2px white;">Reply</button>
+  
+  
+           </form> 
+     
+      
+  
+    
+    
+      <% comment.replies.forEach(function(reply){ %>  
+  
+<p  style="color:#bf02ff;margin-left:40px;
+           font-family: 'Open Sans', sans-serif;
+           font-size:12px;" id="reply"><%=reply.reply%><b><span id  = "by"> by </span>
+  <span id ="replyusername"> <%=reply.username%></span></b></p>
+
+<% })  %>
+ 
+    <% })  %>
+           
+
+      
+    
+         
+    
+    
+    
+    
+    
+  </div>
+  
+  
+</div>
+  
+     
+      
+           
+   
+        
+
+    
+    
+ 
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class = "col col-lg-4">
     
   <div class = "ui top attached segment">
   <div class = "ui main text container segment">
@@ -222,78 +423,9 @@
   
   
   
-
   
   
   
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-    
-
-    
-    
-    
-    
-    
-      
-    
-         
-
-  
-  
-    
-    
-<!------------------------------------------------------------------------------------------------------------------------->
-     <div class = "six wide column">
-        <div class="ui segment " id ="Comments">
-         <div  >
-    <% blog.comments.forEach(function(comment){ %>
-    <p>
-       <strong><%= comment.author.username %> </strong><%= comment.text %> on  <strong> <%= blog.created.toDateString()  %> </strong> 
-    </p>
-           
-           
- <form class = "ui form" action="/blogs/<%= blog.id %>/comment/<%=comment.id%>/reply"  method = "POST">
-    
-    <div  class = "field">
-      <label>Reply</label>
-       <input type = "text" name = "reply" placeholder="text">
-   </div>
-          <input class="ui  small  blue button" value ="Reply" type = "submit" >
-   </form>
-           
-           
-        
-           <div id="replybox">
-              <% comment.replies.forEach(function(reply){ %>   
-              
-             <p id="reply"><%=reply.reply%><b><span id  = "by"> by </span><span id ="replyusername"> <%=reply.username%></span></b></p>
-                              
-               <% })  %>
-           </div>
-         
-           
-           
-           
-           
-   
-    <% })  %>
-           
-
-      </div>
-      <p>
-         <a href = '/blogs/<%= blog._id %>/comments/new' class = "ui  small green button">Comment</a>
-      </p>
-      </div>
-  </div>
  
    <form action="/blogs/<%= blog._id %>/subscribe/" method = "POST">
       <input class="ui  big  blue button" value ="Subscribe" type = "submit" >
@@ -319,6 +451,14 @@
     <% })  %>
                           
                           
+
+  
+  
+  
+</body>
+  
+  
+  
 
 
   
@@ -369,6 +509,27 @@
   $('#htmlDisplay').hide();
   $('#cssDisplay').hide();
   })
+  
+   if($(window).width() < 767){
+   $("#Warning").html("To view the source code");
+   $('#jsDisplay').hide();
+   $('#htmlDisplay').hide();
+   $('#cssDisplay').hide();
+   $("#codeBox").css("background-color","red");
+   $('#htmlB').css("background-color","red");
+   $('#cssB').css("background-color","red");
+   $('#jsB').css("background-color","red");
+   $('#htmlB').text("Switch to ");
+   $('#cssB').text("Desktop");
+   $('#jsB').text("Version  :(");
+   }
+  
+
+  
+ 
+  
+  
+ 
   
   
 </script>

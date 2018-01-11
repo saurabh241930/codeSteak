@@ -8,6 +8,8 @@ var passport = require('passport');
 var User = require('../models/user');
 var Profile = require('../models/profile');
 var flash = require('connect-flash');
+var fs = require('fs');
+var multer = require('multer');
 
 
 
@@ -27,7 +29,10 @@ router.get('/register',function(req,res){
 
 //Sign Up logic
 router.post('/register',function(req,res){
-var newUser = new User ({username: req.body.username,FavouriteColor: req.body.FavouriteColor,ThemeColor: req.body.ThemeColor});
+var newUser = new User ({username: req.body.username,
+                         FavouriteColor: req.body.FavouriteColor,
+                         ThemeColor: req.body.ThemeColor,
+                         ProfileImage:req.body.ProfileImage});
 
 
 User.register(newUser,req.body.password,function(err,user){

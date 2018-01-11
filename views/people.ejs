@@ -1,68 +1,109 @@
-<% include ./partials/header %>
-
-<style>
-/*   a{
-    margin-bottom:10px;
-  }
-  
-  #username{
-    margin-left:100px;
-  }
-  
-  #add{
-     margin-right:100px;
-  }
-  
-  #box{
-    background-color:#e691f2;
-     margin-right:700px;
-   
-    border-radius:10px;
-  }
-  
-  h3{
-    font-size:20px;
-  } */
-  #box{
-    background-color:#c1c1c1;
-    margin-left:30px;
-    padding-left:15px;
-    padding-top:20px;
-    margin-top:30px;
-    margin-right:600px;
-    border-radius:10px;
-  }
-  
-  #add{
-    float:right;
-  }
-  
-</style>
 
 
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<html>
+  <head>
+   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='/script/jquery.transit.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
 
-<h1>
- People you may know
-</h1>
-<div id="box">
+<body style="background-color:black">
+  
+  
+  <div class="row">
   <% users.forEach(function(user){ %>
 
-<div class="ui grid">
-  
-   <div  class="four wide column">
-     <h3 id='username'><%= user.username %></h3>  
+   <div class="col col-lg-3 col-sm-4 col-xs-6">
      
-  </div>
-   <div  class="four wide column">
-      <form  action = "/people/friendRequest/<%= user.id %>/<%= user.username %>" method = "post">
-     <button id="add" class="ui  medium  blue button">Add as a friend</button> 
-     </form>
+     <div style="text-align:center;
+                 border:dashed 4px black;
+                 background-color:<%=user.FavouriteColor%>;
+                 height:290px;
+                 width:290px;
+                 margin-top:30px;
+                 ">
+                 
+       
+       
+       
+      
+         
+          <img style="height:150px;width:150px;margin-top:5px; border:dashed 2px white;" src="<%= user.ProfileImage%>" alt="">
+     <p style="margin-top:17px;"><span style="font-family: 'Josefin Sans', sans-serif;
+       font-size:27px;color:white;"><%=user.username%> </span>
+     <span><%=user.ReputationScore%></span></p>
+       
+       
+   <%if(currentUser.friends.some((User) => User.username.toString() === user.username.toString())){%>  
+       <span style="font-size:20px;color:white;
+                   font-family: 'Roboto Mono', monospace;
+                    background-color:green;
+                    border:dashed 2px white;">Friend</span><br>
+      
+       
+ <%}else if(user.username.toString() === currentUser.username.toString()){%>  
+       <span style="font-size:20px;color:white;
+                   font-family: 'Roboto Mono', monospace;
+                    background-color:blue;
+                    border:dashed 2px white;">You</span><br>
+       
+       
+       
+   <%}else if(currentUser.YourfriendRequestedNotification.some((User) => User.username.toString() === user.username.toString())){%>  
+       <span style="font-size:20px;color:white;
+                   font-family: 'Roboto Mono', monospace;
+                    background-color:red;
+                    border:dashed 2px white;">Request Pending</span><br>
+         
+         
+         
+       <%}else{%>
+          <form  action = "/people/friendRequest/<%= user.id %>/<%= user.username %>" method = "post">    
+     <button style="font-size:20px;
+                   font-family: 'Roboto Mono', monospace;
+                    background-color:black;
+                    border:dashed 2px white;"><span style="color:white">Send Friend Request</span></button><br>
+          </form>
+       <%}%>
+       <div style="margin-top:15px;">
+         <a  href="#"><span style="font-size:20px;color:black;margin-top:15px;">View Profile</span></a>
+            </div>
+       </p>
+       
+       
+         
+      
+    
+     
+       
+     </div>
+   
+     
+     
   
   </div>
-</div>
+ 
 
   <% })  %>
 </div>
+  
+  
+    </body>
+
+
 
 
 

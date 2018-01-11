@@ -3,9 +3,6 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var UserSchema = new mongoose.Schema({
 
-
-
-
 username:String,
 
 password :String,
@@ -14,13 +11,17 @@ FavouriteColor:String,
   
 ThemeColor:String,
   
+NewNotifications:{type:Boolean,default:false},
+  
 ReputationScore:{type:Number,default:1},
   
 TotalProjectViewed:{type:Number,default:0},
   
 Visited:{type:Number,default:1},
 
-ProfileImage:{ type: String, default: "https://mybluerobot.com/wp-content/plugins/svg-avatars-generator/data/temp-avatars/svgA7705990811968029.png" },
+ProfileImage:{ data: Buffer,
+              contentType: String,
+              default: "https://mybluerobot.com/wp-content/plugins/svg-avatars-generator/data/temp-avatars/svgA7705990811968029.png" },
 
 
 friends:[{    
@@ -62,7 +63,16 @@ ref : "User"
 },
 username: String
 }], 
+
   
+followingNotification:[{
+id:{
+type : mongoose.Schema.Types.ObjectId,
+ref : "User"
+},
+username: String,
+On:{type:Date,default:Date.now},
+}], 
   
 
 friendRequest:[{

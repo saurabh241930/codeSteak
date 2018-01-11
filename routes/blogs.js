@@ -207,15 +207,21 @@ router.get('/blogs/:id/',isLoggedIn,function(req,res){
             })
 
     
-    
+    User.findById(foundBlog.creater.id,function(err,user){
+      if (err) {
+        console.log(err);
+      } else {
+           
+    res.render('blogs/show',{blog:foundBlog,Creater:user});
+      }
+    })
     
   
     
   
     
    
-    
-    res.render('blogs/show',{blog:foundBlog});
+ 
   }
  });
 });

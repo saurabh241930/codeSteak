@@ -49,8 +49,13 @@ router.get("/follow/:id/:username",isLoggedIn,function(req,res){
             username:req.user.username
           }
           
+          
+          
+          
           secondaryUser.followers.push(fanInfo);
+          secondaryUser.followingNotification.push(fanInfo);
           secondaryUser.ReputationScore =  secondaryUser.ReputationScore + 25;
+          
           secondaryUser.save();
           
           res.redirect("back");
@@ -117,7 +122,7 @@ var Notification = {
 }
 
 
-
+user.NewNotifications = true;
 user.friendRequestNotification.push(Notification);
 user.friendRequest.push(Request);
 user.save();
@@ -158,7 +163,9 @@ if (err) {
 console.log(err);
 } else {
   
- 
+   founduser.NewNotifications = false;
+   founduser.save();
+  
 res.render('FRnotifications',{user:founduser});
 }
 })
@@ -242,7 +249,7 @@ username:req.user.username
          id:req.user._id,
         username: req.user.username
        }
-       
+       founduser.NewNotifications = true;
        founduser.AcceptedfriendRequestedNotification.push(Accept);
        founduser.ReputationScore = founduser.ReputationScore + 5;
        founduser.save();
@@ -286,6 +293,9 @@ throw err;
   
   var secondaryUsername = req.params.username;
   var primaryUsername = req.user.username;
+  
+  
+  
   
   res.render("chat",{texts:data,user:founduser,notMyName:secondaryUsername,MyName:primaryUsername});
 }

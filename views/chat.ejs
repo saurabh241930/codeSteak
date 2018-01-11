@@ -1,148 +1,55 @@
-<% include ./partials/header %>
+
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<html>
+  <head>
+   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='/script/jquery.transit.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Malar:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
 
 
-<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 
-<style>
-  #Send{
-   
-/*     padding:10px 25px 10px 25px; */
-    box-shadow: 3px 3px 3px purple;
-      display:inline-block;
-   
-    border-radius:10px;
-  }
+<body style="background-color:black;">
   
-  #Send:hover{
-   box-shadow: 1px 1px 1px purple;
-   color:#A333C8;
-   background-color:whitesmoke;
-   border:solid 1px purple;
+  <div class="row">
+  
+  
+  <div style="" class="col col-lg-3 col-sm-0 col-xs-0"></div>
+  
+  <div class="col col-lg-6 col-sm-12 col-xs-12">
     
-  }
-  
-  
-  
- 
-  #chatbox{
-      height:300px;
+    <div class="row">
+      
+      <div class="col col-lg-12">
+        
+   <p>
+     <span style="margin-left:10px;">
+       <img style="height:60px;width:60px;" src="<%=user.ProfileImage%>" alt=""> 
+     <span style="color:white">
+       Connected to <span style="color:<%=user.FavouriteColor%>;font-size:30px;"><%=user.username%></span></span>
+     </span>
      
-    box-shadow: 1px 1px 1px purple;
-    background-color:whitesmoke;
-     border:solid 1px purple;
-  }
+        </p>
   
-  .ui.main.text.container.segment{
-    border:solid 1px purple;
-    box-shadow: 2px 2px 2px #545151 ;
-  }
-  
+        <div id="chatBox" style="overflow-y: scroll;
+                    background-color:black;
+                    width:100%;
+                    height:400px;
+                    padding-top:30px;
+                    margin-top:50px;">
 
-  li {
-     text-decoration: none;
-        display:inline;
-}
-  #Sendfield{
-     width:70%;
-    margin-right:10px;
-
-   height:30px;
-    margin-top:20px;
-    border:solid 1px purple;
-   box-shadow: 3px 3px 3px purple;
-   resize: none;
-    display:inline-block;
-  }
-  
-  #Sendfield:focus{
-    box-shadow: 1px 1px 1px purple;
-    color:whitesmoke;
-    background-color:#A333C8;
-    resize: none;
-  
-  }
-  
-  #chatUser{
-    color:purple;
-    font-size:17px;
-    margin-left:8px;
-    margin-top:5px;
-    
-  }
-  
-  
-  #chats{
-    border-bottom:solid 2px white;
-     border-top:solid 2px white;
-    background-color:#d6d6d6;
-    border-bottom-left-radius:0px;
-   border-top-left-radius:17px;
-   border-top-right-radius:17px;
-     border-bottom-right-radius:17px;
-    padding:1px 1px 1px 1px;
-    color:black;
-    margin-left:5px;
-    padding:6px 10px 10px 6px;
-    margin-top:10px;
-   
-  }
-  
-    #chatss{
-     background-color:purple;
-    border-bottom:solid 2px white;
-
-    color:#d6d6d6;
-    border-bottom-left-radius:17px;
-   border-top-left-radius:17px;
-   border-top-right-radius:17px;
-    padding:1px 1px 1px 1px;
-    
-      padding:4px 10px 10px 4px;
-      margin-top:10px;
- 
-  }
-  
-  
-  
-  
-  #topUser{
-    color:whitesmoke;
-    padding:5px 10px 5px 10px;
-    background-color:purple;
-    border-radius:5px;
-    font-size:20px;
-  }
-  
-  #text{
-    margin-left:10px;
-    font-family: 'Lato', sans-serif;
-    
-  }
-  
-  #profileImage{
-    border:solid 1px black;
-    border-radius:100%;
-  }
-  
-  
-  
-</style>
-
-
-<div  class = "ui main text container segment">
-   <h5 class="ui center aligned icon header">
- 
-  Chat with <span id="topUser"><%=user.username%></span>
-</h5>
-  
-<div class="ui form">
-  <div  class="field">
-    <label></label>
-    
-    
-    
-    <div id="chatbox" style="overflow-y: scroll;">
-   
       <% texts.messages.forEach(function(message){
 message.texts.forEach(function(text){ %>
 
@@ -150,41 +57,116 @@ message.texts.forEach(function(text){ %>
      
       
       <% if(text.username === notMyName){ %> 
-      <p> <strong><span id="chats"><%=text.message%></span></strong></p>
+      <p style=" width:18em;
+                 word-wrap: break-word;
+                ">
+        
+        <strong><span style="color:white;font-size:17px;
+                               
+                               color:white;
+                              
+                              
+                               font-family: 'Montserrat', sans-serif;
+                               word-wrap: break-word;"><img style="height:28px;width:28px;
+                                                                    border-radius:14px;border:solid 1px white;"
+                                                            src="<%=user.ProfileImage%>"
+                                                            alt=""> <%=text.message%></span></strong></p>
     <% } %>
     
       
       
    <% if(text.username === MyName){ %>
-     <p dir="rtl"> <strong><span id="chatss"><%=text.message%></span></strong></p>   
+     <p style="  
+                 word-wrap: break-word;
+                " dir="rtl"><strong><span  style="color:#bf02ff;font-size:17px;
+                           
+                                font-family: 'Montserrat', sans-serif;
+                               
+                                
+                                word-wrap: break-word;"><img style="height:26px;width:26px;
+                                                                    border-radius:13px;border:solid 1px white;"
+                                                            src="<%=currentUser.ProfileImage%>"
+                                                            alt=""> <%=text.message%> </span></strong></p>   
       
   <% } %>
 
 <% })})  %>
 
     </div>
+        
+        
+        
+      </div>
+      
+  <div class="col col-lg-12">
+    
+   <div class="row">
+      <div  class="col col-lg-10 col-sm-8 col-xs-8">
+       <form action="/profile/chat/<%=user.username%>/<%=user._id%>/send" method="post">
+       
+            <input style="width:100%;
+                          font-size:20px;
+                          margin-top:20px;
+                          text-align:center;
+                          background-color:black;
+                          border:dashed 2px white;
+                          color:white;" name="message" placeholder="Message">
+    </div>
+      
+        <div class="col col-lg-2 col-sm-4 col-xs-4">
+          <button style="width:100%;
+                          height:40px;
+                          font-size:15px;
+                          padding:0px 10px 0px 10px;
+                          margin-top:15px;
+                          background-color:<%=user.FavouriteColor%>;
+                          color:white;
+                          border:dashed 3px white;" id="SendButton" style="width:100%"><span>Send</span></button>
+      </div>
+    </div> 
+   
+                     
+          </form>
+      </div>
+      
+    </div>
+    
     
   </div>
-  <div class="send">
-    </div>
+  <div class="col col-lg-3 col-sm-0 col-xs-0">
+
+   
+    
+    
   </div>
   
-    <ul>
-      <li>
-        <form action="/profile/chat/<%=user.username%>/<%=user._id%>/send" method="post">
-          <textarea id="Sendfield"  name="message" placeholder="Message"></textarea>
-            <button id="Send" class="ui large  purple button"><span id="text">Send</span></button>
-          
-      </form>
-     
-      </li>
-    </ul>
+  
+ 
+  
+</div>
+
+ 
+
+    
+</body>
+
+
 
   
-
-  </div>
 
 <script>
+  
+  setInterval(function (){ 
+  $("#chatBox").scrollTop(($('#chatBox').height()*2));
+}, 5000);
+  
+  
+  $("#SendButton").click(function(){
+    setTimeout(function (){ 
+  $("#chatBox").scrollTop(($('#chatBox').height()*2));
+}, 100);
+  })
+  
   
 //    setTimeout(function () {
 //       var text = document.getElementById('Sendfield').value;
@@ -212,8 +194,9 @@ message.texts.forEach(function(text){ %>
 //   }
   
   window.onload = function() { 
-    var text = localStorage.getItem(text);
-    if (text !== null) $('#Sendfield').val(text);  
+//     var text = localStorage.getItem(text);
+//     if (text !== null) $('#Sendfield').val(text);
+    $("#chatBox").scrollTop(($('#chatBox').height()*2));
 }
   
   

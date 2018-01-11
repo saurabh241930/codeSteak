@@ -351,7 +351,7 @@
             <i style="background-color:#2d2d2d;"id="cancel" class="fa fa-times-circle-o" aria-hidden="true"></i>
           </a>
         
-           <form  action = '/register' method = "post">
+           <form  action = '/register' method = "post" enctype="multipart/form-data">
     
   
       <div class="row">
@@ -361,7 +361,11 @@
       <label>Enter your name</label>
        <input id="segment" type = 'text' name = 'username' placeholder = 'Fullname'>
     </div> -->
-      
+         <div class = "col col-lg-12 col-sm-12 col-xs-12">
+      <label>Choose a Image</label>
+        <input type="file" name="ProfileImage"/>
+  
+    </div> 
       
   
         
