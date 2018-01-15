@@ -1,0 +1,27 @@
+
+        <div id="logoHeading" class="row">  
+          
+            <div id="fix" class="col col-lg-4 "></div>
+          
+          <div  class="col col-lg-4  col-xs-12">
+        
+        <h1 id="Heading" >CodeSt<span id="mainlogo" data-toggle="tooltip" data-placement="bottom" title="Hi!">ea</span>k.</h1>
+
+         </div>
+             
+          
+            <div class="col col-lg-4 ">
+                 <% if(currentUser){ %>
+              
+              <p><span style="float:right;
+                margin-right:20px;
+                margin-top:10px;
+                color:white;
+                font-family: 'Open Sans', sans-serif;
+                font-size:30px;"> <a id="logoutButton" href = "/logout" class = "item">Logout</a>
+                <%= currentUser.username %></span></p>
+              
+               <% } %>
+          </div>
+          
+           </div>

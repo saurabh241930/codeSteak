@@ -154,7 +154,7 @@
         color:white;
         background-color:#29cc26;
         font-family: 'Overpass Mono', monospace;
-        width:100%;
+       
   }
   
     #getstarted:hover{
@@ -167,7 +167,7 @@
         transition: all 200ms ease-in;
         background-color:black;
         font-family: 'Overpass Mono', monospace;
-        width:100%;
+       
   }
   
   
@@ -316,113 +316,33 @@
         
         
         
-        <div id="logoHeading" class="row">  
-          
-            <div id="fix" class="col col-lg-4 "></div>
-          
-          <div  class="col col-lg-4  col-xs-12">
-        
-        <h1 id="Heading" >CodeSt<span id="mainlogo" data-toggle="tooltip" data-placement="bottom" title="Hi!">ea</span>k</h1>
 
-         </div>
-          
-       
-
-          
-          
-            <div class="col col-lg-4 ">
-                 <% if(currentUser){ %>
-              
-              <p><span style="float:right;
-                margin-right:20px;
-                margin-top:10px;
-                color:white;
-                font-family: 'Open Sans', sans-serif;
-                font-size:30px;"> <a id="logoutButton" href = "/logout" class = "item">Logout</a>
-                <%= currentUser.username %></span></p>
-              
-               <% } %>
-          </div>
-          
-           </div>
-
-
+<% include ../indexComponents/topLogo %>
    
   
    
+        
+        
      <% if(!currentUser){ %>
         
-       
-   <div class="row">
-   
-       <div class= "col-lg-8">
-     
-   <section id="notlogin">
-     
-     
-     
-  <p id = "dummytext1">
-    Welcome
-    
-     </p>   
-     
-     
-     
-  <h3  id = "dummytext2">
-   Welcome to codeSteak
- </h3>
-         </section>
-       </div>
+    <% include ../indexComponents/starterMessage %>
 
-    
-  <div class= "col col-lg-4 col-sm-12 col-xs-12" id="suggestion">
-      <strong> <p id="advice">If you've already created <br>a account,then please <br> 
-         <button id="login" type="button" data-toggle="modal" data-target="#myModal"><strong>Login</button>
-     OR<br>
-      
-   </p></strong>
-       </div>
-        
-
-   
-
-      </div>  
-   
-   <div class= "row"> 
-     <div class="col col-lg-5 col-sm-0 col-xs-0"></div>  
-     <div class="col col-lg-2 col-sm-12 col-xs-12">
-       <button id="getstarted"  type="button"><strong>GetStarted</strong></button>
-     </div>  
-     <div class="col  col-lg-5 col-sm-0 col-xs-0"></div>  
-   </div>  
-     
-     
- 
-  
-   
      <% } else{ %>
+        
+        
+        
+        
    
    <% if(currentUser.NewNotifications === true){ %>
         
-       <div class="row">
-   
-   <div class="col col-lg-12" style="height:110px;background-color:red;text-align:center;">
- <p style="margin-top:6px;color:white;font-size:20px;font-family: 'Open Sans', sans-serif;">
-   <%=currentUser.username%>, you have new notifications </p>
-     <div style="margin-top:20px;">
-     <a href="/FRnotifications"><span style="color:red;font-size:30px;background-color:white;
-                                             padding:2px 10px 2px 10px;
-                                             border-radius:5px;
-                                             font-family: 'Open Sans', sans-serif;">Checkout Now</span></a>
-     </div>
-
- 
-         </div>
-   
-  </div>           
+        <% include ../indexComponents/notifications %>
         
    <%}%>
    
+        
+        
+        
+        
    <div class = "row">
    
      
@@ -444,7 +364,7 @@
 
         
         
-       <div >
+       <div>
          
          
             <div  id="first" style="background-color:<%=currentUser.FavouriteColor%>;
@@ -731,141 +651,12 @@
    
    
    
-   
+   <% include ../indexComponents/modals %>
   
    
    
      
-     
-     
-<!--  *******************************  FriendList modal **********************************************  -->
-    
-   
-       
-     
-     
-     
-     <div class="modal fade" id="FriendList" role="dialog">
-       
-       
-    <div id="FriendListModalDialog" class="modal-dialog">
-      
-      
-    
-      <!-- Modal content-->
-      <div id="FriendListModal" class="modal-content">
-      
-        <div  class="modal-body">
-     <h3>Your Friends</h3>
-          <div class="row">
-             <% currentUser.friends.forEach(function(Friend){ %>
-            <div id="friendSection" class="col col-lg-12">
-              <p>
-          
-             <a id="friendbox"  href="#"><p>
-               <i id="friend" class="fa fa-user" aria-hidden="true"></i><%= Friend.username%> 
-               <a href="/profile/chat/<%= Friend.username%>"><i id="friend" class="fa fa-comment" aria-hidden="true"></i></a></p></a> 
-            
-              </p>
-        
-            </div>
-            <% })  %>
-          </div>
-          
-            
-          
-            
-     
-     
-          
-          
-        </div>
-      </div>
-     </div>
-     </div>
-     
-     
-     <!--  *******************************  FriendList modal **********************************************  -->
-     
-     
-     
-     
-     
-     
-     
-     <!--  *******************************  Notification modal **********************************************  -->
-    
-   
-
-     
-     
-     
-     <div class="modal fade" id="Notification" role="dialog">
-       
-       
-    <div class="modal-dialog">
-      
-      
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-    
-        </div>
-        <div class="modal-body">
-    
-          
-            
-          
-          <h1>Friend Requests</h1>
-     <div id="box1">
-    <% currentUser.friendRequestNotification.forEach(function(request){ %>
-
-<div class="">
-  
-   <div  class="">
-     <p id='username'><span style='color:white;'>You have friend request from
-        <span><%= request.username %></span></span></p>  
-     
-  </div>
-  
-</div>
-
-  <% })  %>
-</div>
-          
-    <h1>Your Friend Requests</h1>
-<div id="box2">
-  <% currentUser.YourfriendRequestedNotification.forEach(function(request){ %>
-
-<div class="ui grid">
-  
-   <div  class="eight wide column">
-     <p id='username'><span style='color:white;'>You have sent friend request to <span id="notmyname"><%= request.username %></span></p>  
-     
-  </div>
-  
-</div>
-
-  <% })  %>
-</div>  
-          
-          
-     
-     
-          
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-     </div>
-     </div>
-     
-     
-     <!--  *******************************  Notification modal **********************************************  -->
+ 
      
      
 <!--  ***********************************  Friends ************************************  -->
@@ -898,20 +689,11 @@
             
        </div>
    
-    
        
      <%}%>
        
        
-       
-       
-       
-       
-       
-      
-       
-       
-       
+    
         <%if(currentUser.ProjectCreatedByFriends.length === 0 ){%>
 
        <div class="col col-lg-12 col-sm-12 col-xs-12" style="text-align:center;
@@ -929,23 +711,9 @@
             
        </div>
    
-    
        
      <%}%> 
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+        
      </div>
      
      
@@ -957,41 +725,11 @@
    
 <!--  ***************************************************** Projects ************************************************  -->
 
-     
-    <div style="margin-top:100px;" class="row">
-      <div style="text-align:center;"><h1>Popular</h1></div>
-      
-      <div  class="col col-lg-12 col-sm-12 col-xs-12" style="">
-        <%blogs.forEach(function (blog){%>
-        <div class="col col-lg-4 col-sm-12 col-xs-12" style="  border:solid 1px <%=currentUser.FavouriteColor%>;margin-top:10px;"> 
-          <div style="background-color:<%=currentUser.FavouriteColor%>;
-                  height:196px;" 
-             class="col col-lg-12">
-            <div style="text-align:center;"> 
-              <p style="font-size:40px;
-                        font-family: 'Open Sans', sans-serif;
-                        color:<%=currentUser.ThemeColor%>;
-                        "><%= blog.title  %></p>
-              <a  href = '/blogs/<%=blog._id %>' style="font-size:40px;color:red;" >More</a>
-            </div>
-         
-          
-        </div>
+     <% include ../indexComponents/allProjects %>
+
         
         
-        <div style="background-color:<%=currentUser.ThemeColor%>;"
-             class="col col-lg-12"><h4 style="color:<%=currentUser.FavouriteColor%>;">Created by <%= blog.creater.username  %></h4>
-            <div> <p style="font-size:25px;color:<%=currentUser.FavouriteColor%>;"> <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></p></div>
-          </div></div>
-        
-   
-        <%})%>
-      </div>
-      
-    </div>
-        
-        
-  <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Made by you</h1></div>      
+  <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Continue editing your project</h1></div>      
         
 <!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
         
@@ -1023,35 +761,10 @@
     
   <!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
      
-<!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
-        
-        <div class="row">
-          
-        
-        <%currentUser.createdProjects.forEach(function(blog){%>  
-          <div style="background-color:red;" class="col col-lg-3">
-           <div style="text-align:center;
-                       background-color:black;
-                       height:100px;
-                       width:90%;
-                       border-radius:5px;">
-             <a href="/blogs/<%=blog.id%>" style=" font-family: 'Open Sans', sans-serif;
-                       font-size:30px;
-                       margin-top:20px;
-                       color:white;"><%=blog.classname%></p>
-            </div>
-        
-         </div>
-         <%})%>
-          
-        </div>
+
         
         
-        
-<!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
-        
-        
-        
+    <% include ../indexComponents/ownProjects %>
         
         
         

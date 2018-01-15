@@ -1,0 +1,27 @@
+<!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
+        
+        <div class="row">
+          
+        
+        <%currentUser.createdProjects.forEach(function(blog){%>  
+          <div style="" class="col col-lg-3">
+           <div style="text-align:center;
+                       background-color:black;
+                       height:100px;
+                       width:90%;
+                       border-radius:5px;">
+             <a href="/blogs/<%=blog.id%>" style=" font-family: 'Open Sans', sans-serif;
+                       font-size:30px;
+                       margin-top:20px;
+                       color:white;"><%=blog.classname%></a>
+                     <a href="/blogs/<%=blog.id%>/edit">Edit</a>
+            </div>
+
+         </div>
+         <%})%>
+          
+        </div>
+        
+        
+        
+<!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->

@@ -1,0 +1,31 @@
+    <div style="margin-top:100px;" class="row">
+      <div style="text-align:center;"><h1>Popular</h1></div>
+      
+      <div  class="col col-lg-12 col-sm-12 col-xs-12" style="">
+        <%blogs.forEach(function (blog){%>
+        <div class="col col-lg-4 col-sm-12 col-xs-12" style="  border:solid 1px <%=currentUser.FavouriteColor%>;margin-top:10px;"> 
+          <div style="background-color:<%=currentUser.FavouriteColor%>;
+                  height:196px;" 
+             class="col col-lg-12">
+            <div style="text-align:center;"> 
+              <p style="font-size:40px;
+                        font-family: 'Open Sans', sans-serif;
+                        color:<%=currentUser.ThemeColor%>;">
+                <%= blog.title  %></p>
+              <a  href = '/blogs/<%=blog._id %>' style="font-size:40px;color:red;" >More</a>
+            </div>
+         
+          
+        </div>
+        
+        
+        <div style="background-color:<%=currentUser.ThemeColor%>;"
+             class="col col-lg-12"><h4 style="color:<%=currentUser.FavouriteColor%>;">Created by <%= blog.creater.username  %></h4>
+            <div> <p style="font-size:25px;color:<%=currentUser.FavouriteColor%>;"> <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></p></div>
+          </div></div>
+        
+   
+        <%})%>
+      </div>
+      
+    </div>

@@ -1,0 +1,117 @@
+    
+     
+<!--  *******************************  FriendList modal **********************************************  -->
+    
+   
+       
+     
+     
+     
+     <div class="modal fade" id="FriendList" role="dialog">
+       
+       
+    <div id="FriendListModalDialog" class="modal-dialog">
+      
+      
+    
+      <!-- Modal content-->
+      <div id="FriendListModal" class="modal-content">
+      
+        <div  class="modal-body">
+     <h3>Your Friends</h3>
+          <div class="row">
+             <% currentUser.friends.forEach(function(Friend){ %>
+            <div id="friendSection" class="col col-lg-12">
+              <p>
+          
+             <a id="friendbox"  href="#"><p>
+               <i id="friend" class="fa fa-user" aria-hidden="true"></i><%= Friend.username%> 
+               <a href="/profile/chat/<%= Friend.username%>"><i id="friend" class="fa fa-comment" aria-hidden="true"></i></a></p></a> 
+            
+              </p>
+        
+            </div>
+            <% })  %>
+          </div>
+       
+        </div>
+      </div>
+     </div>
+     </div>
+     
+     
+     <!--  *******************************  FriendList modal **********************************************  -->
+     
+     
+     
+     
+     
+     
+     
+     <!--  *******************************  Notification modal **********************************************  -->
+    
+   
+
+     
+     
+     
+     <div class="modal fade" id="Notification" role="dialog">
+       
+       
+    <div class="modal-dialog">
+      
+      
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+        </div>
+        <div class="modal-body">
+    
+          
+            
+          
+          <h1>Friend Requests</h1>
+     <div id="box1">
+    <% currentUser.friendRequestNotification.forEach(function(request){ %>
+
+<div class="">
+  
+   <div  class="">
+     <p id='username'><span style='color:white;'>You have friend request from
+        <span><%= request.username %></span></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>
+          
+    <h1>Your Friend Requests</h1>
+<div id="box2">
+  <% currentUser.YourfriendRequestedNotification.forEach(function(request){ %>
+
+<div class="ui grid">
+  
+   <div  class="eight wide column">
+     <p id='username'><span style='color:white;'>You have sent friend request to <span id="notmyname"><%= request.username %></span></p>  
+     
+  </div>
+  
+</div>
+
+  <% })  %>
+</div>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+     </div>
+     </div>
+     
+     
+     <!--  *******************************  Notification modal **********************************************  -->
