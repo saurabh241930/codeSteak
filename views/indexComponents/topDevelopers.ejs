@@ -1,0 +1,80 @@
+   <div style=""><h3 style="font-size:20px;
+     font-family: 'Open Sans', sans-serif;">
+     Top Developers</h3>
+</div> <br>
+        <div class="row">
+<%TopUsers.forEach(function(user){%>
+        
+          
+          
+          <div style="text-align:center" class="col col-lg-2 col-xs-12">
+            
+            
+            <div style="border:solid 3px <%=currentUser.FavouriteColor%>;
+                        margin-top:20px;
+                        padding-bottom:50px;
+                        background-color:#ccc;">
+             <img style="height:80px;width:80px;" src="<%= user.ProfileImage %>"><br><br>
+             <a href="#" style="color:black;"><span style="font-size:20px;font-weight:900"><%=user.username%></span></a><br><br>
+             <p style="color:black;">
+               <span style="color:<%=currentUser.FavouriteColor%>"><i class="fa fa-star" aria-hidden="true"></i>
+                 <%=user.ReputationScore%> <span>xp</span></span></p>
+              
+              
+                <%if(currentUser.following.some((User) => User.id.toString() === user.id.toString())){%>
+              
+              <a href=""><br>
+                
+                
+              
+                <span style="color:white;background-color:green;
+                             padding:10px;
+                             font-family: 'Open Sans', sans-serif;
+                             border:dashed 4px #ccc;
+                             font-size:25px;opacity:0.6">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  Following</span>
+                 </a>
+              
+              
+               <%}else if(user.username.toString() === currentUser.username){%>
+              
+              <a href=""><br>
+                
+                
+              
+                <span style="color:white;background-color:black;
+                             padding:10px;
+                             font-family: 'Open Sans', sans-serif;
+                             border:dashed 4px #ccc;
+                             font-size:25px;opacity:0.6">
+                  <i class="fa fa-smile-o" aria-hidden="true"></i>
+                  You</span>
+                 </a>
+              
+                
+           
+              
+              
+                
+                <%}else{%>
+                
+              <a href="/follow/<%=user.id%>/<%=user.username%>"><br>
+                
+                <span style="color:white;
+                             background-color:blue;
+                             border:dashed 4px #ccc;
+                             font-family: 'Open Sans', sans-serif;
+                             font-size:25px;opacity:0.8;
+                             padding:10px;"><i class="fa fa-paw" aria-hidden="true"></i>
+                   Follow</span>
+                 </a>
+                <%}%>
+                
+             
+            
+            </div>
+       
+          </div>
+        <%})%>        
+        </div>

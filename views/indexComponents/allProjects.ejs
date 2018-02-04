@@ -1,31 +1,98 @@
-    <div style="margin-top:100px;" class="row">
-      <div style="text-align:center;"><h1>Popular</h1></div>
-      
-      <div  class="col col-lg-12 col-sm-12 col-xs-12" style="">
+   
+
+
+<div style="margin-top:100px;background-color:white;padding:50px;" class="row">
+  
+      <div style="text-align:center;font-family: 'Open Sans', sans-serif;"><h1>Popular</h1></div>
+  
+  
+  
+      <div  class="col col-lg-12 col-sm-12 col-xs-12" style=" ">
         <%blogs.forEach(function (blog){%>
-        <div class="col col-lg-4 col-sm-12 col-xs-12" style="  border:solid 1px <%=currentUser.FavouriteColor%>;margin-top:10px;"> 
-          <div style="background-color:<%=currentUser.FavouriteColor%>;
+        
+         <a  href = '/blogs/<%=blog._id %>' >
+           
+           
+               <div class="col col-lg-4 col-sm-12 col-xs-12" style="margin-top:40px;"> 
+          <div  id="display" style=" border-right:dashed 3px <%=currentUser.FavouriteColor%>;
+                                    border-top:dashed 3px <%=currentUser.FavouriteColor%>;
+                                     border-left:dashed 3px <%=currentUser.FavouriteColor%>;
+                                    transition: all 180ms ease-in;
                   height:196px;" 
              class="col col-lg-12">
             <div style="text-align:center;"> 
-              <p style="font-size:40px;
+              <p id="ProjectTitle" style="font-size:40px;
                         font-family: 'Open Sans', sans-serif;
-                        color:<%=currentUser.ThemeColor%>;">
+                        color:black">
                 <%= blog.title  %></p>
-              <a  href = '/blogs/<%=blog._id %>' style="font-size:40px;color:red;" >More</a>
+              
+              <p style="text-align:center;">
+                <span style="color:white;">The following example moves the element 
+                50 pixels to the right, and 100 pixels down from its current
+                position</span></p><br>
+              <span><i style="font-size:30px;
+                color:white;margin-top:-20px;" class="fa fa-arrow-right" aria-hidden="true"></i></span>
+             
             </div>
-         
-          
+        
         </div>
-        
-        
-        <div style="background-color:<%=currentUser.ThemeColor%>;"
-             class="col col-lg-12"><h4 style="color:<%=currentUser.FavouriteColor%>;">Created by <%= blog.creater.username  %></h4>
-            <div> <p style="font-size:25px;color:<%=currentUser.FavouriteColor%>;"> <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></p></div>
+        <div id="info" style="background-color:<%=currentUser.FavouriteColor%>;
+                    height:70px;
+                    border-right:dashed 3px white;
+                    border-left:dashed 3px white;
+                    border-bottom:dashed 3px white;
+                    transition: all 180ms ease-in;"
+             class="col col-lg-12">
+          <p style="margin-top:25px;font-family: 'Open Sans', sans-serif;">
+             <span style="font-size:15px;color:white;">Created by <%= blog.creater.username  %></span>
+             <span style="font-size:20px;color:white;float:right">
+              <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></span><br>
+ 
+          </p>
+         
           </div></div>
-        
-   
+        </a>
+    
+      
         <%})%>
       </div>
       
     </div>
+
+
+
+
+<style>
+  
+  #display:hover{
+    color:white;
+    background-color:red;
+    transition: all 180ms ease-in;
+    border-right:dashed 3px white;
+    border-left:dashed 3px white;
+    border-top:dashed 3px white;
+    
+  }
+  
+   #info:hover{
+    background-color:black;
+    transition: all 180ms ease-in;
+  }
+ 
+  
+  
+</style>
+
+
+<script>
+  
+ 
+  
+  
+</script>
+
+
+
+
+
+

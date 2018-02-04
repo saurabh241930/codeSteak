@@ -1,11 +1,11 @@
 
-        <div id="logoHeading" class="row">  
+        <div id="logoHeading" style="" class="row">  
           
             <div id="fix" class="col col-lg-4 "></div>
           
           <div  class="col col-lg-4  col-xs-12">
         
-        <h1 id="Heading" >CodeSt<span id="mainlogo" data-toggle="tooltip" data-placement="bottom" title="Hi!">ea</span>k.</h1>
+        <h1 id="Heading" ><span class="logo1">C</span ><span class="logo2">o</span><span class="logo3">d</span><span class="logo4">e</span><span class="logo5">S</span><span class="logo6">t</span><span id="mainlogo" data-toggle="tooltip" data-placement="bottom" title="Hi!"></span><span class="logo7">k</span></h1>
 
          </div>
              
@@ -13,15 +13,148 @@
             <div class="col col-lg-4 ">
                  <% if(currentUser){ %>
               
+       
+          
+              
+              
+              
               <p><span style="float:right;
                 margin-right:20px;
-                margin-top:10px;
+                margin-top:30px;
                 color:white;
-                font-family: 'Open Sans', sans-serif;
-                font-size:30px;"> <a id="logoutButton" href = "/logout" class = "item">Logout</a>
+                font-family: 'Overpass Mono', monospace;
+                font-weight:900;
+                font-size:20px;"> <a id="logoutButton" href = "/logout" class = "item">Logout</a>
                 <%= currentUser.username %></span></p>
               
                <% } %>
           </div>
           
            </div>
+
+
+<style>
+/*   animation for c */
+   .logo1{
+    animation: logo1 1.5s 1 ease-out;  
+    position: relative;
+  }
+   @keyframes  logo1{
+    0%   {top: 0px; left: -600px; }
+         50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: -30px;}
+    84% {top: 0px; left: -10px;}
+    100% {top: 0px; left: 0px;}
+} 
+/*   animation for o */
+  .logo2{
+    animation: logo2 1.5s 1 ease-out;
+    position: relative;
+  }
+   @keyframes  logo2{
+    0%   {top: 0px; left: -575px; }
+         50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: -30px;}
+    84% {top: 0px; left: -10px;}
+    100% {top: 0px; left: 0px;}
+} 
+  /*   animation for d */
+  .logo3{
+    animation: logo3 1.5s 1  ease-out;
+    position: relative;
+  }
+   @keyframes  logo3{
+    0%   {top: 0px; left: -550px; }
+         50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: -30px;}
+    84% {top: 0px; left: -10px;}
+    100% {top: 0px; left: 0px;}
+} 
+   /*   animation for e */
+  .logo4{
+    animation: logo4 1.5s 1 ease-out;  
+    position: relative;
+  }
+   @keyframes  logo4{
+    0%   {top: 0px; left: -525px; }
+         50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: -30px;}
+    84% {top: 0px; left: -10px;}
+    100% {top: 0px; left: 0px;}
+} 
+     /*   animation for s */
+  .logo5{
+    animation: logo5 1.5s 1 ease-out;  
+    position: relative;
+  }
+   @keyframes  logo5{
+    0%   {top: 0px; left: -500px; }
+         50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: -30px;}
+    84% {top: 0px; left: -10px;}
+    100% {top: 0px; left: 0px;}
+} 
+     /*   animation for t */
+  .logo6{
+    animation: logo6 1.5s 1 ease-out;  
+    position: relative;
+  }
+   @keyframes  logo6{
+    0%   {top: 0px; left: -475px; }
+    50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: -30px;}
+    84% {top: 0px; left: -10px;}
+    100% {top: 0px; left: 0px;}
+} 
+     /*   animation for k */
+  .logo7{
+    animation: logo7 1.5s 1 ease-Out;  
+    position: relative;
+  }
+   @keyframes  logo7{
+    0%   {top: 0px; left: 600px;background-color:black }
+     50% {top: 0px; left: 0px;}
+    67% {top: 0px; left: 20px;}
+    84% {top: 0px; left: 10px;}
+    100% {top: 0px; left: 0px;}
+} 
+/*   logo heading animation */
+  #logoHeading{
+    animation: logoBackground 1.5s 1 ease-Out;
+  }
+  
+  @keyframes logoBackground{
+     0%   {background-color:black;border-bottom:solid 3px rgb(211,0,255); }
+    20%   {background-color:black; border-bottom:solid 3px rgb(211,0,255); }
+    40%   {background-color:rgb(211,0,255,0.2);border-bottom:solid 3px rgb(211,0,255);  }
+     50% {background-color:rgb(211,0,255,0.2);border-bottom:solid 3px rgb(211,0,255); }
+    67% {background-color:rgb(211,0,255,0.4);border-bottom:solid 3px rgb(211,0,255); }
+    84% {background-color:rgb(211,0,255,0.8);border-bottom:solid 3px rgb(211,0,255); }
+    
+  }
+  
+  
+  
+/*   animation of logo */
+  #mainlogo:after{
+    content:"ea";
+    animation: mymove 1.5s 1 ease-out;  
+    position: relative;
+    
+  }
+  
+  @keyframes  mymove{
+    0%   {content:"oo"}
+    30%   {content:"oo"}
+    50%   {content:"--"}
+    100% {content:"ea"}
+} 
+  
+  /*   #mainlogo{animation: rotation 2s 1 linear;}
+  
+  @keyframes rotation{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  } */
+
+</style>

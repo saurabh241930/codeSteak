@@ -1,27 +1,87 @@
 <!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->
         
+
+
+<%if(currentUser.createdProjects.length > 0){%>
+
+
+<style>
+  #myProject:hover{
+    border:dashed 3px <%=currentUser.FavouriteColor%> ;
+  }
+</style>
+
+
         <div class="row">
           
-        
+          
+          
+          <div class="col col-lg-12 ">
+           <p style="margin-bottom:-50px">
+             <span id="hugeHeading" style="font-family: 'Open Sans', sans-serif;
+                           font-size:100px;
+                           color:grey;
+                           font-weight:50;
+                           ">
+             My Projects
+             </span></p>
+          </div>
+          
+        <div>
+          
+          
+               
         <%currentUser.createdProjects.forEach(function(blog){%>  
-          <div style="" class="col col-lg-3">
+          
+         
+          
+          <div class="col col-lg-3">
+            <div id="myProject" style="text-align:center;
+                        opacity:0.7;
+                        border:dashed 3px white;
+                        padding:10px;
+                        margin-top:20px;
+                        background-color:<%=currentUser.FavouriteColor%>;
+                        ">
+                <i style="font-size:60px;color:white" class="fa fa-file-text" aria-hidden="true"></i><br><br>
            <div style="text-align:center;
-                       background-color:black;
-                       height:100px;
-                       width:90%;
                        border-radius:5px;">
              <a href="/blogs/<%=blog.id%>" style=" font-family: 'Open Sans', sans-serif;
                        font-size:30px;
                        margin-top:20px;
-                       color:white;"><%=blog.classname%></a>
-                     <a href="/blogs/<%=blog.id%>/edit">Edit</a>
+                       color:white;"><%=blog.classname%></a><br><br><br>
+                     <a href="/blogs/<%=blog.id%>/edit"><span style="background-color:white;
+                                                                      opacity:1;
+                                                                     color:<%=currentUser.FavouriteColor%>;font-size:15px;
+                                                                    padding:4px 15px 4px 15px;
+                                                                    border-radius:5px;">Edit</span></a>
             </div>
+            </div>
+          
 
          </div>
+          
+        
          <%})%>
           
+          
+          </div>
+          
+     
+       
         </div>
         
         
+<script>
+  if($(window).width() < 767){
+    $("#hugeHeading").css("font-size","50px");
+    $("#hugeHeading").css("margin-bottom","-20px");
+  }
+</script>
+
+
+<%}%>
+
+
         
 <!--   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Showing my own project  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    -->

@@ -19,7 +19,7 @@ TotalProjectViewed:{type:Number,default:0},
   
 Visited:{type:Number,default:1},
 
-ProfileImage:{ type: String, default: "https://mybluerobot.com/wp-content/plugins/svg-avatars-generator/data/temp-avatars/svgA7705990811968029.png" },
+ProfileImage:{ type: String, default: "https://lh3.googleusercontent.com/-e51EnugLFYA/AAAAAAAAAAI/AAAAAAAAyH0/uVZqaMO_Inw/photo.jpg" },
 
 
 friends:[{    

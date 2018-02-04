@@ -11,11 +11,16 @@
     <link rel = "stylesheet"  type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='/script/jquery.transit.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
   </head>
 
 
@@ -58,6 +63,8 @@
     display:inline-block;
     height:170px;
     width:170px;
+   
+   
    <%if(currentUser){%>
    
    <%}%>
@@ -138,7 +145,7 @@
         margin-top:50px;
         transition: all 200ms ease-in;
         color:white;
-        background-color:#bf02ff;
+        background-color:#8f13fd;
         font-family: 'Overpass Mono', monospace;
         width:50%;
   }
@@ -253,7 +260,13 @@
   #logoHeading{
     padding-top:16px;
     padding-bottom:15px;
-    background-color:#bf02ff;
+    background-color:rgb(143, 19, 253);
+    max-height:90px;
+    border-bottom:dashed 2px white;
+    z-index:2;
+    text-align:center;
+    position:absolute;
+    width:105%
   }
 
   #logoutButton{
@@ -294,12 +307,15 @@
             font-family: 'Press Start 2P', cursive;
             color:<%=currentUser.ThemeColor%>;
             font-size:35px;
-            margin-top:30px;
-            text-shadow: 4px 4px <%=currentUser.FavouriteColor%>;
+            margin-top:2px;
+            text-shadow: 4px 4px black;
             }
 
         #logoHeading{
+             position: static; 
              background-color:<%=currentUser.FavouriteColor%>;
+             width:103%;
+             
         }     
         
         
@@ -341,295 +357,11 @@
    
         
         
+      
+           <% include ../indexComponents/profileSection %> 
         
-        
-   <div class = "row">
-   
      
-    <div class="col col-lg-3 col-sm-12 col-xs-12">
-     
-      <div class="row">
-        
-        
-        
-<!--      ProfileImage   -->
-        
-        <div class="col col-lg-0 col-xs-3"></div>
-        <div  id="stack" class="col col-lg-12 col-sm-12 col-xs-6" style="margin-top:30px;">
-           <img style=""  src="<%= currentUser.ProfileImage %>" id="profileImage">
-        </div>
-        <div class="col col-lg-0 col-xs-3"></div>
-         
- <!--     ProfileImage     -->
 
-        
-        
-       <div>
-         
-         
-            <div  id="first" style="background-color:<%=currentUser.FavouriteColor%>;
-                         text-align:center;
-                         margin-top:15px;
-                         height:60px;
-                         border-right:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-12 col-xs-12">
-          
-          
-
-          </div>
-          
-         <div style="" class="col col-lg-2 col-xs-0"></div>
-          
-          <div class="col col-lg-4 col-xs-5"  style="background-color:<%=currentUser.FavouriteColor%>;
-                         text-align:center;
-                         height:100px;
-                         margin-top:20px">
-            <a><span style="color:<%=currentUser.ThemeColor%>;
-                                  font-size:50px;"><i style="margin-top:25px;"
-                                                      class="fa fa-bell" 
-                                                      aria-hidden="true"
-                                                       data-toggle="modal" data-target="#Notification" ></i></span></a>
-          </div>
-          <div class="col col-lg-1 col-xs-2"></div>
-          
-      <div class="col col-lg-4 col-xs-5"  style="background-color:<%=currentUser.FavouriteColor%>;
-                         text-align:center;
-                         height:100px;
-                         margin-top:20px">
-            <a><span style="">
-              <i style="margin-top:25px;font-size:50px;
-                        color:<%=currentUser.ThemeColor%>;"
-                        class="fa fa-commenting" 
-                        aria-hidden="true"
-                        data-toggle="modal" data-target="#Notification" ></i></span></a>
-</div>
-
-         <div class="col col-lg-2 col-xs-0"></div>
-         
-         
-         
-         
-        </div>
-        
-          
-         
-          
-        
-          
-       
-      
-          
-           
-        
-        
-      
-      
-        
-      </div>
-      
-      
-        
-      
-      
-    </div>
-     
-    
-     
-     
-     <div class="col col-lg-3 col-sm-12 col-xs-12">
-       
-       
-       
-        <div style="height:170px;" class="row">
-          
-            <div  id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
-                         text-align:center;
-                         margin-top:30px;
-                         height:165px;
-                         border-right:solid 5px <%=currentUser.ThemeColor%>;
-                          border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-4 col-xs-4">
-          
-         <i style="font-size:100px;
-                   margin-top:30px;color:<%=currentUser.ThemeColor%>;" class="fa fa-bolt" aria-hidden="true"></i>
-
-          </div>
-          
-           <div id="stack" style="background-color:<%=currentUser.FavouriteColor%>;
-                       text-align:center;
-                        margin-top:30px;
-                       height:165px;
-                         border-right:solid 5px <%=currentUser.ThemeColor%>;
-                        border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-8 col-xs-8">
-          
-        <p style="margin-top:70px;color:<%=currentUser.ThemeColor%>;"><span style="font-size:80px;
-          font-family: 'Open Sans', sans-serif;">
-          <%=currentUser.ReputationScore%> <span style="font-size:30px;"> xp</span>
-          </span></p>
-          </div>
-          
-        </div>
-       
-       
-         <div class="row">
-          
-       
-          
-           <div style="background-color:<%=currentUser.FavouriteColor%>;
-                       text-align:center;
-                        margin-top:30px;
-                       height:170px;
-                         border-right:solid 5px <%=currentUser.ThemeColor%>;
-                        border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-12 col-xs-12">
-          
-          <i data-toggle="modal" data-target="#FriendList" style="font-size:60px;
-                    color:<%=currentUser.ThemeColor%>;
-                   margin-top:50px;" class="fa fa-users" aria-hidden="true"></i>
-
-          </div>
-          
-        </div>
-       
-       
-       
-       
-       
-       
-       
-       
-        </div>
-     
-     
-     <div id="grid-3"  class="col col-lg-3 col-sm-12 col-xs-12">
-       
-       
-       
-       
-       
-       
-<!--        <div style="margin-top:30px;">
-         
-            <a id="links"  href = '/friendrequest' style="display:inline-block;
-                                                          padding:110px 40px 110px 40px;
-                                                          background-color:green;" > Friend requests</a>
-         
-     <a id="stacke" href = '/FRnotifications' style="display:inline-block;
-                                                     border:solid 1px blue;
-                                                     padding:40px 63px 40px 63px;
-                                                    background-color:blue;
-                                                     font-family: 'Overpass Mono', monospace;" >Find People</a>
-      
-    
-       </div> -->
-      
- <div style="" class="row">
-          
-         
-          
-           <div id="" style="background-color:<%=currentUser.ThemeColor%>;
-                       text-align:center;
-                        margin-top:70px;
-                       height:400px;
-                        width:100%;
-                         border-right:solid 5px <%=currentUser.ThemeColor%>;
-                        border-left:solid 5px <%=currentUser.ThemeColor%>;" class="col col-lg-12 col-xs-12">
-          
-         <i id="" style="font-size:150px;
-                   margin-top:10px;
-                  color:<%=currentUser.FavouriteColor%>;
-                   border:solid 1px <%=currentUser.FavouriteColor%>;
-                    padding: 60px 60px 60px 60px;"  class="fa fa-file-code-o" aria-hidden="true"></i>
-             <div style="margin-top:20px;">
-               <p><span style ="font-size:38px;font-family: 'Open Sans', sans-serif;
-                 color:<%=currentUser.FavouriteColor%>;">Create Project</span></p>
-             </div>
-              </div>
-
-          </div>
-   
-       
-       
-       
-     </div>
-     
-     <div id="grid-3"  style="text-align:center;" class="col col-lg-3 col-sm-12 col-xs-12">
-       
-       
-       
-        <div  class="row">
-          
-       
-      
-           <div id="last" style="background-color:<%=currentUser.FavouriteColor%>;
-                       text-align:center;
-                        margin-top:30px;
-                       height:367px;
-                      
-                         transition: all 180ms ease-in;" class="col col-lg-12 col-xs-12">
-          
-           <i style="font-size:160px;
-                    color:<%=currentUser.ThemeColor%>;
-                   margin-top:100px;" id="iconFlask" class="fa fa-flask" aria-hidden="true"></i>
-
-          </div>
-          
-        </div>
-       
-       
-<!--        <div style="margin-top:30px;">
-         
-            <a id="links"  href = '/friendrequest' style="display:inline-block;
-                                                           padding:80px 40px 80px 40px;
-                                                          background-color:red;" > Friend requests</a>
-     <a id="test"  data-toggle="modal" data-target="#FriendList">Friend list</a>
-      
-    
-       </div> -->
-      
-       
-       
-   <style> 
-     
- 
-    
-     .scalein{
-       transform: scale(1.05);
-       border:solid 5px <%=currentUser.ThemeColor%>;
-       transition: all 180ms ease-in;
-     }
-     
-    
-   </style>    
-       
-    <script>
-         
-         
-   ///   1
-    $("#last,#iconFlask").hover(function(){
-    $("#iconFlask").css("transform","scale(1.1)");
-    $('#last').addClass("scalein");
-    $("#iconFlask").css("color","<%=currentUser.FavouriteColor%>");
-    $('#last').css("background-color","<%=currentUser.ThemeColor%>");
-    })
-
-    $("#last").mouseout(function(){
-    $('#last').removeClass("scalein");
-    $("#iconFlask").css("color","<%=currentUser.ThemeColor%>");
-    $("#iconFlask").css("transform","scale(1)");
-    $('#last').css("background-color","<%=currentUser.FavouriteColor%>");
-    
-    })
-     
-    </script>
-       
-       
-       
-       
-       
-       
-<!--     
-         <a id="links" href = '/people'  style="display:inline-block;">Find Friends</a>
-       <a style="cursor: pointer;
-                 display:inline-block;" id="links" data-toggle="modal" data-target="#FriendList" >FriendList</a> -->
-     </div>
         
          
     <style>
@@ -715,6 +447,9 @@
      <%}%> 
         
      </div>
+        
+        
+       
      
      
   
@@ -724,12 +459,14 @@
      
    
 <!--  ***************************************************** Projects ************************************************  -->
-
-     <% include ../indexComponents/allProjects %>
+<div>
+  <% include ../indexComponents/allProjects %>
+ </div>
+     
 
         
         
-  <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Continue editing your project</h1></div>      
+     
         
 <!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
         
@@ -761,41 +498,24 @@
     
   <!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
      
-
+<div style="margin-top:100px;background-color:white;padding:50px">
+         <% include ../indexComponents/ownProjects %>
+  </div>
         
         
-    <% include ../indexComponents/ownProjects %>
+   
         
         
         
         
 <!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
         
-   <div style="text-align:center"><h1 style="font-size:35px;color:<%=currentUser.FavouriteColor%>;">Top Developers</h1></div> 
-        <div class="row">
-<%TopUsers.forEach(function(user){%>
+  <div style="margin-top:100px;background-color:white;padding:50px">
+         <% include ../indexComponents/topDevelopers %>
+  </div>  
         
-          <div style="" class="col col-lg-2">
-            <div style="border:solid 1px black;">
-             <img style="height:80px;width:80px;" src="<%= user.ProfileImage %>">
-             <a href="#" style="color:black;"><%=user.username%></a>
-             <p style="color:black;"> <%=user.ReputationScore%> <span>xp</span></p>
-              <a href="/follow/<%=user.id%>/<%=user.username%>">
-                
-                
-                <%if(currentUser.following.some((User) => User.id.toString() === user.id.toString())){%>
-                <span style="color:white;background-color:green;font-size:20px">Followed</span>
-                <%}else{%>
-                <span style="color:white;background-color:blue;font-size:20px">Follow</span>
-                <%}%>
-                
-              </a>
-            
-            </div>
-       
-          </div>
-        <%})%>        
-        </div>
+        
+   
         
 <!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
     
@@ -841,12 +561,17 @@
       </div>
   
 
-<section style="height:200px;margin-top:200px;background-color:red;">
+<!-- <section style="height:200px;
+                margin-top:0px;
+                background-color:red;
+                z-index:2;
+                position:absolute;
+                width:100%">
 
 <div class= "row">
-  <div class="col col-lg-5 col-sm-0 col-xs-0">
+  <div class="col col-lg-5 col-sm-0 col-xs-0"> -->
 <!--     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Notification">Notifications</button> -->
-  </div>
+<!--   </div>
   
   <div class="col col-lg-2 col-sm-12 col-xs-12">
     <div>
@@ -863,7 +588,7 @@
   
   
   
-</section>
+</section> -->
 
 
 
@@ -964,7 +689,7 @@
     .headingMobile{
    font-family: 'Press Start 2P', cursive;
     color:white;
-    font-size:35px;
+    font-size:30px;
     margin-top:20px;
      text-shadow: 4px 4px #bf02ff;
   }
@@ -972,7 +697,7 @@
      .mainlogoMobile{
        margin-top:20px;
     color:#bf02ff;
-    font-size:60px;
+    font-size:40px;
     background-color:black;
       border:solid 4px white;
       box-shadow:2px 2px #bf02ff ;
@@ -1035,7 +760,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         
           
-    <form class = "ui form" action = '/login' method = "post">
+<!--     <form class = "ui form" action = '/login' method = "post">
     
 
         
@@ -1094,7 +819,7 @@
       
       
 
-</form>
+</form> -->
           
           
           
@@ -1229,11 +954,10 @@
   
   
   /////////////////////////On Desktop ////////////////////////////
-  if($(window).width() > 767)
-{
+  if($(window).width() > 767){
   $("#login").hover(function(){
-    $("#mainlogo").addClass("mainlogoOn");
-    $("#mainlogo").text("oo");
+//     $("#mainlogo").addClass("mainlogoOn");
+//     $("#mainlogo").text("oo");
      $("#login").css({ scale: 1.2 });  
       
    })
@@ -1242,8 +966,8 @@
   
   
     $("#getstarted").hover(function(){
-    $("#mainlogo").addClass("mainlogoOn");
-    $("#mainlogo").text("--");
+//     $("#mainlogo").addClass("mainlogoOn");
+//     $("#mainlogo").text("--");
     $("#getstarted").text("Explore");
     $("#dummytext2").text("Explore all the features of codeSteak");
     $("#dummytext1").addClass("on");
@@ -1274,7 +998,12 @@
 $("#Heading").addClass("headingMobile");
 $("#mainlogo").addClass("mainlogoMobile");
 $('#dummytext2').addClass('dummytext2Mobile');
- $("#advice").addClass("adviceMobile"); 
+ $("#advice").addClass("adviceMobile");
+$("#mask").css("margin-top","-473px");
+ $("#inputUsername").css("width","80%");
+  $("#inputPassword").css("width","80%");
+  $("#buttonLogin").css("width","50%");
+  
 
 }
  //////////////////////////////////////////////////// 
@@ -1283,9 +1012,9 @@ $('#dummytext2').addClass('dummytext2Mobile');
   
   
    $("#login").mouseout(function(){
-     $("#mainlogo").removeClass("mainlogoOn");
-     $("#mainlogo").addClass("mainlogo");
-      $("#mainlogo").text("ea");
+//      $("#mainlogo").removeClass("mainlogoOn");
+//      $("#mainlogo").addClass("mainlogo");
+//       $("#mainlogo").text("ea");
     $("#login").css({ scale: 1 });
    })
   
@@ -1297,9 +1026,9 @@ $('#dummytext2').addClass('dummytext2Mobile');
  
     $("#getstarted").mouseout(function(){
      $("#getstarted").text("GetStarted");
-       $("#mainlogo").removeClass("mainlogoOn");
-     $("#mainlogo").addClass("mainlogo");
-       $("#mainlogo").text("ea");
+//        $("#mainlogo").removeClass("mainlogoOn");
+//      $("#mainlogo").addClass("mainlogo");
+//        $("#mainlogo").text("ea");
       $("#dummytext1").removeClass("on");
       $("#dummytext1").addClass("off");
       $("#dummytext2").text(" Welcome to codeSteak")
@@ -1310,8 +1039,8 @@ $('#dummytext2').addClass('dummytext2Mobile');
 
   $("#logoutButton").mouseout(function(){
      $("#mainlogo").removeClass("bye");
-    $("#mainlogo").addClass("mainlogo");
-     $("#mainlogo").text("ea"); 
+//     $("#mainlogo").addClass("mainlogo");
+//      $("#mainlogo").text("ea"); 
   })
   
   
