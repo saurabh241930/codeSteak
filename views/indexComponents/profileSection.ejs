@@ -8,20 +8,36 @@
     <p>
       
     <img style="border:solid 2px #ccc;
-                height:100px;
-                width:100px;
+                height:150px;
+                width:150px;
                 object-fit: cover;
                 " src="<%=currentUser.ProfileImage%>">
       
+    <%if(currentUser.ProfileImage.toString() === "http://res.cloudinary.com/sp241930/image/upload/v1519073356/imageedit_2_7510950099_xbbjip.png"){%>
+      
+      <a style="margin-left:-145px;
+                font-family: 'Overpass Mono', monospace;
+                color:black;
+                font-size:18px;
+                font-weight:bold;
+                background-color:rgba(170, 170, 170,0.4);
+                padding:6px;
+                border:1px solid black;
+                border-radius:2px;
+                "
+         href="/userProfile"><i  style="color:<%=currentUser.FavouriteColor%>" class="fa fa-user"></i> Add image</a>
+      
+      
+      <%}%>
   
       
       
       
       
     <span style="font-family: 'Overpass Mono', monospace;
-                 font-size:40px;
+                 font-size:30px;
                  font-weight:bold;
-                 text-shadow:3px 2px <%=currentUser.FavouriteColor%> ;">&nbsp;<%=currentUser.username%></span>
+                 text-shadow:2px 2px <%=currentUser.FavouriteColor%> ;">&nbsp;<%=currentUser.username%></span>
 <!--        <span class="typcn typcn-flash" style="font-size:50px;"></span><br> -->
       <p>
        <a id="Notifications" href="/userProfile"><span style=" font-family: 'Overpass Mono', monospace;

@@ -19,7 +19,7 @@ TotalProjectViewed:{type:Number,default:0},
   
 Visited:{type:Number,default:1},
 
-ProfileImage:{ type: String, default: "https://lh3.googleusercontent.com/-e51EnugLFYA/AAAAAAAAAAI/AAAAAAAAyH0/uVZqaMO_Inw/photo.jpg" },
+ProfileImage:{ type: String, default: "http://res.cloudinary.com/sp241930/image/upload/v1519073356/imageedit_2_7510950099_xbbjip.png" },
 
 
 friends:[{    
