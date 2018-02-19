@@ -11,6 +11,8 @@ var flash = require('connect-flash');
 
 
 
+valueOf
+
 
 /////////////////////////////////Following people///////////////////////////////
 

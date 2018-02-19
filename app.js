@@ -12,6 +12,7 @@ var  methodOverride = require('method-override'),
             Profile = require('./models/profile'),
            passport = require('passport'),
       LocalStrategy = require('passport-local'),
+        
             
                 app = express();
 
@@ -28,6 +29,8 @@ var  methodOverride = require('method-override'),
 var multer = require('multer');     
 var path = require('path');
 var fs = require('fs');
+var formidable = require('formidable');
+var cloudinary = require('cloudinary');
 
 //seedDB(); //Seed the database
 
@@ -59,6 +62,12 @@ app.use(function(req,res,next){
 
 /////////////////////////////////////////////////////////////
 
+ cloudinary.config({ 
+ cloud_name: 'sp241930', 
+ api_key: '341146687494171', 
+ api_secret: 'WmnXbsxK8GgFWshpvUe09kZqaAA' 
+ }); 
+
 
 
 
@@ -66,9 +75,10 @@ app.use(function(req,res,next){
    mongoose.Promise = global.Promise;
    mongoose.connect('mongodb://localhost/BlackPost', { useMongoClient: true, });
    app.set('view engine','ejs');
-   app.use(express.static(__dirname +'/public'));
-   app.use(bodyParser.urlencoded({extended:true}));
+   app.use(express.static('public'));
+   app.use(bodyParser.urlencoded({extended:false}));
    app.use(methodOverride('_method'));
+
   //===================================================APP CONFIG==========================================================//
 
 

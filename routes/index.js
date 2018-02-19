@@ -8,14 +8,125 @@ var passport = require('passport');
 var User = require('../models/user');
 var Profile = require('../models/profile');
 var flash = require('connect-flash');
+var multer = require('multer');     
+var path = require('path');
 var fs = require('fs');
-var multer = require('multer');
+var formidable = require('formidable');
+var util = require('util');
+var cloudinary = require('cloudinary');
 
 
 
 router.get('/',function(req,res){
   res.redirect('/blogs');
 });
+
+
+
+ var upload = multer({ dest: './uploads/'});
+
+
+ router.post('/imageUpload', upload.single('file'), function(req,res){
+   
+ User.findById(req.user._id,function(err,user){
+   if (err) {
+    console.log(err)
+  } else {
+    
+    cloudinary.uploader.upload(req.file.path,
+    function(result){
+      
+    user.ProfileImage = result.secure_url;
+    user.save();
+      
+
+});
+    
+  }
+ })  
+
+ });
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// const upload = multer({ dest: 'uploads/' })
+
+// router.post('/file_upload', upload.single('file'), (req, res, next) => {
+  
+//    User.findById(req.user._id,function(err,user){
+     
+//      if (err) {
+//       console.log(err)
+//     } else {
+      
+      
+//         var image = new Image ({
+          
+//          path: req.file.path,
+//          filename: user.username
+          
+//         });
+      
+      
+      
+//       const encoded = req.file.toString('base64');
+//       user.ImageProfile = encoded;
+//       user.save();
+//       res.render("temporary",{encoded:encoded,user:user});
+//     }
+     
+//    })
+
+  
+// })
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+// var upload = multer({ dest: '/tmp' });
+
+
+// router.post('/file_upload', upload.single("file"), function (req, res) {
+  
+//   User.findById(req.user._id,function(err,user){
+    
+//     if (err) {
+//       console.log(err)
+//     } else {
+      
+//   var file = path.join(__dirname, '../ProfileImages', user.username + ".jpg");
+      
+      
+//      fs.rename(req.file.path, file, function (err) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.redirect("back");
+//         }
+
+//     })
+      
+      
+//     }
+    
+//   })
+ 
+// })
+
+
 
 
 
@@ -95,8 +206,8 @@ res.render('run',{html,css,javascript});
 
 
 
-router.get('/courses/:id/59f88c5545f8bc07035c1b73',function(req,res){
-res.render('lesson2');
+router.get('/userProfile',function(req,res){
+res.render('userProfile');
 })
 
 
@@ -109,8 +220,6 @@ router.get('/login',function(req,res){
 res.render('login');
 });
 
-//login logic
-// app.post('/login',middleware,callback)
 router.post('/login',passport.authenticate("local",
 {successRedirect: "/blogs",
 failureRedirect: "/login"

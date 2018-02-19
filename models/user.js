@@ -10,7 +10,7 @@ password :String,
 FavouriteColor:String,
   
 ThemeColor:String,
-  
+ 
 NewNotifications:{type:Boolean,default:false},
   
 ReputationScore:{type:Number,default:1},

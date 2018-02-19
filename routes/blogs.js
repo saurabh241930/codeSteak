@@ -49,7 +49,6 @@ router.get('/blogs/new',isLoggedIn,function(req,res){
 
 
 
-
  /////////////////////////CREATE ROUTE/////////////////////////
 router.post('/blogs',isLoggedIn,function(req,res){
   //Create new blog

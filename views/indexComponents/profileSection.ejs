@@ -6,17 +6,25 @@
   
   <div  class="col col-lg-3 col-md-3 col-sm-6 col-xs-12"  style="border-right:solid 1px #ccc">
     <p>
+      
     <img style="border:solid 2px #ccc;
                 height:100px;
-                width:100px" src="https://yt3.ggpht.com/-njpSoPHtvwk/AAAAAAAAAAI/AAAAAAAAAAA/2GAaIS8ZGMQ/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="">
-    
+                width:100px;
+                object-fit: cover;
+                " src="<%=currentUser.ProfileImage%>">
+      
+  
+      
+      
+      
+      
     <span style="font-family: 'Overpass Mono', monospace;
                  font-size:40px;
                  font-weight:bold;
                  text-shadow:3px 2px <%=currentUser.FavouriteColor%> ;">&nbsp;<%=currentUser.username%></span>
 <!--        <span class="typcn typcn-flash" style="font-size:50px;"></span><br> -->
       <p>
-       <a id="Notifications" href=""><span style=" font-family: 'Overpass Mono', monospace;
+       <a id="Notifications" href="/userProfile"><span style=" font-family: 'Overpass Mono', monospace;
                                 font-size:16px;
                                 color:white;
                                 background-color:black;
