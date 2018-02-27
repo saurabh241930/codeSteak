@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Blog = require('../models/blog');
+var Question = require('../models/question');
 var User = require('../models/user');
 var methodOverride = require('method-override');
 var multer = require('multer');     
@@ -25,6 +26,8 @@ router.get('/blogs',function(req,res){
       console.log(err);
     } else {
      
+      
+      
       res.render('blogs/index',{blogs:blogs,TopUsers:users});
       }
       })
@@ -321,73 +324,171 @@ router.post('/blogs/run/preview',function(req,res){
   
 })
 
-////////////////////////////////////////////////
 
 
-router.get('/profilepic',function(req,res){
- 
 
+
+//////////////////////////////////////////////////////////COMMUNITY SECTION//////////////////////////////////////////////////////////////////////////
+
+router.get("/community",function(req,res){
   
- res.render('blogs/profilepic');
+ Question.find({}).sort({score: -1}).exec(function(err,questions) {
+    if (err) {
+      console.log(err);
+    } else {
+       res.render("community",{questions:questions});
+    }
+  })
+  
+ 
+})
 
+
+
+
+router.post("/postQuestion",function(req,res){
+  
+  User.findById(req.user._id,function(err,user){
+    if (err) {
+      console.log(err)
+    } else {
+      
+      var newQuestion = {
+        asker:user.username,
+        questionText:req.body.questionText,
+        questionCode:req.body.questionCode,
+        questionDescription:req.body.questionDescription,
+        askerId:req.user._id,
+        askerImage:user.ProfileImage
+      }
+      
+     Question.create(newQuestion,function(err,question){
+       if (err) {
+        console.log(err)
+      } else {
+       
+        res.redirect("/community");
+      }
+     }) 
+
+    }
+  })
+
+})
+
+
+
+router.post("/upvote/:id",function(req,res){
+  
+  Question.findById(req.params.id,function(err,question){
+    if (err) {
+      console.log(err);
+    } else {
+       
+      var positiveUser = {
+        username:req.user.username
+      }
+
+      if (question.upvotedUsers.some((eachUser) => eachUser.username.toString() === req.user.username.toString())) {
+       console.log("You already voted");
+      }else{
+          question.upvotedUsers.push(positiveUser);
+          question.score = question.score + 1;
+          question.save();
+      }
+ 
+      res.redirect("back")
+    }
+  })
+
+})
+
+
+
+
+
+router.post("/downvote/:id",function(req,res){
+  
+  Question.findById(req.params.id,function(err,question){
+    if (err) {
+      console.log(err);
+    } else {
+  
+          var negativeUser = {
+        username:req.user.username
+      }
+  
+      if (question.downvotedUsers.some((eachUser) => eachUser.username.toString() === req.user.username.toString())) {
+       console.log("You already voted");
+      }else{
+          question.upvotedUsers.push(negativeUser);
+          question.score = question.score - 1;
+          question.save();
+      }
+ 
+      res.redirect("back")
+      
+      
+    }
+  })
+
+})
+
+
+
+router.post("/answer/:id",function(req,res){
+  
+  Question.findById(req.params.id,function(err,question){
+    if (err) {
+      console.log(err);
+    } else {
+      
+      var answer = {
+        answerText:req.body.answerText,
+        answeredBy:req.user.username,
+        answererImage:req.user.ProfileImage,
+        id:req.user._id
+      }
+      
+      question.answers.push(answer);
+      question.save();
+      res.redirect("back");
+      
+      
+    }
+  })
   
 })
 
 
 
-// router.post("/api/Upload/",function(req,res){
+router.get("/askQuestion",function(req,res){
   
-// //   User.findById(req.user._id,function(err,user){
-// //     if (err) {
-// //       console.log(err);
-// //     } else {
-// //       user.ProfileImage.data = fs.readFileSync(req.files.userPhoto.path);
-// //       user.ProfileImage.contentType = "image/png";
-// //       user.save();
-// //       res.redirect("back");
-// //     }
-// //   })
+  res.render("askQuestion")
   
-  
-  
-// //  var newItem = new User ();
-// //  newItem.ProfileImage.data = fs.readFileSync(req.files.userPhoto.path)
-// //  newItem.ProfileImage.contentType = "image/png";
-// //  newItem.save();
-  
-  
-  
-  
-  
-  
-  
-  
-  
-// });
+})
 
 
-router.post('/upload',upload.single('avatar'), function(req, res) {
+router.get("/question/:id",function(req,res){
   
-  
-    var fileInfo = [];
-  
-  
-    for(var i = 0; i < req.files.length; i++) {
+   Question.findById(req.params.id,function(err,question){
+    if (err) {
+      console.log(err);
+    } else {
       
-        fileInfo.push({
-            "originalName": req.files[i].originalName,
-            "size": req.files[i].size,
-            "b64": new Buffer(fs.readFileSync(req.files[i].path)).toString("base64")
-        });
+    
+      res.render("answer",{question:question});
       
-        fs.unlink(req.files[i].path);
+      
     }
-   console.log(fileInfo);
-  res.redirect("back");
+  })
+ 
   
-  
-  
-});
+})
+
+//////////////////////////////////////////////////////////COMMUNITY SECTION//////////////////////////////////////////////////////////////////////////
+
+
 
 
 

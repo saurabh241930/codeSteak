@@ -115,7 +115,8 @@ throw err;
 
 var Request = {
 id:req.user._id,
-username: req.user.username
+username: req.user.username,
+requesterImage:req.user.ProfileImage
 }
 
 var Notification = {
@@ -214,34 +215,40 @@ if (err) {
 throw err;
 } else {
 
-User.findOneAndUpdate({username:req.user.username},
-{
-$push: {
-"friends":{
-username:req.params.username
-       }                       
-    }
- }
-,function(err,founduser){
+User.findOne({username:req.params.username},function(err,secondaryUser){
 
 if (err) {
 throw err;
 } else {
 
+  var RequestConfirmation = {
+    username:req.user.username,
+    friendImage:founduser.ProfileImage
+  }
+  
+  secondaryUser.friends.push(RequestConfirmation);
+  secondaryUser.save();
+  
+  
+  User.findById(req.user._id,function(err,primaryUser){
+    if (err) {
+      console.log(err)
+    } else {
+      
+       var RequestConfirmationPrimary = {
+    username:secondaryUser.username,
+    friendImage:secondaryUser.ProfileImage
+  }
+  
+  primaryUser.friends.push(RequestConfirmationPrimary);
+  primaryUser.save();
+    }
+  })
+  
+ 
 
-User.findOneAndUpdate({username:req.params.username},
-{
-$push: {
-"friends":{
-username:req.user.username
-          }                       
-     }
-   }
-,function(err,founduser){
-
-   if (err) {
-  throw err;
-     } else {
+    
+    
 //////////////////////adding accept notification ////////////////////////
        
  
@@ -251,6 +258,7 @@ username:req.user.username
          id:req.user._id,
         username: req.user.username
        }
+       
        founduser.NewNotifications = true;
        founduser.AcceptedfriendRequestedNotification.push(Accept);
        founduser.ReputationScore = founduser.ReputationScore + 5;
@@ -261,9 +269,9 @@ username:req.user.username
     })  
    }
   }) 
- }   
-})  
-})
+ })  
+ 
+
 
 
 ////////////////////////////////////////////////////////////////////////

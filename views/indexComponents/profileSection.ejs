@@ -7,7 +7,7 @@
   <div  class="col col-lg-3 col-md-3 col-sm-6 col-xs-12"  style="border-right:solid 1px #ccc">
     <p>
       
-    <img style="border:solid 2px #ccc;
+    <img style="border:solid 2px <%=currentUser.FavouriteColor%>;
                 height:150px;
                 width:150px;
                 object-fit: cover;
@@ -58,7 +58,7 @@
                                 box-shadow:3px 3px <%=currentUser.FavouriteColor%>;">
          <i  style="color:<%=currentUser.FavouriteColor%>" class="fa fa-users"></i> Friend Request</span></a><br><br><br>
         
-       <a style="text-align:center" href="">&nbsp; <span style=" font-family: 'Overpass Mono', monospace;
+       <a style="text-align:center" href="/userProfile">&nbsp; <span style=" font-family: 'Overpass Mono', monospace;
                                 font-size:16px;
                                 
                                 margin-left:10px;
@@ -71,8 +71,35 @@
 
 
 
-<div  class="col col-lg-6 col-md-6 col-sm-12 col-xs-12"  style="border-right:solid 1px #ccc">
-
+<div  class="col col-lg-6 col-md-6 col-sm-12 col-xs-12"  style="border-right:solid 1px #ccc;
+                                                                background:url(https://i.imgur.com/vkpa3gg.png);
+                                                                height:258px;">
+   <div class="col col-lg-12" style="text-align:center"><p style="margin-top:10px"><span style="font-family: 'Overpass Mono', monospace;
+                                                                     font-size:30px;
+                                                                     font-weight:bold;
+                                                                     color:<%=currentUser.FavouriteColor%>;
+                                                                     text-shadow:2px 2px black;">Friends</span></p></div>
+  
+  
+  <%currentUser.friends.forEach(function(friend){%>
+ 
+  <div class="col col-lg-2">
+    <img style="width:100px;
+              height:100px;
+              border-radius:50px;
+              object-fit: cover;
+              border:dotted 3px <%=currentUser.FavouriteColor%>;
+              text-align:center;
+              "
+         src="<%=friend.friendImage%>"><br>
+    <p style="text-align:center;font-weight:bold;font-family: 'Overpass Mono', monospace;font-size:15px;"><%=friend.username%></p>
+    <a  href="/profile/chat/<%=friend.username%>"><p style="text-align:center;color:white;background-color:<%=currentUser.FavouriteColor%>;padding:5px;
+                          font-family: 'Overpass Mono', monospace;
+                         font-weight:bold;
+                        border-radius:3px;
+                 ">Chat</p></a>
+  </div>
+<%})%>
  </div>
 
 <div  class="col col-lg-3 col-md-3 col-sm-12 col-xs-12"  style="border-left:solid 1px #ccc;height:210px;">
@@ -95,10 +122,10 @@
       
       
          <i  style="font-size:60px;font-weight:bold; text-shadow:3px 2px <%=currentUser.FavouriteColor%> ;" class="fa fa-code"></i><br><br>
-    <p><span style="font-family: 'Overpass Mono', monospace;
+    <a href="/blogs/new"><span style="font-family: 'Overpass Mono', monospace;
                     font-weight:bold;
                      font-size:20px;
-                    ">Create new <br><br> Project</span> </p>
+                    ">Create new <br><br> Project</span> </a>
     </div>
 
   </div>

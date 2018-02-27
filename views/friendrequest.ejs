@@ -48,12 +48,14 @@
 <div class="ui grid">
   
    <div  class="four wide column">
+     <img src="<%=request.requesterImage%>" style="height:50px;width:50px;">
      <h3 id='username'><%= request.username %></h3>  
      
   </div>
    <div  class="four wide column">
               <form  action = "/accept/<%=request._id%>/<%=request.username%>" method = "post"> 
              <button id="add" class="ui  medium  <%=request.Color%> button"><%=request.Status%></button> 
+                
              </form>
   
   </div>

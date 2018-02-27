@@ -23,7 +23,8 @@ ProfileImage:{ type: String, default: "http://res.cloudinary.com/sp241930/image/
 
 
 friends:[{    
-username: String
+username: String,
+friendImage:String
 }],
 
 ProjectCreatedByFriends:[{
@@ -79,6 +80,7 @@ type : mongoose.Schema.Types.ObjectId,
 ref : "User"
 },
 username: String,
+requesterImage:String,
 Status:{type:String,default:"Accept" }, 
 Color:{type:String,default:"blue" } 
 }], 

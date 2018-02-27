@@ -18,10 +18,23 @@ var cloudinary = require('cloudinary');
 
 
 router.get('/',function(req,res){
+  
+//   User.findById(req.user._id,function(err,user){
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       var FriendIdArray 
+//     }
+//   })
+  
   res.redirect('/blogs');
 });
 
 
+
+
+
+/////////////IMAGE UPLOAD CONFIGURATION/////////////////////////////
 
  var upload = multer({ dest: './uploads/'});
 
@@ -38,7 +51,7 @@ router.get('/',function(req,res){
       
     user.ProfileImage = result.secure_url;
     user.save();
-      
+     res.redirect("/");
 
 });
     
