@@ -10,7 +10,7 @@ var  methodOverride = require('method-override'),
             Comment = require('./models/comment'),
                User = require('./models/user'),
            Question = require('./models/question'),
-            Profile = require('./models/profile'),
+               Post = require('./models/post'), 
            passport = require('passport'),
       LocalStrategy = require('passport-local'),
         

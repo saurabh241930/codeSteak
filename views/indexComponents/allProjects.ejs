@@ -1,9 +1,14 @@
    
 
 
-<div style="margin-top:100px;background-color:white;padding:50px;" class="row">
+<div style="margin-top:30px;background-color:white;padding:50px;" class="row">
   
-      <div style="text-align:center;font-family: 'Open Sans', sans-serif;"><h1>Popular</h1></div>
+      <div style="text-align:center;font-family: 'Open Sans', sans-serif;
+                  font-size:100px;
+                  color:grey;
+                  ;"><p style="font-size:100px;font-family: 'Open Sans', sans-serif;
+                                         
+                        ">Popular</p></div>
   
   
   
@@ -18,32 +23,28 @@
                                     border-top:dashed 3px <%=currentUser.FavouriteColor%>;
                                      border-left:dashed 3px <%=currentUser.FavouriteColor%>;
                                     transition: all 180ms ease-in;
-                  height:196px;" 
+                                     height:196px;
+                                     background:url(<%=blog.image%>);
+                                     background-size: cover;
+                                    " 
              class="col col-lg-12">
             <div style="text-align:center;"> 
-              <p id="ProjectTitle" style="font-size:40px;
-                        font-family: 'Open Sans', sans-serif;
-                        color:black">
-                <%= blog.title  %></p>
               
-              <p style="text-align:center;">
-                <span style="color:white;">The following example moves the element 
-                50 pixels to the right, and 100 pixels down from its current
-                position</span></p><br>
-              <span><i style="font-size:30px;
-                color:white;margin-top:-20px;" class="fa fa-arrow-right" aria-hidden="true"></i></span>
+              
+          
              
             </div>
         
         </div>
         <div id="info" style="background-color:<%=currentUser.FavouriteColor%>;
-                    height:70px;
+                    height:90px;
                     border-right:dashed 3px white;
                     border-left:dashed 3px white;
                     border-bottom:dashed 3px white;
                     transition: all 180ms ease-in;"
              class="col col-lg-12">
-          <p style="margin-top:25px;font-family: 'Open Sans', sans-serif;">
+          <p style="margin-top:15px;font-family: 'Open Sans', sans-serif;">
+             <span style="font-size:25px;color:white;"><b><%=blog.title%></b></span><br><br>
              <span style="font-size:15px;color:white;">Created by <%= blog.creater.username  %></span>
              <span style="font-size:20px;color:white;float:right">
               <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></span><br>

@@ -21,9 +21,11 @@
     <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.css" />
     <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
-
+<title>Codesteak</title>
 
 <style>
   
@@ -315,7 +317,7 @@
              position: static; 
              background-color:<%=currentUser.FavouriteColor%>;
              width:103%;
-             
+             border-bottom:solid 1px <%=currentUser.FavouriteColor%> ;
         }     
         
         
@@ -426,7 +428,7 @@
        
        
     
-        <%if(currentUser.ProjectCreatedByFriends.length === 0 ){%>
+<!--         <%if(currentUser.ProjectCreatedByFriends.length === 0 ){%>
 
        <div class="col col-lg-12 col-sm-12 col-xs-12" style="text-align:center;
                                                              height:120px;
@@ -440,11 +442,16 @@
          
       
          </div>
-            
+           <%}%>   -->
+     
+       
+       
+       
+       
        </div>
    
        
-     <%}%> 
+     
         
      </div>
         
@@ -459,9 +466,9 @@
      
    
 <!--  ***************************************************** Projects ************************************************  -->
-<div>
+<!-- <div>
   <% include ../indexComponents/allProjects %>
- </div>
+ </div> -->
      
 
         
@@ -498,9 +505,7 @@
     
   <!--  ::::::::::::::::::::::::::::::::::::::::::::: Suggestions :::::::::::::::::::::::::::::::::::::::::::::::::   -->
      
-<div style="margin-top:100px;background-color:white;padding:50px">
-         <% include ../indexComponents/ownProjects %>
-  </div>
+
         
         
    
@@ -510,9 +515,9 @@
         
 <!-- ```````````````%%%%%%%%%%%%%%%%%`````````````` Top Developers `````````````%%%%%%%%%%%%%%%%%%```````````````     -->
         
-  <div style="margin-top:100px;background-color:white;padding:50px">
+<!--   <div style="margin-top:100px;background-color:white;padding:50px">
          <% include ../indexComponents/topDevelopers %>
-  </div>  
+  </div>   -->
         
         
    
@@ -1003,6 +1008,7 @@ $("#mask").css("margin-top","-473px");
  $("#inputUsername").css("width","80%");
   $("#inputPassword").css("width","80%");
   $("#buttonLogin").css("width","50%");
+ $("#logoHeading").hide()
   
 
 }

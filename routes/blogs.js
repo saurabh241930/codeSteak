@@ -10,6 +10,54 @@ var fs = require('fs');
 var imageBase64 = require('image-base64');
 var upload = multer({ dest: 'uploads/' });
 var moment = require('moment');
+var formidable = require('formidable');
+var util = require('util');
+var cloudinary = require('cloudinary');
+
+
+
+/////////////////////PROJECT IMAGE UPLOAD/////////////
+
+
+ var upload = multer({ dest: './uploads/'});
+
+
+ router.post('/ProjectImageUpload/:id', upload.single('file'), function(req,res){
+   
+ Blog.findById(req.params.id,function(err,blog){
+   if (err) {
+    console.log(err)
+  } else {
+    
+    cloudinary.uploader.upload(req.file.path,
+    function(result){
+      
+    blog.image = result.secure_url;
+    blog.save(function(err,saved){
+     if (err) {
+      console.log(err)
+    } else {
+      console.log("Image Saved")
+    }
+    });
+     res.redirect("/");
+
+});
+    
+  }
+ })  
+
+ });
+
+
+
+
+
+
+
+
+
+
 
 
 //////////////////////INDEX ROUTE/////////////////////////////
@@ -25,10 +73,16 @@ router.get('/blogs',function(req,res){
      if (err) {
       console.log(err);
     } else {
+          
+         if (blogs.length > 0) {
+                            blogs[0].CarouselStatus = "item active"
+                            blogs[0].save()
+        } 
+           res.render('blogs/index',{blogs:blogs,TopUsers:users});
+        
+      
+      
      
-      
-      
-      res.render('blogs/index',{blogs:blogs,TopUsers:users});
       }
       })
     }
@@ -56,7 +110,6 @@ router.get('/blogs/new',isLoggedIn,function(req,res){
 router.post('/blogs',isLoggedIn,function(req,res){
   //Create new blog
   var title = req.body.title;
-  var image = req.body.image;
   var body = req.body.body;
   var html = req.body.html;
   var css = req.body.css;
@@ -67,7 +120,6 @@ router.post('/blogs',isLoggedIn,function(req,res){
     username: req.user.username
   }
   var newBlog = {title: title,
-                 image: image,
                  body: body,
                  html:html,
                  css:css,
@@ -339,11 +391,21 @@ router.get("/community",function(req,res){
        res.render("community",{questions:questions});
     }
   })
-  
- 
+
 })
 
 
+router.get("/community/newestQuestions",function(req,res){
+  
+ Question.find({}).sort('-askedOn').exec(function(err,questions) {
+    if (err) {
+      console.log(err);
+    } else {
+       res.render("newestQuestions",{questions:questions});
+    }
+  })
+
+})
 
 
 router.post("/postQuestion",function(req,res){
@@ -367,6 +429,7 @@ router.post("/postQuestion",function(req,res){
         console.log(err)
       } else {
        
+        
         res.redirect("/community");
       }
      }) 

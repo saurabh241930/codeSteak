@@ -1,11 +1,25 @@
    
 
-<div  class = "row">
+<div style="margin-top:90px" class = "row">
    
   
   
-  <div  class="col col-lg-3 col-md-3 col-sm-6 col-xs-12"  style="border-right:solid 1px #ccc">
+  <div  class="col col-lg-3 col-md-3 col-sm-6 col-xs-12"  style="border-right:solid 1px #ccc;
+                                                                 position:fixed;background-color:<%=currentUser.FavouriteColor%>;
+                                                                 margin-top:-20px;
+                                                                 padding-bottom:20px;
+                                                                 height:710px">
     <p>
+      
+      <p style="text-align:center;
+            color:white;background-color:black;padding:5px;
+              margin-top:14px;
+             font-family: 'Overpass Mono', monospace;
+            font-weight:bold;
+           border-radius:3px;
+            font-size:30px;
+            margin-left:20px
+            ">Profile</p>
       
     <img style="border:solid 2px <%=currentUser.FavouriteColor%>;
                 height:150px;
@@ -62,96 +76,165 @@
                                 font-size:16px;
                                 
                                 margin-left:10px;
-                               "><i  style="color:<%=currentUser.FavouriteColor%>" class="fa fa-user"></i> Your complete Profile</span></a>
+                               "><i  style="color:<%=currentUser.FavouriteColor%>" class="fa fa-user"></i> Your complete Profile</span></a><br>
+        
+        
+        
+        <div style=""> 
+          
+           
     </p>
     
     </p>
-    
-  </div>
-
-
-
-<div  class="col col-lg-6 col-md-6 col-sm-12 col-xs-12"  style="border-right:solid 1px #ccc;
-                                                                background:url(https://i.imgur.com/vkpa3gg.png);
-                                                                height:258px;">
-   <div class="col col-lg-12" style="text-align:center"><p style="margin-top:10px"><span style="font-family: 'Overpass Mono', monospace;
-                                                                     font-size:30px;
-                                                                     font-weight:bold;
-                                                                     color:<%=currentUser.FavouriteColor%>;
-                                                                     text-shadow:2px 2px black;">Friends</span></p></div>
   
-  
-  <%currentUser.friends.forEach(function(friend){%>
- 
-  <div class="col col-lg-2">
-    <img style="width:100px;
-              height:100px;
-              border-radius:50px;
+  <div style="background-color:white;
+              height: 200px;
+              margin-left:10px;
+              border:solid 3px black;
+    overflow: scroll;" class="col col-lg-12">
+     <p style="text-align:center;
+               font-size:25px;
+               font-family: 'Overpass Mono', monospace;font-size:15px;
+               color:<%=currentUser.FavouriteColor%>"><strong>Friends</strong></p>
+     <%currentUser.friends.forEach(function(friend){%>
+   <div class="col col-lg-12">
+      <p style="font-weight:bold;font-family: 'Overpass Mono', monospace;font-size:15px;">
+      <img style="width:70px;
+              height:70px;
+              border-radius:35px;
               object-fit: cover;
-              border:dotted 3px <%=currentUser.FavouriteColor%>;
+              border:solid 3px black;
               text-align:center;
               "
-         src="<%=friend.friendImage%>"><br>
-    <p style="text-align:center;font-weight:bold;font-family: 'Overpass Mono', monospace;font-size:15px;"><%=friend.username%></p>
-    <a  href="/profile/chat/<%=friend.username%>"><p style="text-align:center;color:white;background-color:<%=currentUser.FavouriteColor%>;padding:5px;
+         src="<%=friend.friendImage%>">
+        <%=friend.username%>
+      
+   <span>
+     <a  href="/profile/chat/<%=friend.username%>"><span style="color:white;background-color:black;padding:5px;
+                          margin-top:14px;
                           font-family: 'Overpass Mono', monospace;
                          font-weight:bold;
                         border-radius:3px;
-                 ">Chat</p></a>
+                        float:right
+                 ">Chat</span></a>
+        </span>
+    
+        </p>
+    
+    
   </div>
-<%})%>
+    <%})%>
+    
+  </div>
+    </div>
+      
+  
+  
+    
+  </div>
+
+
+
+<div  class="col col-lg-5 col-md-6 col-sm-12 col-xs-12"  style="
+                                                                left:383px;
+                                                                
+                                                                ">
+  <button style=" position:fixed;
+                 bottom:100px;
+                 ">Create Post</button>
+  
+  <div style="height:450px;
+              background-color:#ccc;
+              width:100%;
+              border-bottom:solid 10px white"></div>
+  
+    <div style="height:450px;
+              background-color:lightblue;
+              width:100%;
+               border-bottom:solid 10px white"></div>
+  
+   <div style="height:450px;
+              background-color:lightgreen;
+              width:100%;
+              border-bottom:solid 10px white"></div>
+  
+    <div style="height:450px;
+              background-color:orange;
+              width:100%;
+               border-bottom:solid 10px white"></div>
+ 
  </div>
 
-<div  class="col col-lg-3 col-md-3 col-sm-12 col-xs-12"  style="border-left:solid 1px #ccc;height:210px;">
+<div  class="col col-lg-4 col-md-3 col-sm-12 col-xs-12"  style="border:solid 1px #ccc;
+                                                                height:710px;
+                                                                 position:fixed;
+                                                                 background-color:<%=currentUser.FavouriteColor%>;
+                                                                 top: 75px;
+                                                                 right: 0;
+                                                                float:right;">
   
   
-  <div style="text-align:center;
-              
-              margin-top:10px;
-             
-              padding-top:20px;
-              padding-bottom:20px;" class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
-    
-    
-    <div style="  border:solid 1px #ccc;
-                  box-shadow:3px 3px #ccc;
-                   padding-top:10px;
-                   background-color:<%=currentUser.FavouriteColor%>;
-                  color:white;
-                    padding-bottom:10px;">
-      
-      
-         <i  style="font-size:60px;font-weight:bold; text-shadow:3px 2px <%=currentUser.FavouriteColor%> ;" class="fa fa-code"></i><br><br>
-    <a href="/blogs/new"><span style="font-family: 'Overpass Mono', monospace;
-                    font-weight:bold;
-                     font-size:20px;
-                    ">Create new <br><br> Project</span> </a>
+  <p style="text-align:center;
+            color:white;background-color:black;padding:5px;
+              margin-top:14px;
+             font-family: 'Overpass Mono', monospace;
+            font-weight:bold;
+           border-radius:3px;
+            font-size:30px
+            ">Top Projects</p>
+  
+<div id="myCarousel" class="carousel slide" data-ride="carousel"
+     style="margin-top:30px;
+            border:solid 3px black"
+     >
+  <!-- Indicators -->
+  <ol class="carousel-indicators" style="margin-bottom:100px">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#myCarousel" data-slide-to="5"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <%blogs.forEach(function (blog){%>
+
+
+    <div class="<%=blog.CarouselStatus%>">
+      <img src="<%=blog.image%>" alt="Chicago">
+      <div style="height:80px;
+                  background-color:white;
+                  border-top:solid 3px black;">
+         <p style="padding-top:10px;
+             font-family: 'Overpass Mono', monospace;
+                   color:black">
+             <span style="font-size:25px;margin-left:15px"><b><%=blog.title%></b></span><br><br>
+             <span style="font-size:15px;margin-left:20px">Created by <%= blog.creater.username  %></span>
+             <span style="font-size:20px;float:right">
+              <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></span><br>
+ 
+          </p></div>
     </div>
 
+   <%})%>
   </div>
-  
-    <div style="text-align:center;
-              
-              margin-top:30px;
-             
-             " class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
-      
-      
-      
-      <div style="  padding-top:10px;
-                    padding-bottom:10px;
-                  border:solid 1px #ccc;
-                   background-color:black;
-                  box-shadow:3px 3px #ccc">
-           <i style="font-size:60px;font-weight:bold; text-shadow:3px 2px <%=currentUser.FavouriteColor%>;"  class="glyphicon glyphicon-book" ></i><br><br>
-    <p><span style="font-family: 'Overpass Mono', monospace;
-                    font-weight:bold;
-                     color:white;
-                     font-size:20px;
-                    ">Edit a <br><br> Project</span> </p>
-      </div>
 
-  </div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  
+  
+  
+
   
   
 

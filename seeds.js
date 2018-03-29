@@ -1,7 +1,7 @@
 var  mongoose = require('mongoose');
 var Blog = require('./models/blog');
 var Comment = require('./models/comment');
-var Profile = require('./models/profile');
+var Post = require('./models/post');
 var User = require('./models/user');
 var Course = require('./models/course');
 

@@ -15,6 +15,8 @@ body :String,
   
 Views:{type:Number,default:1},
   
+CarouselStatus:{type:String,default:"item"},
+  
 LikedUser:[{
 id:{
 type : mongoose.Schema.Types.ObjectId,

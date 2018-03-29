@@ -1,5 +1,5 @@
 
-        <div id="logoHeading" style="" class="row">  
+        <div id="logoHeading" style=" position: fixed;" class="row">  
           
             <div id="fix" class="col col-lg-4 "></div>
           
@@ -13,13 +13,18 @@
             <div class="col col-lg-4 ">
                  <% if(currentUser){ %>
               
-       
-          
+         
+               <style>
+                 #logoHeading{
+                   margin-top:-100px;
+                 }
+              </style>
               
               
               
               <p><span style="float:right;
                 margin-right:20px;
+               
                 margin-top:30px;
                 color:white;
                 font-family: 'Overpass Mono', monospace;

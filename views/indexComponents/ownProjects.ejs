@@ -17,7 +17,7 @@
           
           
           <div class="col col-lg-12 ">
-           <p style="margin-bottom:-50px">
+           <p style="margin-bottom:10px">
              <span id="hugeHeading" style="font-family: 'Open Sans', sans-serif;
                            font-size:100px;
                            color:grey;
@@ -50,6 +50,11 @@
                        font-size:30px;
                        margin-top:20px;
                        color:white;"><%=blog.classname%></a><br><br><br>
+                      <a href="/blogs/<%=blog.id%>"><span style="background-color:white;
+                                                          opacity:1;
+                                                         color:<%=currentUser.FavouriteColor%>;font-size:15px;
+                                                        padding:4px 15px 4px 15px;
+                                                        border-radius:5px;">Open</span></a>
                      <a href="/blogs/<%=blog.id%>/edit"><span style="background-color:white;
                                                                       opacity:1;
                                                                      color:<%=currentUser.FavouriteColor%>;font-size:15px;

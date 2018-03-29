@@ -1,7 +1,7 @@
 var express = require('express');
 var Blog = require('../models/blog');
 var User = require('../models/user');
-var Profile = require('../models/profile');
+
 var router = express.Router();
 
 

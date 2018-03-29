@@ -6,7 +6,7 @@ var Blog = require('../models/blog');
 var Course = require('../models/course');
 var passport = require('passport');
 var User = require('../models/user');
-var Profile = require('../models/profile');
+var Post = require('../models/post');
 var flash = require('connect-flash');
 
 
