@@ -27,6 +27,14 @@ username: String,
 friendImage:String
 }],
 
+PostsByFriends:[{
+id:{
+type : mongoose.Schema.Types.ObjectId,
+ref : "Post"
+}
+}], 
+  
+  
 ProjectCreatedByFriends:[{
 title:String,
 username:String

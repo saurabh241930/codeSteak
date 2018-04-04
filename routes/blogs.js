@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Blog = require('../models/blog');
+var Post = require('../models/post');
 var Question = require('../models/question');
 var User = require('../models/user');
 var methodOverride = require('method-override');
@@ -149,6 +150,98 @@ router.post('/blogs',isLoggedIn,function(req,res){
     }
   })
 })
+
+
+
+
+router.get('/createpost',isLoggedIn,function(req,res){
+  res.render('createPost')
+})
+
+
+
+
+
+
+ /////////////////////////CREATE POST/////////////////////////
+router.post('/createpost/:id',upload.single('file'),isLoggedIn,function(req,res){
+  
+ 
+  
+ cloudinary.uploader.upload(req.file.path,
+    function(result){ 
+   
+    var postedBy = {
+    id: req.user._id,
+    username: req.user.username
+  }
+   
+    var newPost = {
+                 caption:req.body.caption,
+                 postImage:result.secure_url,
+                 content: req.body.content,
+                 postedBy: postedBy}
+    
+    
+    
+Post.create(newPost,function(err,newestPost){
+         if (err) {
+             console.log(err);
+     
+           } else {
+      
+      
+      
+      
+      User.findById(req.user._id,function(err,user){
+        if (err) {
+          console.log(err);
+        } else {
+          
+      var AllHisFriends = user.friends.map(FriendList => FriendList.username);
+
+
+         AllHisFriends.forEach(function(friendUsername){
+
+            User.findOne({username:friendUsername},function(err,friend){
+            if (err) {
+            console.log(err);
+            } else {
+             var postId = {
+              id:newestPost._id
+            }
+
+            friend.PostsByFriends.push(postId);
+            friend.save();
+            }
+
+            })
+            })
+          
+          
+           user.ReputationScore = user.ReputationScore + 30;
+           user.save();
+          res.redirect('/');
+        }
+      })
+ 
+      
+        
+       
+    }
+  })
+})
+    
+    
+   
+ })
+  
+ 
+  
+  
+  
+  
+
 
 
 

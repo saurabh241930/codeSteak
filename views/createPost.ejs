@@ -1,0 +1,17 @@
+<form action="/createpost/<%=currentUser._id%>" method="POST" enctype="multipart/form-data">
+  
+  <input type="text" name="caption" placeholder="Title">
+  <textarea name="content" id="" cols="30" rows="10" name="content" ></textarea>
+   <input type="file" name="file" ></input>
+
+<select name="category">
+  <option value="Web">Web</option>
+  <option value="Machine Learning">Machine Learning</option>
+  <option value="React">React</option>
+
+</select>
+  
+<button>Submit</button>
+
+
+</form>
