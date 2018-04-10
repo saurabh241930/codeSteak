@@ -79,7 +79,17 @@ router.get('/blogs',function(req,res){
                             blogs[0].CarouselStatus = "item active"
                             blogs[0].save()
         } 
-           res.render('blogs/index',{blogs:blogs,TopUsers:users});
+      
+      Post.find({}).exec(function(err,posts) {
+        if (err) {
+          console.log(err)
+        } else {
+                 res.render('blogs/index',{blogs:blogs,TopUsers:users,posts:posts});
+        }
+        
+      })
+      
+    
         
       
       
@@ -173,7 +183,8 @@ router.post('/createpost/:id',upload.single('file'),isLoggedIn,function(req,res)
    
     var postedBy = {
     id: req.user._id,
-    username: req.user.username
+    username: req.user.username,
+    createrImage:req.user.ProfileImage
   }
    
     var newPost = {
