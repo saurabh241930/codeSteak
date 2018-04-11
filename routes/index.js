@@ -32,6 +32,17 @@ router.get('/',function(req,res){
 
 
 
+router.get('/post/:id',function(req,res){
+  
+  Post.findById(req.params.id,function(err,post){
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('post',{post:post});
+    }
+  })
+
+});
 
 
 /////////////IMAGE UPLOAD CONFIGURATION/////////////////////////////
