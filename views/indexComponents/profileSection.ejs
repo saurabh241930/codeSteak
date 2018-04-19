@@ -4,7 +4,7 @@
    
   
   
-  <div  class="col col-lg-3 col-md-3 col-sm-6 col-xs-12"  style="border-right:solid 1px #ccc;
+  <div  class="col col-lg-2 col-md-3 col-sm-6 col-xs-12"  style="border-right:solid 1px #ccc;
                                                                  position:fixed;background-color:;
                                                                  margin-top:-20px;
                                                                  padding-bottom:20px;
@@ -46,34 +46,32 @@
       <span style="font-family: 'Overpass Mono', monospace;
                  font-size:30px;
                  font-weight:bold;
-                 text-shadow:2px 2px <%=currentUser.FavouriteColor%> ;">&nbsp;<%=currentUser.username%></span>
-    </p>
-    
-<!--        <span class="typcn typcn-flash" style="font-size:50px;"></span><br> -->
-      <p> <br>
-       <a id="Notifications" href="/userProfile"><span style=" font-family: 'Overpass Mono', monospace;
-                                font-size:16px;
-                                color:white;
-                                background-color:black;
-                                padding:10px;
-                                box-shadow:3px 3px <%=currentUser.FavouriteColor%>;">
-         <i style="color:<%=currentUser.FavouriteColor%>" class="fa fa-bell"></i> Notifications</span>&nbsp;</a>
-        
-       <a id="FriendRequest" href="">&nbsp; <span style=" font-family: 'Overpass Mono', monospace;
+                 text-shadow:2px 2px <%=currentUser.FavouriteColor%> ;">&nbsp;<%=currentUser.username%></span><br><br>
+      
+      <a href=""><button style="font-family: 'Overpass Mono', monospace;
                                 font-size:15px;
                                 color:white;
                                 background-color:black;
-                                padding:5px;
-                                padding-top:11px;
-                                padding-bottom:11px;
-                                box-shadow:3px 3px <%=currentUser.FavouriteColor%>;">
-         <i  style="color:<%=currentUser.FavouriteColor%>" class="fa fa-users"></i> Friend Request</span></a><br><br>
+                                padding:4px;
+                                border:0px;
+                                ">Profile</button></a> 
+       <a href=""><button style="font-family: 'Overpass Mono', monospace;
+                                font-size:15px;
+                                color:white;
+                                background-color:black;
+                                padding:4px;
+                                border:0px;
+                                ">Friend request</button></a>
+      
+    </p>
+    
+<!--        <span class="typcn typcn-flash" style="font-size:50px;"></span><br> -->
+      <p> 
+     
         
-       <a style="text-align:center" href="/userProfile">&nbsp; <span style=" font-family: 'Overpass Mono', monospace;
-                                font-size:16px;
-                                
-                                margin-left:10px;
-                               "><i  style="color:<%=currentUser.FavouriteColor%>" class="fa fa-user"></i> Your complete Profile</span></a><br>
+    
+        
+     
         
         
         
@@ -82,17 +80,18 @@
            
     </p>
     
-    </p>
+    </p><br>
   
-  <div style="background-color:white;
-              height: 300px;
-              margin-left:10px;
-              border:solid 3px black;
+  <div style="border-top:solid 1px #ccc;
+              height: 400px;
+              margin-left:0px;
+              width:110%;
+             
     overflow: scroll;" class="col col-lg-12">
      <p style="text-align:center;
-               font-size:25px;
-               font-family: 'Overpass Mono', monospace;font-size:15px;
-               color:<%=currentUser.FavouriteColor%>"><strong>Friends</strong></p>
+               font-size:35px;
+               font-family: 'Overpass Mono', monospace;
+               color:<%=currentUser.FavouriteColor%>"><strong><span style="font-size:24px">Friends</span></strong></p><br>
      <%currentUser.friends.forEach(function(friend){%>
    <div class="col col-lg-12">
       <p style="font-weight:bold;font-family: 'Overpass Mono', monospace;font-size:15px;">
@@ -101,18 +100,22 @@
               border-radius:35px;
               object-fit: cover;
               border:solid 3px black;
-              text-align:center;
+              float:left;
+              margin-left:-25px;
+              margin-top:-20px
               "
          src="<%=friend.friendImage%>">
-        <%=friend.username%>
+        <span style="margin-top:30px"><%=friend.username%></span>
+        
       
    <span>
      <a  href="/profile/chat/<%=friend.username%>"><span style="color:white;background-color:black;padding:5px;
-                          margin-top:14px;
+                         
                           font-family: 'Overpass Mono', monospace;
                          font-weight:bold;
                         border-radius:3px;
-                        float:right
+                       
+                         
                  ">Chat</span></a>
         </span>
     
@@ -132,9 +135,9 @@
 
 
 
-<div  class="col col-lg-5 col-md-6 col-sm-12 col-xs-12"  style="
-                                                                left:383px;
-                                                                
+<div  class="col col-lg-5 col-md-6 col-sm-12 col-xs-12"  style="background-color:#ccc;
+                                                                left:253px;
+                                                                margin-top:-30px
                                                                 ">
   <button style=" position:fixed;
                  bottom:100px;
@@ -143,42 +146,43 @@
   
   <%posts.forEach(function(post){%>
   
- <div style="margin-top:20px">
+ <div style="margin-top:40px;
+             border:solid 1px #ccc;
+             padding-top:30px;
+             padding-bottom:50px;
+             background-color:white;width:100%">
+    
+   <div style="height:100px;">
+     
+    
+    <span style="font-family: 'Overpass Mono', monospace;
+                  font-size:30px;
+                  color:black;
+                 
+                  "><strong><%=post.caption%></strong></span>
+     <span style="float:right;
+                  margin-right:20px">Posted By <img src="<%=post.postedBy.createrImage%>" alt="" style="height:50px;width:50px;"> 
+       <strong style="color:<%=currentUser.FavouriteColor%>"><%=post.postedBy.username%></strong></span>
+     <br>
+     <span style ="color:<%=currentUser.FavouriteColor%>"><%=post.postedOn.toDateString()%></span>
+  
+     
+   </div>
    
-       <div style="height:450px;
+       <div style="height:250px;
               background:url(<%=post.postImage%>);
               background-size:cover;
-             
+              margin-top:-50px;
               width:100%;
               border-bottom:solid 10px white"></div>
 
-    <div style="background-color:rgba(0,0,0,0.5);
-                 width:100%;
-               
-                height:440px;
-                margin-top:-450px
-                 ">
+    <div>
       
-         <p style="
-                 width:100%;
-                text-align:center;
-                 padding-top:100px;
-             
-               "><span style="font-family: 'Overpass Mono', monospace;
-                  font-size:50px;
-                  color:white;
-                  margin-top:100px
-                  "><strong><%=post.caption%></strong></span>
-  </p><br>
+         <br>
       
       
       
-      <p style="font-family: 'Overpass Mono', monospace;
-                  font-size:20px;
-                   color:white
-                ">Posted By <img src="<%=post.postedBy.createrImage%>" alt="" style="height:50px;width:50px;"> <%=post.postedBy.username%>
-        on <span style ="color:<%=currentUser.FavouriteColor%>"><%=post.postedOn.toDateString()%></span>
-      </p>
+   
       
        <p style="margin-left:20px"><span style="background-color:rgba(255,255,255,0.5);
                                            padding:10px;
@@ -186,44 +190,22 @@
          "><strong>Tags :</strong> <span style="background-color:black;
                               color:white;
                               padding:5px;
-                        ">Web #</span></span></p><br><br><br><br>
+                        ">Web #</span></span></p><br><br>
       
-      <p style="text-align:center">
-          <form action="">
-        <button style="font-family: 'Overpass Mono', monospace;
-                       font-size:16px;
-                       padding:10px;
-                       width:45%;
-                       text-align:center;
-                       background-color:rgba(0,0,0,0.7);
-                       color:white;
-                       margin-left:30px;
-                       margin-right:30px;
-                       border:0px;
-                       ">
-          <strong><i style="font-size:30px" class="fa fa-retweet"></i> Reblog this post</strong></button>
-            
-             <a style="font-family: 'Overpass Mono', monospace;
-                       font-size:16px;
-                       padding:10px;
-                       width:45%;
-                       text-align:center;
-                       
-                       color:white;
-                       margin-left:10px;
-                       margin-right:30px;
-                       border:0px;
-                       " href="/post/<%=post._id%>">
-     <strong><i style="font-size:30px" class="fa fa-arrow-circle-right"></i> View this post</strong>
-      </a>
-            
-      </form>
       
-     
       
-      </p>
+      
+   <button style="font-family: 'Overpass Mono', monospace;
+                                font-size:15px;
+                                color:white;
+                                background-color:<%=currentUser.FavouriteColor%>;
+                                border-radius:5px;
+                                padding:4px;
+                                border:0px;
+                                "><i style="font-size:30px" class="fa fa-retweet"></i> Reblog this post</button>
     
       
+  
       
       
   </div>
@@ -255,80 +237,7 @@
  
  </div>
 
-<div  class="col col-lg-4 col-md-3 col-sm-12 col-xs-12"  style="border:solid 1px #ccc;
-                                                                height:710px;
-                                                                 position:fixed;
-                                                                 background-color:#ccc;
-                                                                 top: 75px;
-                                                                 right: 0;
-                                                                float:right;">
-  
-  
-  <p style="text-align:center;
-            color:white;background-color:black;padding:5px;
-              margin-top:14px;
-             font-family: 'Overpass Mono', monospace;
-            font-weight:bold;
-           border-radius:3px;
-            font-size:30px
-            ">Top Projects</p>
-  
-<div id="myCarousel" class="carousel slide" data-ride="carousel"
-     style="margin-top:30px;
-            border:solid 3px black"
-     >
-  <!-- Indicators -->
-  <ol class="carousel-indicators" style="margin-bottom:100px">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-    <li data-target="#myCarousel" data-slide-to="4"></li>
-    <li data-target="#myCarousel" data-slide-to="5"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <%blogs.forEach(function (blog){%>
-
-
-    <div class="<%=blog.CarouselStatus%>">
-      <img src="<%=blog.image%>" alt="Chicago">
-      <div style="height:80px;
-                  background-color:white;
-                  border-top:solid 3px black;">
-         <p style="padding-top:10px;
-             font-family: 'Overpass Mono', monospace;
-                   color:black">
-             <span style="font-size:25px;margin-left:15px"><b><%=blog.title%></b></span><br><br>
-             <span style="font-size:15px;margin-left:20px">Created by <%= blog.creater.username  %></span>
-             <span style="font-size:20px;float:right">
-              <i class="fa fa-eye" aria-hidden="true"></i> <%= blog.Views %></span><br>
- 
-          </p></div>
-    </div>
-
-   <%})%>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-  
-  
-  
-
-  
-  
-
- </div>
 
 
 
