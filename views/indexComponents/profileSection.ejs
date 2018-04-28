@@ -1,5 +1,5 @@
    
-
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 <div style="margin-top:90px" class = "row">
    
   
@@ -14,7 +14,7 @@
     
       
     <p style="text-align:center">
-      <img style="border:solid 2px <%=currentUser.FavouriteColor%>;
+      <img style="border:solid 1px #ccc;
                 height:150px;
                 width:150px;
                 object-fit: cover;
@@ -82,11 +82,11 @@
     
     </p><br>
   
-  <div style="border-top:solid 1px #ccc;
+  <div style="
               height: 400px;
               margin-left:0px;
               width:110%;
-             
+             box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);
     overflow: scroll;" class="col col-lg-12">
      <p style="text-align:center;
                font-size:35px;
@@ -135,23 +135,26 @@
 
 
 
-<div  class="col col-lg-5 col-md-6 col-sm-12 col-xs-12"  style="background-color:#ccc;
+<div  class="col col-lg-5 col-md-6 col-sm-12 col-xs-12"  style="background-color:white;
                                                                 left:253px;
                                                                 margin-top:-30px
                                                                 ">
-  <button style=" position:fixed;
-                 bottom:100px;
-                 ">Create Post</button>
+
   
   
   <%posts.forEach(function(post){%>
   
- <div style="margin-top:40px;
+ <div id="postCard" style="margin-top:40px;
              border:solid 1px #ccc;
              padding-top:30px;
              padding-bottom:50px;
-             background-color:white;width:100%">
+             background-color:white;
+             width:100%;
+             box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);">
     
+
+   
+   
    <div style="height:100px;">
      
     
@@ -196,12 +199,13 @@
       
       
    <button style="font-family: 'Overpass Mono', monospace;
-                                font-size:15px;
+                                font-size:20px;
                                 color:white;
                                 background-color:<%=currentUser.FavouriteColor%>;
                                 border-radius:5px;
                                 padding:4px;
                                 border:0px;
+                                margin-left:20px;
                                 "><i style="font-size:30px" class="fa fa-retweet"></i> Reblog this post</button>
     
       
@@ -238,6 +242,124 @@
  </div>
 
 
+<div class="feedbar"
+     style="">
+  
+  <div style="height:400px;
+              width:630px;
+              position:fixed;
+              right:10px;
+             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+             
+              ">
+    
+<p style="text-align:center;
+          font-family: 'Overpass Mono', monospace;
+          font-size:25px;
+          color:black;
+          "><strong>Notification Feed</strong></p> 
+    
+    
+    <% if(currentUser.NewNotifications === true){ %>
+    
+      
+   <div class="col col-lg-12" style="height:110px;background-color:red;text-align:center;">
+ <p style="margin-top:6px;color:white;font-size:20px;font-family: 'Open Sans', sans-serif;">
+   <%=currentUser.username%>, you have new notifications </p>
+     <div style="margin-top:20px;">
+     <a href="/FRnotifications"><span style="color:red;font-size:30px;background-color:white;
+                                             padding:2px 10px 2px 10px;
+                                             border-radius:5px;
+                                             font-family: 'Open Sans', sans-serif;">Checkout Now</span></a>
+     </div>
+    </div>
+  
+    
+    <% }%> 
+    
+   
+<div id="box1">
+  <% currentUser.friendRequestNotification.forEach(function(request){ %>
+
+
+  
+  
+     <p style="color:black;
+               font-size:16px;
+               font-family: 'Source Sans Pro', sans-serif;
+               margin-left:20px">You have friend request from <span style="color:<%=currentUser.FavouriteColor%>">
+       <strong><%= request.username %></strong></span></p>  
+     
+  <% })  %>
+</div>
+
+
+
+  <% currentUser.YourfriendRequestedNotification.forEach(function(request){ %>
+
+
+  
+ 
+     <p style="color:black;
+               font-size:16px;
+               font-family: 'Source Sans Pro', sans-serif;
+               margin-left:20px">
+     You have sent friend request to <span style="color:<%=currentUser.FavouriteColor%>"><strong><%= request.username %></strong></span></p>  
+     
+ 
+  
+
+  <% })  %>
+
+
+
+
+
+  <% currentUser.AcceptedfriendRequestedNotification.forEach(function(request){ %>
+
+
+  
+   
+     <p id='username'><span id="nootmyname"><%= request.username %></span> accepted your friend request</p>  
+ 
+  
+
+
+  <% })  %>
+
+
+  <% currentUser.BlogLikedNotification.forEach(function(info){ %>
+
+
+  
+  <p id='username'><span id="notmyname"><%= info.username %>
+    </span>has liked your <span id="projectName"><%= info.Projectname %></span></p>  
+     
+  
+
+  <% })  %>
+
+
+
+
+
+  <% currentUser.CommentNotification.forEach(function(info){ %>
+
+
+  
+ 
+  <p id='username'><span id="notmyname"><%= info.username %>
+    </span>has commented  <strong><%= info.Text %></strong>  on your<span id="projectName"> <%= info.Projectname %></span></p>  
+     
+
+  <% })  %>
+
+
+    
+    
+  
+  
+</div>
 
 
 

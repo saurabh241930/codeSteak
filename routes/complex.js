@@ -11,7 +11,7 @@ var flash = require('connect-flash');
 
 
 
-valueOf
+
 
 
 /////////////////////////////////Following people///////////////////////////////
@@ -206,6 +206,67 @@ res.render('friendrequest',{user:founduser});
 
 ///////////////ACCEPT ROUTE ////////////////////
 
+// router.post('/accept/:id/:username',checkDuplicationTwo,function(req,res){
+
+// User.findOneAndUpdate({username:req.user.username,'friendRequest._id':req.params.id},
+// {$set:{'friendRequest.$.Status':'Friend','friendRequest.$.Color':'green'}},function(err,primaryUser){
+
+// if (err) {
+// throw err;
+// } else {
+
+// User.findOne({username:req.params.username},function(err,secondaryUser){
+
+// if (err) {
+// throw err;
+// } else {
+
+//   var RequestConfirmation = {
+//     username:req.user.username,
+//     friendImage:primaryUser.ProfileImage
+//   }
+  
+//   secondaryUser.friends.push(RequestConfirmation);
+//   secondaryUser.save();
+  
+  
+
+      
+//        var RequestConfirmationPrimary = {
+//     username:secondaryUser.username,
+//     friendImage:secondaryUser.ProfileImage
+//   }
+  
+//   primaryUser.friends.push(RequestConfirmationPrimary);
+//   primaryUser.save();
+
+  
+ 
+
+    
+    
+// //////////////////////adding accept notification ////////////////////////
+       
+ 
+       
+       
+//        var Accept = {
+//          id:req.user._id,
+//         username: req.user.username
+//        }
+       
+//        secondaryUser.NewNotifications = true;
+//        secondaryUser.AcceptedfriendRequestedNotification.push(Accept);
+//        secondaryUser.ReputationScore = secondaryUser.ReputationScore + 5;
+//        secondaryUser.save();
+       
+//        res.redirect("back");
+//       }
+//     })  
+//    }
+//   }) 
+//  })  
+ 
 router.post('/accept/:id/:username',checkDuplicationTwo,function(req,res){
 
 User.findOneAndUpdate({username:req.user.username,'friendRequest._id':req.params.id},
@@ -215,40 +276,46 @@ if (err) {
 throw err;
 } else {
 
-User.findOne({username:req.params.username},function(err,secondaryUser){
+
+User.findById(req.params.id,function(err,secondryUser){
+  if (err) {
+    console.log(err)
+  } else {
+    
+    var secondryUserImage = secondryUser.ProfileImage;
+    
+    
+    
+    User.findOneAndUpdate({username:req.user.username},
+{
+$push: {
+"friends":{
+username:req.params.username,
+friendImage:secondryUserImage
+       }                       
+    }
+ }
+,function(err,founduser){
 
 if (err) {
 throw err;
 } else {
 
-  var RequestConfirmation = {
-    username:req.user.username,
-    friendImage:founduser.ProfileImage
-  }
-  
-  secondaryUser.friends.push(RequestConfirmation);
-  secondaryUser.save();
-  
-  
-  User.findById(req.user._id,function(err,primaryUser){
-    if (err) {
-      console.log(err)
-    } else {
-      
-       var RequestConfirmationPrimary = {
-    username:secondaryUser.username,
-    friendImage:secondaryUser.ProfileImage
-  }
-  
-  primaryUser.friends.push(RequestConfirmationPrimary);
-  primaryUser.save();
-    }
-  })
-  
- 
 
-    
-    
+User.findOneAndUpdate({username:req.params.username},
+{
+$push: {
+"friends":{
+username:req.user.username,
+friendImage:req.user.ProfileImage
+          }                       
+     }
+   }
+,function(err,founduser){
+
+   if (err) {
+  throw err;
+     } else {
 //////////////////////adding accept notification ////////////////////////
        
  
@@ -259,7 +326,6 @@ throw err;
         username: req.user.username
        }
        
-       founduser.NewNotifications = true;
        founduser.AcceptedfriendRequestedNotification.push(Accept);
        founduser.ReputationScore = founduser.ReputationScore + 5;
        founduser.save();
@@ -269,9 +335,18 @@ throw err;
     })  
    }
   }) 
- })  
- 
+    
+    
+    
+  }
+})  
+  
+  
+  
 
+ }   
+})  
+})
 
 
 ////////////////////////////////////////////////////////////////////////
